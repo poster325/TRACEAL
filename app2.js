@@ -19,6 +19,7 @@ class TracealApp {
         
         this.setupEventListeners();
         this.setupRegisterForm();
+        this.setupObserverNameForm();
     }
 
     setupEventListeners() {
@@ -110,11 +111,36 @@ class TracealApp {
         
         // Simulate serial verification for 1.5 seconds
         setTimeout(() => {
-            console.log('Observer registration successful:', observerSerial);
-            alert('Observer registered successfully! Dashboard will be added.');
-            // Go back to login for now
-            this.showScreen('login-screen');
+            console.log('Serial verified:', observerSerial);
+            // Show observer name screen
+            this.showScreen('observer-name-screen');
         }, 1500);
+    }
+
+    setupObserverNameForm() {
+        const form = document.getElementById('observer-name-form');
+        
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleObserverName();
+            });
+        }
+    }
+
+    handleObserverName() {
+        const observerName = document.getElementById('observer-unit-name').value.trim();
+        
+        if (!observerName) {
+            alert('Please enter an observer name');
+            return;
+        }
+        
+        console.log('Observer named:', observerName);
+        alert('Observer naming successful! Dashboard will be added.');
+        
+        // Go back to login for now
+        this.showScreen('login-screen');
     }
 }
 
