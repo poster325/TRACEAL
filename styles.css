@@ -1,190 +1,136 @@
-/* ===================================
-   TRACEAL Console - Exact Figma Design
-   Frame 8 (275:646)
-   =================================== */
+/* ==========================================
+   TRACEAL Console - Exact Figma Implementation
+   ========================================== */
 
-/* Font Face - Söhne */
+/* Font Faces */
 @font-face {
-    font-family: 'Sohne';
-    src: url('Test Söhne Collection/Test Söhne/test-soehne-leicht.woff2') format('woff2');
+    font-family: 'Test Söhne';
+    src: url('Test Söhne Collection/TestSöhne-Leicht.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
-    font-family: 'Sohne';
-    src: url('Test Söhne Collection/Test Söhne/test-soehne-buch.woff2') format('woff2');
+    font-family: 'Test Söhne';
+    src: url('Test Söhne Collection/TestSöhne-Buch.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
-    font-family: 'Sohne';
-    src: url('Test Söhne Collection/Test Söhne/test-soehne-kraftig.woff2') format('woff2');
+    font-family: 'Test Söhne';
+    src: url('Test Söhne Collection/TestSöhne-Kräftig.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
 }
 
-/* CSS Reset & Base */
+@font-face {
+    font-family: 'Test Söhne';
+    src: url('Test Söhne Collection/TestSöhne-Halbfett.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
-
-/* ===================================
-   IBM CARBON ICONS - Default Settings
-   =================================== */
-
-/* Default icon size: 24x24 */
-.icon,
-svg.icon {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-}
-
-/* Icon size variants (if needed) */
-.icon-16 { width: 16px; height: 16px; }
-.icon-20 { width: 20px; height: 20px; }
-.icon-24 { width: 24px; height: 24px; }
-.icon-32 { width: 32px; height: 32px; }
 
 body {
-    font-family: 'Sohne', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #1A1A1A;
-    color: #FFFFFF;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    user-select: none;
+    font-family: 'Test Söhne', sans-serif;
+    background: #000;
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-/* iPhone Container - Fixed Size: 375x812 */
-#app-container {
-    width: 375px;
-    height: 812px;
-    position: relative;
+    align-items: center;
+    min-height: 100vh;
     overflow: hidden;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Screen Container */
-.screen {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.screen.active {
-    display: block;
-}
-
-/* ===================================
-   SPLASH SCREEN - Frame 8
-   Exact Figma CSS Export
-   =================================== */
-
-#splash-screen {
-    /* Frame 8 */
+#app {
     position: relative;
     width: 375px;
     height: 812px;
     background: #1A1A1A;
+    border-radius: 50px;
+    overflow: hidden;
 }
 
-/* TRACEAL */
-.splash-traceal {
+/* Screen Management */
+.screen {
+    position: absolute;
+    width: 375px;
+    height: 812px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================
+   Frame 8: Splash Screen (275:646)
+   ========================================== */
+#splash {
+    background: #1A1A1A;
+}
+
+.traceal-text {
     position: absolute;
     width: 151px;
     height: 54px;
     left: 112px;
     top: 371px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 400;
     font-size: 34px;
     line-height: 54px;
-    
     color: #FFFFFF;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* CONSOLE */
-.splash-console {
+.console-text {
     position: absolute;
     width: 108px;
     height: 27px;
     left: 133.5px;
     top: 414px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 300;
     font-size: 17px;
     line-height: 27px;
     letter-spacing: 0.3em;
-    text-transform: uppercase;
-    
     color: #FFFFFF;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* TAMPER-LOGGING SYSTEM */
-.splash-footer {
+.footer-text {
     position: absolute;
     width: 242px;
     height: 21px;
     left: 67px;
     top: 743px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 300;
     font-size: 13px;
     line-height: 21px;
     letter-spacing: 0.3em;
-    text-transform: uppercase;
-    
     color: #FFFFFF;
-    white-space: nowrap;
-    text-align: center;
 }
 
-/* ===================================
-   LOGIN SCREEN - Frame 4
-   Exact Figma CSS Export
-   =================================== */
-
-#login-screen {
-    /* Frame 4 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #1A1A1A;
-}
-
-/* Rectangle 506 - Status Bar */
+/* ==========================================
+   Frame 4: Login (267:363)
+   ========================================== */
 .status-bar {
     position: absolute;
     width: 375px;
@@ -194,7 +140,6 @@ body {
     background: #1A1A1A;
 }
 
-/* Rectangle 508 - Navigation Bar */
 .nav-bar {
     position: absolute;
     width: 375px;
@@ -202,60 +147,41 @@ body {
     left: 0px;
     top: 44px;
     background: #1A1A1A;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Group 415 - Logo */
-.nav-logo {
+.logo {
     position: absolute;
+    left: calc(50% - 38.815px);
+    top: 53.5px;
     width: 77.63px;
     height: 25px;
-    left: calc(50% - 77.63px/2 - 0px);
-    top: 9.5px;
 }
 
-/* Content Wrapper */
-.login-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* User Authentication */
 .login-title {
     position: absolute;
     width: 197px;
     height: 35px;
-    left: calc(50% - 197px/2);
+    left: calc(50% - 98.5px);
     top: 211.5px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
     line-height: 35px;
-    display: flex;
-    align-items: center;
     text-align: center;
-    
     color: #FFFFFF;
-    margin: 0;
 }
 
-/* Rectangle 519 (Stroke) */
-.title-underline {
+.login-underline {
     position: absolute;
     width: 196.73px;
     height: 2px;
     left: 89px;
     top: 253px;
-    
     background: #FFFFFF;
 }
 
-/* Authenticate your administrator ID... */
 .login-description {
     position: absolute;
     width: 343px;
@@ -263,33 +189,74 @@ body {
     left: 16px;
     top: 262.5px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 300;
     font-size: 17px;
     line-height: 140%;
     text-align: center;
-    
     color: #FFFFFF;
-    margin: 0;
 }
 
-/* Error Message
-   Appears below Log In button
-   Position: x:16, y:557.994 (below button)
-   Color: #E34949 (TRACEAL Red) */
+.input-label {
+    position: absolute;
+    
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.input-field {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    background: #4C5158;
+    border-radius: 4px;
+    border: none;
+    padding: 12px;
+    
+    font-family: 'Test Söhne';
+    font-size: 17px;
+    color: #FFFFFF;
+}
+
+.input-field::placeholder {
+    color: #70757D;
+}
+
+.btn-primary {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: #1A1A1A;
+}
+
 .login-error {
     position: absolute;
-    left: 16px;
-    top: 557.994px;
     width: 343px;
-    padding: 14px 16px;
-    background-color: rgba(227, 73, 73, 0.15);
+    left: 16px;
+    top: 558px;
+    padding: 12px;
+    background: rgba(227, 73, 73, 0.1);
     border: 1px solid #E34949;
     border-radius: 4px;
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 .login-error.hidden {
@@ -297,199 +264,75 @@ body {
 }
 
 .error-icon {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
-    fill: #E34949;
 }
 
 .error-text {
-    color: #E34949;
-    font-family: 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-weight: 400;
     font-size: 13px;
-    line-height: 1.5;
-    letter-spacing: 0;
-}
-
-.error-text div {
-    margin: 0;
-}
-
-/* Form Labels */
-.form-label {
-    position: absolute;
-    display: block;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
     line-height: 18px;
-    
-    color: #FFFFFF;
+    color: #E34949;
 }
 
-/* USER ID / SERIAL */
-.form-label[for="login-user-id"] {
-    width: 86px;
-    height: 18px;
-    left: 16px;
-    top: 329.99px;
-}
-
-/* PASSWORD */
-.form-label[for="login-password"] {
-    width: 60px;
-    height: 18px;
-    left: 16px;
-    top: 405.99px;
-}
-
-/* Form Inputs */
-.form-input {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    /* Background: RGB(0.439, 0.459, 0.490) = rgb(112, 117, 125) */
-    background-color: rgb(112, 117, 125);
-    border: none;
-    border-radius: 4px;
-    padding: 0 16px;
-    color: rgb(255, 255, 255);
-    font-family: 'Sohne', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    outline: none;
-}
-
-/* User ID Input (269:379)
-   Position: x:16, y:349.994 */
-#login-user-id {
-    top: 349.994px;
-}
-
-/* Password Input (269:388)
-   Position: x:16, y:425.994 */
-#login-password {
-    top: 425.994px;
-}
-
-/* Login Button (269:394)
-   Position: x:16, y:501.994
-   Size: 343x44 */
-.btn-login {
-    position: absolute;
-    left: 16px;
-    top: 501.994px;
-    width: 343px;
-    height: 44px;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.form-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-/* Log In Button Text (273:397)
-   Position: x:165, y:510.494 (relative to frame)
-   Size: 47x27
-   Color: RGB(0.298, 0.318, 0.345) = #1A1A1A
-   Font: Kräftig 17 */
-.btn-text {
-    color: #1A1A1A;
-    font-family: 'Sohne', sans-serif;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    letter-spacing: 0;
-}
-
-.btn-login:active {
-    opacity: 0.8;
-}
-
-/* to register: SIGN UP */
-.signup-text {
+.signup-link {
     position: absolute;
     width: 98px;
     height: 18px;
     left: 138.5px;
     top: 557.99px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 400;
     font-size: 11px;
     line-height: 18px;
     text-align: center;
-    
     color: #FFFFFF;
-    margin: 0;
-    white-space: nowrap;
 }
 
-/* When error is shown, push signup text down */
-.login-error:not(.hidden) ~ .signup-text {
-    top: 634.99px;
-}
-
-.signup-link {
-    color: #3B7FFF;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-/* ===================================
-   SESSION LOADING SCREEN - Frame 6
-   Exact Figma CSS Export
-   =================================== */
-
-#loading-screen {
-    /* Frame 6 */
-    position: relative;
+.home-indicator {
+    position: absolute;
     width: 375px;
-    height: 812px;
+    height: 34px;
+    left: 0;
+    top: 778px;
     background: #1A1A1A;
 }
 
-/* Loading Content */
-.loading-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
+.home-indicator::after {
+    content: '';
+    position: absolute;
+    width: 134px;
+    height: 5px;
+    left: calc(50% - 67px);
+    bottom: 8px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    opacity: 0.3;
 }
 
-/* Ellipse 9 - Loading Spinner */
+/* ==========================================
+   Frame 6: Loading (275:514)
+   ========================================== */
 .loading-spinner {
-    box-sizing: border-box;
     position: absolute;
     width: 63px;
     height: 63px;
     left: 157.39px;
     top: 359.03px;
-    
     border: 5px solid #D9D9D9;
-    border-radius: 50%;
     border-top-color: transparent;
-    
+    border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* Verifying credentials... */
 .loading-text {
     position: absolute;
     width: 343px;
@@ -497,1898 +340,121 @@ body {
     left: 16px;
     top: 428.97px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 300;
     font-size: 17px;
     line-height: 140%;
     text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* ===================================
-   OBSERVER REGISTRATION SCREEN - Frame 17
-   Exact Figma CSS Export
-   =================================== */
-
-#observer-register-screen {
-    /* Frame 17 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #1A1A1A;
-}
-
-/* Registration Content */
-.register-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* Observer Identification */
-.register-title {
-    position: absolute;
-    width: 226px;
-    height: 35px;
-    left: calc(50% - 226px/2 - 0.5px);
-    top: 211.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Rectangle 519 (Stroke) */
-.register-title-underline {
-    position: absolute;
-    width: 226px;
-    height: 2px;
-    left: 74px;
-    top: 253px;
-    
-    background: #FFFFFF;
-}
-
-/* Register observer unit & authenticate... */
-.register-description {
-    position: absolute;
-    width: 343px;
-    height: 48px;
-    left: 16px;
-    top: 262.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Form Labels */
-.register-form-label {
-    position: absolute;
-    display: block;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 18px;
-    
     color: #FFFFFF;
 }
 
-/* OBSERVER SERIAL */
-.register-form-label[for="register-observer-serial"] {
-    width: 96px;
-    height: 18px;
-    left: 16px;
-    top: 329.99px;
-}
-
-/* USER PASSWORD */
-.register-password-label {
-    width: 90px;
-    height: 18px;
-    left: 16px;
-    top: 405.99px;
-}
-
-/* Form Inputs */
-.register-form-input {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    background: #4C5158;
-    border-radius: 4px;
-    border: none;
-    padding: 0 16px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    color: #FFFFFF;
-    outline: none;
-}
-
-/* Rectangle 596 - Observer Serial Input */
-#register-observer-serial {
-    top: 349.99px;
-}
-
-/* Rectangle 602 - Password Input */
-.register-password-input {
-    top: 425.99px;
-}
-
-.register-form-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-/* Rectangle 605 - Register Button */
-.register-btn-submit {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 501.99px;
-    
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Register Observer */
-.register-btn-text {
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #1A1A1A;
-}
-
-.register-btn-submit:active {
-    opacity: 0.8;
-}
-
-/* ===================================
-   SERIAL VERIFICATION LOADING SCREEN - Frame 20
-   Exact Figma CSS Export
-   =================================== */
-
-#serial-loading-screen {
-    /* Frame 20 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #1A1A1A;
-}
-
-/* Serial Loading Content */
-.serial-loading-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* Ellipse 9 - Loading Spinner */
-.serial-loading-spinner {
-    box-sizing: border-box;
-    position: absolute;
-    width: 63px;
-    height: 63px;
-    left: 157.39px;
-    top: 359.03px;
-    
-    border: 5px solid #D9D9D9;
-    border-radius: 50%;
-    border-top-color: transparent;
-    
-    animation: spin 1s linear infinite;
-}
-
-/* Verifying Serial... */
-.serial-loading-text {
-    position: absolute;
-    width: 343px;
-    height: 24px;
-    left: 16px;
-    top: 428.97px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* ===================================
-   ENTER OBSERVER NAME SCREEN - Frame 18
-   Exact Figma CSS Export
-   =================================== */
-
-#observer-name-screen {
-    /* Frame 18 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #1A1A1A;
-}
-
-/* Observer Name Content */
-.observer-name-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* Enter Oberver Name */
-.observer-name-title {
-    position: absolute;
-    width: 202px;
-    height: 35px;
-    left: calc(50% - 202px/2 - 0.5px);
-    top: 254px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Rectangle 519 (Stroke) */
-.observer-name-title-underline {
-    position: absolute;
-    width: 202px;
-    height: 2px;
-    left: 86px;
-    top: 295.5px;
-    
-    background: #FFFFFF;
-}
-
-/* Assign a properly structured name... */
-.observer-name-description {
-    position: absolute;
-    width: 343px;
-    height: 48px;
-    left: 16px;
-    top: 305px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Observer Unit Name Label */
-.observer-name-form-label {
-    position: absolute;
-    width: 100px;
-    height: 18px;
-    left: calc(50% - 100px/2 + 2.5px);
-    top: 372.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 18px;
-    
-    color: #FFFFFF;
-}
-
-/* Rectangle 596 - Observer Name Input */
-.observer-name-form-input {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 392.5px;
-    
-    background: #4C5158;
-    border-radius: 4px;
-    border: none;
-    padding: 0 16px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    color: #FFFFFF;
-    outline: none;
-}
-
-.observer-name-form-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-/* Rectangle 605 - Name Observer Button */
-.observer-name-btn-submit {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 468.5px;
-    
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Name Observer */
-.observer-name-btn-text {
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #1A1A1A;
-}
-
-.observer-name-btn-submit:active {
-    opacity: 0.8;
-}
-
-/* ===================================
-   CONFIRM FINAL INFORMATION SCREEN - Frame 19
-   Exact Figma CSS Export
-   =================================== */
-
-#confirm-screen {
-    /* Frame 19 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #1A1A1A;
-}
-
-/* Confirm Content */
-.confirm-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* Confirm Final Information */
-.confirm-title {
-    position: absolute;
-    width: 250px;
-    height: 35px;
-    left: calc(50% - 250px/2 - 0.5px);
-    top: 244px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Rectangle 519 (Stroke) */
-.confirm-title-underline {
-    position: absolute;
-    width: 250px;
-    height: 2px;
-    left: 62px;
-    top: 285.5px;
-    
-    background: #FFFFFF;
-}
-
-/* By confirming, acknowledge... */
-.confirm-description {
-    position: absolute;
-    width: 343px;
-    height: 48px;
-    left: 16px;
-    top: 295px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* N25_EvidenceRoom_Storage_1 */
-.confirm-observer-name {
-    position: absolute;
-    width: 317px;
-    height: 24px;
-    left: 16px;
-    top: 370.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 140%;
-    
-    color: #70757D;
-    margin: 0;
-}
-
-/* Rectangle 607 (Stroke) */
-.confirm-separator {
-    position: absolute;
-    width: 343px;
-    height: 2px;
-    left: 16px;
-    top: 402.5px;
-    
-    background: #70757D;
-    transform: matrix(1, 0, 0, -1, 0, 0);
-}
-
-/* OBSERVER SERIAL: OU-4K9-F */
-.confirm-serial {
-    position: absolute;
-    width: 152px;
-    height: 18px;
-    left: 16px;
-    top: 416.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 18px;
-    
-    color: #70757D;
-    margin: 0;
-}
-
-/* MANAGER NAME: JOHN A. SMITH */
-.confirm-manager {
-    position: absolute;
-    width: 170px;
-    height: 18px;
-    left: 16px;
-    top: 438.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 18px;
-    
-    color: #70757D;
-    margin: 0;
-}
-
-/* Rectangle 605 - Confirm Button */
-.confirm-btn-submit {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 484.5px;
-    
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Confirm & Register */
-.confirm-btn-text {
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #1A1A1A;
-}
-
-.confirm-btn-submit:active {
-    opacity: 0.8;
-}
-
-/* ===================================
-   OBSERVER LOG SCREEN - Frame 16
-   Exact Figma CSS Export
-   =================================== */
-
-#observer-log-screen {
-    /* Frame 16 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #FFFFFF;
-}
-
-/* Back Button - Frame */
-.back-btn {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 16px;
-    top: 10px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-/* Observer Log Content */
-.observer-log-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-    overflow-y: auto;
-}
-
-/* Observer Log */
-.observer-log-title {
-    position: absolute;
-    width: 134px;
-    height: 24px;
-    left: calc(50% - 134px/2 - 104.5px);
-    top: 108px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 110%;
-    display: flex;
-    align-items: flex-end;
-    
-    color: #1A1A1A;
-    margin: 0;
-}
-
-/* John A. Smith */
-.observer-log-manager {
-    position: absolute;
-    width: 67px;
-    height: 12px;
-    left: calc(50% - 67px/2 + 136px);
-    top: 118px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 110%;
-    display: flex;
-    align-items: flex-end;
-    text-align: right;
-    
-    color: #4C5158;
-    margin: 0;
-}
-
-/* Rectangle 519 (Stroke) */
-.observer-log-title-underline {
-    position: absolute;
-    width: 343px;
-    height: 2px;
-    left: 16px;
-    top: 138px;
-    
-    background: #C8CCD2;
-}
-
-/* Summary Card */
-.observer-log-summary {
-    position: absolute;
-    left: 16px;
-    top: 154px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.summary-icon {
-    width: 32px;
-    height: 32px;
-    position: relative;
-    top: 10px;
-}
-
-.summary-text {
-    position: relative;
-}
-
-/* All Observers Connected */
-.summary-title {
-    width: 246px;
-    height: 31px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #3B7FFF;
-    margin: 0;
-}
-
-/* 3 Responsible Observers */
-.summary-subtitle {
-    width: 145px;
-    height: 18px;
-    margin-top: -2px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #1A1A1A;
-    margin-bottom: 0;
-}
-
-/* Rectangle 608 - Timeline Line */
-.timeline-line {
-    position: absolute;
-    width: 2px;
-    height: 672px;
-    left: 31px;
-    top: 140px;
-    
-    background: #70757D;
-}
-
-/* Log Entries Container */
-.log-entries {
-    position: relative;
-    width: 100%;
-}
-
-/* Individual Log Entry */
-.log-entry {
-    position: absolute;
-    width: 343px;
-    left: 0;
-}
-
-/* Log Icon - Ellipse 12 */
-.log-icon {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Log Details */
-.log-details {
-    position: absolute;
-    left: 64px;
-}
-
-/* Timestamp - 2025.11.25 15:19:32 */
-.log-timestamp {
-    position: absolute;
-    top: -17px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #000000;
-    margin: 0;
-}
-
-/* Event Name */
-.log-event-name {
-    position: absolute;
-    top: 0;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #000000;
-    margin: 0;
-}
-
-/* Observer Name */
-.log-observer-name {
-    position: absolute;
-    top: -17px;
-    right: 0;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    
-    color: #000000;
-    margin: 0;
-}
-
-/* Log Separator Lines */
-.log-separator {
-    position: absolute;
-    width: 322px;
-    height: 2px;
-    left: 37px;
-    top: 15px;
-}
-
-/* Timeline Markers - Polygon (diamond shapes) */
-.timeline-marker {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 27px;
-    background: #70757D;
-    transform: rotate(45deg);
-}
-
-/* Rectangle 512 - Bottom Bar */
-.observer-log-bottom-bar {
-    position: absolute;
-    width: 375px;
-    height: 34px;
-    left: 0px;
-    top: 778px;
-    
-    background: #1A1A1A;
-}
-
-/* ===================================
-   EVENT LOG SCREEN - Frame 5
-   Exact Figma CSS Export
-   =================================== */
-
-#event-log-screen {
-    /* Frame 5 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #FFFFFF;
-}
-
-/* Event Log Content */
-.event-log-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-    overflow-y: auto;
-}
-
-/* Event Log */
-.event-log-title {
-    position: absolute;
-    width: 98px;
-    height: 24px;
-    left: calc(50% - 98px/2 - 122.5px);
-    top: 108px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 110%;
-    display: flex;
-    align-items: flex-end;
-    
-    color: #1A1A1A;
-    margin: 0;
-}
-
-/* N25_EvidenceRoom_Storage_1 */
-.event-log-observer {
-    position: absolute;
-    width: 152px;
-    height: 12px;
-    left: calc(50% - 152px/2 + 93.5px);
-    top: 118px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 110%;
-    display: flex;
-    align-items: flex-end;
-    text-align: right;
-    
-    color: #4C5158;
-    margin: 0;
-}
-
-/* Rectangle 519 (Stroke) */
-.event-log-title-underline {
-    position: absolute;
-    width: 343px;
-    height: 2px;
-    left: 16px;
-    top: 138px;
-    
-    background: #C8CCD2;
-}
-
-/* Event Summary Card */
-.event-log-summary {
-    position: absolute;
-    left: 16px;
-    top: 154px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.event-summary-icon {
-    width: 32px;
-    height: 32px;
-    position: relative;
-    top: 10px;
-}
-
-.event-summary-text {
-    position: relative;
-}
-
-/* System Tampered! */
-.event-summary-title {
-    width: 184px;
-    height: 31px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #E34949;
-    margin: 0;
-}
-
-/* 2 Recent Tampers */
-.event-summary-subtitle {
-    width: 105px;
-    height: 18px;
-    margin-top: -2px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #1A1A1A;
-    margin-bottom: 0;
-}
-
-/* Rectangle 608 - Timeline Line */
-.event-timeline-line {
-    position: absolute;
-    width: 2px;
-    height: 672px;
-    left: 31px;
-    top: 140px;
-    
-    background: #70757D;
-}
-
-/* Rectangle 622 - Tamper Highlight */
-.tamper-highlight {
-    position: absolute;
-    width: 375px;
-    height: 59px;
-    left: 0px;
-    
-    background: #E34949;
-}
-
-/* Event Entries Container */
-.event-entries {
-    position: relative;
-    width: 100%;
-}
-
-/* Individual Event Entry */
-.event-entry {
-    position: absolute;
-    width: 343px;
-    left: 0;
-}
-
-/* Event Icon */
-.event-icon {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Event Details */
-.event-details {
-    position: absolute;
-    left: 64px;
-}
-
-/* Event Timestamp */
-.event-timestamp {
-    position: absolute;
-    top: -17px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #000000;
-    margin: 0;
-}
-
-/* Event Name */
-.event-name {
-    position: absolute;
-    top: 0;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #000000;
-    margin: 0;
-}
-
-/* Sensor ID */
-.event-sensor {
-    position: absolute;
-    top: -17px;
-    right: 0;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    
-    color: #000000;
-    margin: 0;
-}
-
-/* Event Separator Lines */
-.event-separator {
-    position: absolute;
-    width: 322px;
-    height: 2px;
-    left: 37px;
-    top: 15px;
-}
-
-/* Event Timeline Markers */
-.event-timeline-marker {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 27px;
-    background: #70757D;
-    transform: rotate(45deg);
-}
-
-/* Rectangle 512 - Bottom Bar */
-.event-log-bottom-bar {
-    position: absolute;
-    width: 375px;
-    height: 34px;
-    left: 0px;
-    top: 778px;
-    
-    background: #1A1A1A;
-}
-
-/* ===================================
-   SENSOR DETAIL MODAL - Frame 21
-   Exact Figma CSS Export
-   =================================== */
-
-.sensor-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 375px;
-    height: 812px;
-    z-index: 1000;
-}
-
-.sensor-modal.hidden {
-    display: none;
-}
-
-/* Rectangle 624 - Overlay */
-.sensor-modal-overlay {
-    position: absolute;
-    width: 375px;
-    height: 812px;
-    left: 0px;
-    top: 0px;
-    
-    background: rgba(26, 26, 26, 0.3);
-    cursor: pointer;
-}
-
-/* Rectangle 623 - Modal Card */
-.sensor-modal-card {
-    position: absolute;
-    width: 343px;
-    height: 589px;
-    left: 16px;
-    top: 140px;
-    
-    background: #4C5158;
-    border-radius: 4px;
-}
-
-/* Sensor Modal Header */
-.sensor-modal-header {
-    position: relative;
-}
-
-/* SENSOR UNIT */
-.sensor-modal-label {
-    position: absolute;
-    width: 71px;
-    height: 15px;
-    left: 136px;
-    top: 39px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* SU-87SJT-2 */
-.sensor-modal-title {
-    position: absolute;
-    width: 89px;
-    height: 24px;
-    left: calc(50% - 89px/2);
-    top: 54px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Rectangle 626 (Stroke) */
-.sensor-modal-header-underline {
-    position: absolute;
-    width: 311px;
-    height: 2px;
-    left: 16px;
-    top: 86px;
-    
-    background: #FFFFFF;
-}
-
-/* Timeline Container */
-.sensor-modal-timeline-container {
-    position: absolute;
-    left: 16px;
-    top: 88px;
-    width: 311px;
-    height: 501px;
-}
-
-/* Rectangle 623 - Timeline Line */
-.sensor-modal-timeline-line {
-    position: absolute;
-    width: 2px;
-    height: 501px;
-    left: 15px;
-    top: 0;
-    
-    background: #70757D;
-}
-
-/* Sensor Modal Events */
-.sensor-modal-events {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-/* Sensor Modal Event */
-.sensor-modal-event {
-    position: absolute;
-    width: 311px;
-    left: 0;
-}
-
-/* Sensor Modal Event Icon */
-.sensor-modal-event-icon {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Sensor Modal Event Details */
-.sensor-modal-event-details {
-    position: absolute;
-    left: 48px;
-}
-
-/* Sensor Modal Event Timestamp */
-.sensor-modal-event-timestamp {
-    position: absolute;
-    top: -17px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Sensor Modal Event Name */
-.sensor-modal-event-name {
-    position: absolute;
-    top: 0;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Sensor Modal Event Separator */
-.sensor-modal-event-separator {
-    position: absolute;
-    width: 290px;
-    height: 2px;
-    left: 21px;
-    top: 15px;
-}
-
-/* Sensor Modal Timeline Markers */
-.sensor-modal-timeline-marker {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 11px;
-    background: #70757D;
-    transform: rotate(45deg);
-}
-
-/* ===================================
-   TAMPER ALERT SCREEN - Frame 10
-   Exact Figma CSS Export
-   =================================== */
-
-#tamper-alert-screen {
-    /* Frame 10 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #E34949;
-}
-
-/* Rectangle 506 - Status Bar */
-.tamper-status-bar {
-    position: absolute;
-    width: 375px;
-    height: 44px;
-    left: 0px;
-    top: 0px;
-    background: #E34949;
-}
-
-/* Rectangle 508 - Navigation Bar */
-.tamper-nav-bar {
-    position: absolute;
-    width: 375px;
-    height: 44px;
-    left: 0px;
-    top: 44px;
-    background: #E34949;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Tamper Alert Content */
-.tamper-alert-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* Group 416 - Warning Icon */
-.tamper-warning-icon {
-    position: absolute;
-    width: 182.31px;
-    height: 158.53px;
-    left: calc(50% - 182.31px/2 - 0.35px);
-    top: 238px;
-}
-
-/* TAMPER DETECTED */
-.tamper-alert-title {
-    position: absolute;
-    width: 347px;
-    height: 37px;
-    left: calc(50% - 347px/2);
-    top: 406px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 34px;
-    line-height: 110%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Was this removal intentional? */
-.tamper-alert-question {
-    position: absolute;
-    width: 343px;
-    height: 24px;
-    left: 16px;
-    top: 442px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Rectangle 605 - Yes Button */
-.tamper-btn-yes {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 502px;
-    
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Yes, log it as deactivation */
-.tamper-btn-yes-text {
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #E34949;
-}
-
-.tamper-btn-yes:active {
-    opacity: 0.8;
-}
-
-/* Rectangle 606 - No Button */
-.tamper-btn-no {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 556px;
-    
-    background: #5E1D1D;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* No */
-.tamper-btn-no-text {
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #E34949;
-}
-
-.tamper-btn-no:active {
-    opacity: 0.8;
-}
-
-/* Rectangle 512 - Bottom Bar */
-.tamper-bottom-bar {
-    position: absolute;
-    width: 375px;
-    height: 34px;
-    left: 0px;
-    top: 778px;
-    
-    background: #1A1A1A;
-}
-
-/* ===================================
-   RE-AUTHENTICATION SCREEN - Frame 15
-   Exact Figma CSS Export
-   =================================== */
-
-#reauth-screen {
-    /* Frame 15 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #E34949;
-}
-
-/* Rectangle 506 - Status Bar */
-.reauth-status-bar {
-    position: absolute;
-    width: 375px;
-    height: 44px;
-    left: 0px;
-    top: 0px;
-    background: #E34949;
-}
-
-/* Rectangle 508 - Navigation Bar */
-.reauth-nav-bar {
-    position: absolute;
-    width: 375px;
-    height: 44px;
-    left: 0px;
-    top: 44px;
-    background: #E34949;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Re-authentication Content */
-.reauth-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* User Authentication */
-.reauth-title {
-    position: absolute;
-    width: 197px;
-    height: 35px;
-    left: calc(50% - 197px/2);
-    top: 211.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Rectangle 519 (Stroke) */
-.reauth-title-underline {
-    position: absolute;
-    width: 196.73px;
-    height: 2px;
-    left: 89px;
-    top: 253px;
-    
-    background: #FFFFFF;
-}
-
-/* Authenticate your administrator ID... */
-.reauth-description {
-    position: absolute;
-    width: 343px;
-    height: 48px;
-    left: 16px;
-    top: 262.5px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    
-    color: #FFFFFF;
-    margin: 0;
-}
-
-/* Form Labels */
-.reauth-form-label {
-    position: absolute;
-    display: block;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 18px;
-    
-    color: #FFFFFF;
-}
-
-/* USER ID / SERIAL */
-.reauth-form-label[for="reauth-user-id"] {
-    width: 86px;
-    height: 18px;
-    left: 16px;
-    top: 329.99px;
-}
-
-/* PASSWORD */
-.reauth-password-label {
-    width: 60px;
-    height: 18px;
-    left: 16px;
-    top: 405.99px;
-}
-
-/* Form Inputs */
-.reauth-form-input {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: none;
-    padding: 0 16px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    color: #1A1A1A;
-    outline: none;
-}
-
-/* Rectangle 596 - User ID Input */
-#reauth-user-id {
-    top: 349.99px;
-}
-
-/* Rectangle 602 - Password Input */
-.reauth-password-input {
-    top: 425.99px;
-}
-
-.reauth-form-input::placeholder {
-    color: rgba(26, 26, 26, 0.4);
-}
-
-/* Rectangle 605 - Authenticate Button */
-.reauth-btn-submit {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 501.99px;
-    
-    background: #5E1D1D;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Authenticate */
-.reauth-btn-text {
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color: #E34949;
-}
-
-.reauth-btn-submit:active {
-    opacity: 0.8;
-}
-
-/* Rectangle 512 - Bottom Bar */
-.reauth-bottom-bar {
-    position: absolute;
-    width: 375px;
-    height: 34px;
-    left: 0px;
-    top: 778px;
-    
-    background: #1A1A1A;
-}
-
-/* ===================================
-   DASHBOARD SCREEN - Frame 9
-   Exact Figma CSS Export
-   =================================== */
-
-#dashboard-screen {
-    /* Frame 9 */
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #FFFFFF;
-}
-
-/* Settings Button - Frame */
+/* ==========================================
+   Frame 9: Dashboard (277:799)
+   ========================================== */
 .settings-btn {
     position: absolute;
+    right: 16px;
+    top: 54px;
     width: 24px;
     height: 24px;
-    left: 335px;
-    top: 10px;
-    background: transparent;
+    background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
 }
 
-/* Dashboard Content */
-.dashboard-content {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* John A. Smith */
-.dashboard-manager-name {
+.dashboard-name {
     position: absolute;
-    width: 134px;
-    height: 24px;
-    left: calc(50% - 134px/2 - 104.27px);
+    left: calc(50% - 67px);
     top: 108px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
-    line-height: 110%;
-    display: flex;
-    align-items: flex-end;
-    
+    line-height: 24px;
     color: #1A1A1A;
-    margin: 0;
 }
 
-/* KAIST ID */
-.dashboard-manager-id {
+.dashboard-id {
     position: absolute;
-    width: 44px;
-    height: 12px;
-    left: calc(50% - 44px/2 + 147.5px);
+    right: 16px;
     top: 118px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 400;
     font-size: 11px;
-    line-height: 110%;
-    display: flex;
-    align-items: flex-end;
+    line-height: 12px;
     text-align: right;
-    
     color: #4C5158;
-    margin: 0;
 }
 
-/* Rectangle 610 (Stroke) */
-.dashboard-title-underline {
+.dashboard-underline {
     position: absolute;
     width: 343px;
     height: 2px;
     left: 16px;
     top: 138px;
-    
     background: #C8CCD2;
 }
 
-/* Stats Container */
-/* Registered Observers: / New Events to confirm: */
 .dashboard-stat-label {
     position: absolute;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 300;
     font-size: 13px;
     line-height: 140%;
     color: #1A1A1A;
-    margin: 0;
-    white-space: nowrap;
 }
 
-/* 4 */
 .dashboard-stat-value {
     position: absolute;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
     line-height: 140%;
     text-align: right;
     color: #1A1A1A;
-    margin: 0;
     transform: translateX(-100%);
 }
 
-/* Rectangle 602 - Observer Log Button */
 .dashboard-observer-log-btn {
     position: absolute;
     width: 171px;
     height: 44px;
     left: 188px;
     top: 162px;
-    
     background: #4C5158;
     border-radius: 4px;
     border: none;
     cursor: pointer;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
-    
     color: #FFFFFF;
 }
 
-.dashboard-observer-log-btn:active {
-    opacity: 0.8;
-}
-
-/* OBSERVERS */
-.dashboard-observers-title {
+.dashboard-observers-label {
     position: absolute;
-    width: 64px;
-    height: 18px;
     left: 16px;
     top: 240px;
     
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 500;
     font-size: 11px;
     line-height: 18px;
-    
     color: #1A1A1A;
-    margin: 0;
 }
 
-/* Observer List */
-.dashboard-observer-list {
-    position: relative;
-    width: 375px;
-    height: 100%;
-}
-
-/* Observer Name */
-.dashboard-observer-name {
-    position: absolute;
-    left: 16px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 140%;
-    color: #1A1A1A;
-    margin: 0;
-}
-
-/* SERIAL */
-.dashboard-observer-serial {
-    position: absolute;
-    left: 16px;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    color: #70757D;
-    margin: 0;
-    transform: translateY(-50%);
-}
-
-/* Ellipse 10/11 - Badge */
-.dashboard-observer-badge {
-    position: absolute;
-    left: 327px;
-    width: 32px;
-    height: 32px;
-    background: #E34949;
-    border-radius: 50%;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-}
-
-/* Observer Separator */
 .dashboard-observer-separator {
     position: absolute;
     left: 16px;
@@ -2397,95 +463,107 @@ body {
     background: #C8CCD2;
 }
 
-/* Rectangle 602 - Register New Observer Button */
-.dashboard-register-btn {
+.dashboard-observer-name {
+    position: absolute;
+    left: 16px;
+    
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    color: #1A1A1A;
+}
+
+.dashboard-observer-name.clickable {
+    cursor: pointer;
+}
+
+.dashboard-observer-name.clickable:hover {
+    text-decoration: underline;
+}
+
+.dashboard-observer-serial {
+    position: absolute;
+    left: 16px;
+    
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    color: #70757D;
+    transform: translateY(-50%);
+}
+
+.dashboard-observer-badge {
+    position: absolute;
+    left: 327px;
+    width: 32px;
+    height: 32px;
+    background: #E34949;
+    border-radius: 50%;
+    
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 32px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.btn-register {
     position: absolute;
     width: 343px;
     height: 44px;
     left: 16px;
     top: 527px;
-    
     background: #3B7FFF;
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Register New Observer */
-.dashboard-register-btn-text {
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 500;
     font-size: 17px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
     text-align: center;
-    
     color: #FFFFFF;
 }
 
-.dashboard-register-btn:active {
-    opacity: 0.8;
-}
-
-/* DELETE OBSERVER */
-.dashboard-delete-link {
+.delete-link {
     position: absolute;
-    width: 99px;
-    height: 18px;
-    left: calc(50% - 99px/2);
+    left: calc(50% - 49.5px);
     top: 580px;
     
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    
-    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-family: 'Test Söhne';
     font-style: normal;
     font-weight: 400;
     font-size: 11px;
     line-height: 18px;
     text-align: center;
-    
     color: #E34949;
+    cursor: pointer;
 }
 
-/* Rectangle 512 - Bottom Bar */
-.dashboard-bottom-bar {
-    position: absolute;
-    width: 375px;
-    height: 34px;
-    left: 0px;
-    top: 778px;
-    
+/* Dashboard has white background */
+#dashboard {
+    background: #FFFFFF;
+}
+
+#dashboard .dashboard-name,
+#dashboard .dashboard-stat-label,
+#dashboard .dashboard-stat-value,
+#dashboard .dashboard-observers-label,
+#dashboard .dashboard-observer-name,
+#dashboard .status-bar,
+#dashboard .nav-bar {
+    color: #1A1A1A;
+}
+
+#dashboard .status-bar,
+#dashboard .nav-bar {
     background: #1A1A1A;
 }
 
-/* ===================================
-   HOME INDICATOR
-   =================================== */
-
-.home-indicator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 375px;
-    height: 34px;
-    background-color: #1A1A1A;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.home-indicator::after {
-    content: '';
-    width: 134px;
-    height: 5px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 2.5px;
-}

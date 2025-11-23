@@ -1,82 +1,103 @@
-// ===================================
-// TRACEAL Console - Exact Figma Design
-// Frame 8 (275:646) & Frame 4 (267:363)
-// =================================== */
+// ==========================================
+// TRACEAL Console - Fresh Implementation
+// Exact Figma Design
+// ==========================================
 
 class TracealApp {
     constructor() {
-        // Store registration data
-        this.registrationData = {
-            userId: '',
-            observerSerial: '',
-            observerName: ''
-        };
+        this.currentScreen = 'splash';
         this.init();
     }
 
     init() {
-        console.log('TRACEAL Console - Version 2 (Exact Figma Design)');
-        console.log('Frame 8 - Splash Screen');
+        console.log('TRACEAL Console - Pixel-Perfect Figma Implementation');
         
-        // Transition from splash to login after 2.5 seconds
+        // Auto-transition from splash to login
         setTimeout(() => {
-            this.showScreen('login-screen');
+            this.showScreen('login');
         }, 2500);
         
-        this.setupEventListeners();
-        this.setupRegisterForm();
-        this.setupObserverNameForm();
-        this.setupConfirmScreen();
-        this.setupObserverLogScreen();
-        this.setupEventLogScreen();
-        this.setupDashboardScreen();
-        this.setupTamperAlertScreen();
-        this.setupReauthScreen();
+        this.setupEventHandlers();
     }
 
-    setupEventListeners() {
+    setupEventHandlers() {
         // Login button
         const loginBtn = document.getElementById('login-btn');
         if (loginBtn) {
             loginBtn.addEventListener('click', () => this.handleLogin());
         }
-        
-        // Enter key on password field
-        const passwordField = document.getElementById('login-password');
-        if (passwordField) {
-            passwordField.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    this.handleLogin();
-                }
+
+        // Enter key on login
+        const passwordInput = document.getElementById('login-password');
+        if (passwordInput) {
+            passwordInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') this.handleLogin();
             });
         }
-        
-        // Back buttons - all go back to dashboard
-        const backButtons = [
-            'log-back-btn',           // Observer Log
-            'event-back-btn',         // Event Log
-            'register-back-btn',      // Register Observer
-            'name-back-btn',          // Enter Observer Name
-            'confirm-back-btn'        // Confirm Registration
-        ];
-        
-        backButtons.forEach(id => {
-            const btn = document.getElementById(id);
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    this.showScreen('dashboard-screen');
-                });
-            }
+
+        // Observer names click to event log
+        const observerNames = document.querySelectorAll('.dashboard-observer-name.clickable');
+        observerNames.forEach(name => {
+            name.addEventListener('click', () => {
+                // Will open event log for that observer
+                console.log('Observer clicked:', name.dataset.observer);
+            });
         });
-        
-        // Settings button (dashboard) - placeholder for now
+
+        // Observer Log button
+        const observerLogBtn = document.getElementById('observer-log-btn');
+        if (observerLogBtn) {
+            observerLogBtn.addEventListener('click', () => {
+                console.log('Observer Log clicked');
+            });
+        }
+
+        // Register button
+        const registerBtn = document.getElementById('register-btn');
+        if (registerBtn) {
+            registerBtn.addEventListener('click', () => {
+                console.log('Register New Observer clicked');
+            });
+        }
+
+        // Delete button
+        const deleteBtn = document.getElementById('delete-btn');
+        if (deleteBtn) {
+            deleteBtn.addEventListener('click', () => {
+                console.log('Delete Observer clicked');
+            });
+        }
+
+        // Settings button
         const settingsBtn = document.getElementById('settings-btn');
         if (settingsBtn) {
             settingsBtn.addEventListener('click', () => {
-                // Future: Open settings modal or screen
                 console.log('Settings clicked');
             });
         }
+    }
+
+    handleLogin() {
+        const userId = document.getElementById('login-userid').value.trim();
+        const password = document.getElementById('login-password').value;
+        const errorDiv = document.getElementById('login-error');
+
+        // Check for "wrong" password to show error
+        if (password === 'wrong') {
+            errorDiv.classList.remove('hidden');
+            return;
+        }
+
+        // Hide error if showing
+        errorDiv.classList.add('hidden');
+
+        // Show loading
+        this.showScreen('loading');
+
+        // Simulate loading, then show dashboard
+        setTimeout(() => {
+            this.showScreen('dashboard');
+        }, 1500);
     }
 
     showScreen(screenId) {
@@ -84,312 +105,16 @@ class TracealApp {
         document.querySelectorAll('.screen').forEach(screen => {
             screen.classList.remove('active');
         });
-        
+
         // Show target screen
-        const targetScreen = document.getElementById(screenId);
-        if (targetScreen) {
-            targetScreen.classList.add('active');
+        const screen = document.getElementById(screenId);
+        if (screen) {
+            screen.classList.add('active');
+            this.currentScreen = screenId;
         }
-    }
-
-    handleLogin() {
-        const userId = document.getElementById('login-user-id').value.trim();
-        const password = document.getElementById('login-password').value;
-        const errorElement = document.getElementById('login-error');
-        
-        // Hide error initially
-        errorElement.classList.add('hidden');
-        
-        if (!userId || !password) {
-            errorElement.querySelector('.error-text').textContent = 'Please enter both User ID and Password';
-            errorElement.classList.remove('hidden');
-            return;
-        }
-        
-        // Check if password is 'wrong' to trigger error
-        if (password === 'wrong') {
-            errorElement.querySelector('.error-text').innerHTML = '<div>Authentication Failed —</div><div>Please check your credentials.</div>';
-            errorElement.classList.remove('hidden');
-            return;
-        }
-        
-        // Store user ID for later display
-        this.registrationData.userId = userId;
-        
-        // Show loading screen
-        this.showScreen('loading-screen');
-        
-        // Simulate loading for 1.5 seconds
-        setTimeout(() => {
-            console.log('Login successful:', userId);
-            // Show dashboard
-            this.showScreen('dashboard-screen');
-        }, 1500);
-    }
-
-    setupRegisterForm() {
-        const form = document.getElementById('register-form');
-        
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleRegister();
-            });
-        }
-    }
-
-    handleRegister() {
-        const observerSerial = document.getElementById('register-observer-serial').value.trim();
-        const userPassword = document.getElementById('register-user-password').value;
-        
-        if (!observerSerial || !userPassword) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-        // Store observer serial for later display
-        this.registrationData.observerSerial = observerSerial;
-        
-        // Show serial verification loading screen
-        this.showScreen('serial-loading-screen');
-        
-        // Simulate serial verification for 1.5 seconds
-        setTimeout(() => {
-            console.log('Serial verified:', observerSerial);
-            // Show observer name screen
-            this.showScreen('observer-name-screen');
-        }, 1500);
-    }
-
-    setupObserverNameForm() {
-        const form = document.getElementById('observer-name-form');
-        
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleObserverName();
-            });
-        }
-    }
-
-    handleObserverName() {
-        const observerName = document.getElementById('observer-unit-name').value.trim();
-        
-        if (!observerName) {
-            alert('Please enter an observer name');
-            return;
-        }
-        
-        // Store observer name
-        this.registrationData.observerName = observerName;
-        
-        console.log('Observer named:', observerName);
-        
-        // Update confirmation screen with collected data
-        this.updateConfirmScreen();
-        
-        // Show confirmation screen
-        this.showScreen('confirm-screen');
-    }
-
-    setupConfirmScreen() {
-        const confirmBtn = document.getElementById('confirm-btn');
-        
-        if (confirmBtn) {
-            confirmBtn.addEventListener('click', () => {
-                this.handleConfirm();
-            });
-        }
-    }
-
-    updateConfirmScreen() {
-        // Update observer name
-        const observerNameEl = document.getElementById('confirm-observer-name');
-        if (observerNameEl) {
-            observerNameEl.textContent = this.registrationData.observerName;
-        }
-        
-        // Update observer serial
-        const serialEl = document.getElementById('confirm-serial');
-        if (serialEl) {
-            serialEl.textContent = `OBSERVER SERIAL: ${this.registrationData.observerSerial}`;
-        }
-        
-        // Update manager name (use userId converted to uppercase)
-        const managerEl = document.getElementById('confirm-manager');
-        if (managerEl) {
-            const managerName = this.registrationData.userId.toUpperCase().replace(/[^A-Z0-9]/g, ' ');
-            managerEl.textContent = `MANAGER NAME: ${managerName}`;
-        }
-    }
-
-    handleConfirm() {
-        console.log('Registration confirmed:', this.registrationData);
-        alert('Observer registered successfully!');
-        
-        // Go back to dashboard
-        this.showScreen('dashboard-screen');
-    }
-
-    setupObserverLogScreen() {
-        // Back button is already handled in setupEventListeners
-        // Just setup other specific functionality here if needed
-    }
-
-    setupEventLogScreen() {
-        // Back button is already handled in setupEventListeners
-        
-        // Setup sensor detail modal
-        this.setupSensorModal();
-        
-        // Make event rows clickable (~59px hitbox)
-        const eventEntries = document.querySelectorAll('.event-entry');
-        eventEntries.forEach(entry => {
-            entry.style.cursor = 'pointer';
-            entry.addEventListener('click', () => {
-                // Get sensor ID from this entry
-                const sensorIdEl = entry.querySelector('.event-sensor');
-                if (sensorIdEl) {
-                    const sensorId = sensorIdEl.textContent.replace('Sensor ID: ', '').trim();
-                    this.showSensorModal(sensorId);
-                }
-            });
-        });
-    }
-
-    setupSensorModal() {
-        const modal = document.getElementById('sensor-detail-modal');
-        const overlay = document.getElementById('sensor-modal-overlay');
-        
-        if (overlay) {
-            overlay.addEventListener('click', () => {
-                this.hideSensorModal();
-            });
-        }
-    }
-
-    showSensorModal() {
-        const modal = document.getElementById('sensor-detail-modal');
-        if (modal) {
-            modal.classList.remove('hidden');
-        }
-    }
-
-    hideSensorModal() {
-        const modal = document.getElementById('sensor-detail-modal');
-        if (modal) {
-            modal.classList.add('hidden');
-        }
-    }
-
-    setupTamperAlertScreen() {
-        // Yes button - requires re-authentication
-        const yesBtn = document.getElementById('tamper-btn-yes');
-        if (yesBtn) {
-            yesBtn.addEventListener('click', () => {
-                console.log('Requesting re-authentication for intentional deactivation');
-                // Show re-authentication screen
-                this.showScreen('reauth-screen');
-            });
-        }
-        
-        // No button - log as unauthorized
-        const noBtn = document.getElementById('tamper-btn-no');
-        if (noBtn) {
-            noBtn.addEventListener('click', () => {
-                console.log('Tamper logged as unauthorized');
-                alert('Logged as unauthorized tamper');
-                // Go back to dashboard
-                this.showScreen('dashboard-screen');
-            });
-        }
-    }
-
-    setupReauthScreen() {
-        const form = document.getElementById('reauth-form');
-        
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleReauth();
-            });
-        }
-    }
-
-    handleReauth() {
-        const userId = document.getElementById('reauth-user-id').value.trim();
-        const password = document.getElementById('reauth-password').value;
-        
-        if (!userId || !password) {
-            alert('Please enter both User ID and Password');
-            return;
-        }
-        
-        // Verify credentials match original login
-        if (userId !== this.registrationData.userId) {
-            alert('User ID does not match. Please use the same credentials you logged in with.');
-            return;
-        }
-        
-        console.log('Re-authentication successful:', userId);
-        alert('Authentication successful. Tamper logged as intentional deactivation.');
-        
-        // Go back to dashboard
-        this.showScreen('dashboard-screen');
-    }
-
-    setupDashboardScreen() {
-        // Observer Log button
-        const observerLogBtn = document.getElementById('dashboard-observer-log-btn');
-        if (observerLogBtn) {
-            observerLogBtn.addEventListener('click', () => {
-                this.showScreen('observer-log-screen');
-            });
-        }
-        
-        // Make observer list items clickable to open event log
-        const observerNames = document.querySelectorAll('.dashboard-observer-name');
-        observerNames.forEach(name => {
-            name.style.cursor = 'pointer';
-            name.addEventListener('click', () => {
-                this.showScreen('event-log-screen');
-            });
-        });
-        
-        // Register New Observer button
-        const registerBtn = document.getElementById('dashboard-register-btn');
-        if (registerBtn) {
-            registerBtn.addEventListener('click', () => {
-                this.showScreen('observer-register-screen');
-            });
-        }
-        
-        // Delete Observer button
-        const deleteBtn = document.getElementById('dashboard-delete-btn');
-        if (deleteBtn) {
-            deleteBtn.addEventListener('click', () => {
-                alert('Delete observer functionality will be added');
-            });
-        }
-        
-        // Settings button
-        const settingsBtn = document.getElementById('settings-btn');
-        if (settingsBtn) {
-            settingsBtn.addEventListener('click', () => {
-                alert('Settings functionality will be added');
-            });
-        }
-        
-        // Observer items - click to view event log
-        const observerItems = document.querySelectorAll('.dashboard-observer-item');
-        observerItems.forEach(item => {
-            item.style.cursor = 'pointer';
-            item.addEventListener('click', () => {
-                this.showScreen('event-log-screen');
-            });
-        });
     }
 }
 
 // Initialize app
 const app = new TracealApp();
+
