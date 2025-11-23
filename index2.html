@@ -752,6 +752,51 @@
             </div>
         </div>
 
+        <!-- Tamper Alert Screen (Frame 10) -->
+        <div id="tamper-alert-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="tamper-status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="tamper-nav-bar">
+                <!-- Logo Group -->
+                <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Tamper Alert Content -->
+            <div class="tamper-alert-content">
+                <!-- Warning Icon - Group 416 -->
+                <div class="tamper-warning-icon">
+                    <svg width="183" height="159" viewBox="0 0 183 159" fill="none">
+                        <!-- Polygon 1 (Stroke) - Triangle -->
+                        <path d="M91.5 0L182.31 158.53H0.69L91.5 0Z" stroke="#FFFFFF" stroke-width="6" fill="none"/>
+                        <!-- Exclamation mark -->
+                        <rect x="85" y="64" width="13" height="71" fill="#FFFFFF"/>
+                        <circle cx="91.5" cy="145" r="8" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                
+                <!-- TAMPER DETECTED -->
+                <h1 class="tamper-alert-title">TAMPER DETECTED</h1>
+                
+                <!-- Was this removal intentional? -->
+                <p class="tamper-alert-question">Was this removal intentional?</p>
+                
+                <!-- Rectangle 605 - Yes Button -->
+                <button class="tamper-btn-yes" id="tamper-btn-yes">
+                    <span class="tamper-btn-yes-text">Yes, log it as deactivation</span>
+                </button>
+                
+                <!-- Rectangle 606 - No Button -->
+                <button class="tamper-btn-no" id="tamper-btn-no">
+                    <span class="tamper-btn-no-text">No</span>
+                </button>
+            </div>
+            
+            <!-- Rectangle 512 - Bottom Bar -->
+            <div class="tamper-bottom-bar"></div>
+        </div>
+
         <!-- Dashboard Screen (Frame 9) -->
         <div id="dashboard-screen" class="screen">
             <!-- Status Bar -->

@@ -30,6 +30,7 @@ class TracealApp {
         this.setupObserverLogScreen();
         this.setupEventLogScreen();
         this.setupDashboardScreen();
+        this.setupTamperAlertScreen();
     }
 
     setupEventListeners() {
@@ -260,6 +261,30 @@ class TracealApp {
         const modal = document.getElementById('sensor-detail-modal');
         if (modal) {
             modal.classList.add('hidden');
+        }
+    }
+
+    setupTamperAlertScreen() {
+        // Yes button
+        const yesBtn = document.getElementById('tamper-btn-yes');
+        if (yesBtn) {
+            yesBtn.addEventListener('click', () => {
+                console.log('Tamper logged as intentional deactivation');
+                alert('Logged as intentional deactivation');
+                // Go back to dashboard
+                this.showScreen('dashboard-screen');
+            });
+        }
+        
+        // No button
+        const noBtn = document.getElementById('tamper-btn-no');
+        if (noBtn) {
+            noBtn.addEventListener('click', () => {
+                console.log('Tamper logged as unauthorized');
+                alert('Logged as unauthorized tamper');
+                // Go back to dashboard
+                this.showScreen('dashboard-screen');
+            });
         }
     }
 

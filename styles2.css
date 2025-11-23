@@ -1788,6 +1788,181 @@ body {
 }
 
 /* ===================================
+   TAMPER ALERT SCREEN - Frame 10
+   Exact Figma CSS Export
+   =================================== */
+
+#tamper-alert-screen {
+    /* Frame 10 */
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #E34949;
+}
+
+/* Rectangle 506 - Status Bar */
+.tamper-status-bar {
+    position: absolute;
+    width: 375px;
+    height: 44px;
+    left: 0px;
+    top: 0px;
+    background: #E34949;
+}
+
+/* Rectangle 508 - Navigation Bar */
+.tamper-nav-bar {
+    position: absolute;
+    width: 375px;
+    height: 44px;
+    left: 0px;
+    top: 44px;
+    background: #E34949;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tamper Alert Content */
+.tamper-alert-content {
+    position: relative;
+    width: 375px;
+    height: 100%;
+}
+
+/* Group 416 - Warning Icon */
+.tamper-warning-icon {
+    position: absolute;
+    width: 182.31px;
+    height: 158.53px;
+    left: calc(50% - 182.31px/2 - 0.35px);
+    top: 238px;
+}
+
+/* TAMPER DETECTED */
+.tamper-alert-title {
+    position: absolute;
+    width: 347px;
+    height: 37px;
+    left: calc(50% - 347px/2);
+    top: 406px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 110%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Was this removal intentional? */
+.tamper-alert-question {
+    position: absolute;
+    width: 343px;
+    height: 24px;
+    left: 16px;
+    top: 442px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Rectangle 605 - Yes Button */
+.tamper-btn-yes {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 502px;
+    
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Yes, log it as deactivation */
+.tamper-btn-yes-text {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #E34949;
+}
+
+.tamper-btn-yes:active {
+    opacity: 0.8;
+}
+
+/* Rectangle 606 - No Button */
+.tamper-btn-no {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 556px;
+    
+    background: #5E1D1D;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* No */
+.tamper-btn-no-text {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #E34949;
+}
+
+.tamper-btn-no:active {
+    opacity: 0.8;
+}
+
+/* Rectangle 512 - Bottom Bar */
+.tamper-bottom-bar {
+    position: absolute;
+    width: 375px;
+    height: 34px;
+    left: 0px;
+    top: 778px;
+    
+    background: #1A1A1A;
+}
+
+/* ===================================
    DASHBOARD SCREEN - Frame 9
    Exact Figma CSS Export
    =================================== */
