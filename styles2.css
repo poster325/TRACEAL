@@ -469,3 +469,27 @@ body {
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* ===================================
+   HOME INDICATOR
+   =================================== */
+
+.home-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 375px;
+    height: 34px;
+    background-color: rgb(76, 81, 88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-indicator::after {
+    content: '';
+    width: 134px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2.5px;
+}
