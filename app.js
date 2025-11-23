@@ -255,14 +255,17 @@ class TracealApp {
         // Setup sensor detail modal
         this.setupSensorModal();
         
-        // Make sensor IDs clickable
-        const sensorIds = document.querySelectorAll('.event-sensor');
-        sensorIds.forEach(sensor => {
-            sensor.style.cursor = 'pointer';
-            sensor.style.textDecoration = 'underline';
-            sensor.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.showSensorModal();
+        // Make event rows clickable (~59px hitbox)
+        const eventEntries = document.querySelectorAll('.event-entry');
+        eventEntries.forEach(entry => {
+            entry.style.cursor = 'pointer';
+            entry.addEventListener('click', () => {
+                // Get sensor ID from this entry
+                const sensorIdEl = entry.querySelector('.event-sensor');
+                if (sensorIdEl) {
+                    const sensorId = sensorIdEl.textContent.replace('Sensor ID: ', '').trim();
+                    this.showSensorModal(sensorId);
+                }
             });
         });
     }
