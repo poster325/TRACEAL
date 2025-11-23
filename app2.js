@@ -72,8 +72,16 @@ class TracealApp {
             return;
         }
         
-        console.log('Login attempt:', userId);
-        alert('Login successful! Next screens will be added.');
+        // Show loading screen
+        this.showScreen('loading-screen');
+        
+        // Simulate loading for 1.5 seconds
+        setTimeout(() => {
+            console.log('Login successful:', userId);
+            alert('Dashboard will be added in next screen');
+            // Go back to login for now
+            this.showScreen('login-screen');
+        }, 1500);
     }
 }
 
