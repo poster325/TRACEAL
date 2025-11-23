@@ -222,6 +222,45 @@ class TracealApp {
                 this.showScreen('dashboard-screen');
             });
         }
+        
+        // Setup sensor detail modal
+        this.setupSensorModal();
+        
+        // Make sensor IDs clickable
+        const sensorIds = document.querySelectorAll('.event-sensor');
+        sensorIds.forEach(sensor => {
+            sensor.style.cursor = 'pointer';
+            sensor.style.textDecoration = 'underline';
+            sensor.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.showSensorModal();
+            });
+        });
+    }
+
+    setupSensorModal() {
+        const modal = document.getElementById('sensor-detail-modal');
+        const overlay = document.getElementById('sensor-modal-overlay');
+        
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                this.hideSensorModal();
+            });
+        }
+    }
+
+    showSensorModal() {
+        const modal = document.getElementById('sensor-detail-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+        }
+    }
+
+    hideSensorModal() {
+        const modal = document.getElementById('sensor-detail-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+        }
     }
 
     setupDashboardScreen() {

@@ -1585,6 +1585,209 @@ body {
 }
 
 /* ===================================
+   SENSOR DETAIL MODAL - Frame 21
+   Exact Figma CSS Export
+   =================================== */
+
+.sensor-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 375px;
+    height: 812px;
+    z-index: 1000;
+}
+
+.sensor-modal.hidden {
+    display: none;
+}
+
+/* Rectangle 624 - Overlay */
+.sensor-modal-overlay {
+    position: absolute;
+    width: 375px;
+    height: 812px;
+    left: 0px;
+    top: 0px;
+    
+    background: rgba(26, 26, 26, 0.3);
+    cursor: pointer;
+}
+
+/* Rectangle 623 - Modal Card */
+.sensor-modal-card {
+    position: absolute;
+    width: 343px;
+    height: 589px;
+    left: 16px;
+    top: 140px;
+    
+    background: #4C5158;
+    border-radius: 4px;
+}
+
+/* Sensor Modal Header */
+.sensor-modal-header {
+    position: relative;
+}
+
+/* SENSOR UNIT */
+.sensor-modal-label {
+    position: absolute;
+    width: 71px;
+    height: 15px;
+    left: 136px;
+    top: 39px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* SU-87SJT-2 */
+.sensor-modal-title {
+    position: absolute;
+    width: 89px;
+    height: 24px;
+    left: calc(50% - 89px/2);
+    top: 54px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Rectangle 626 (Stroke) */
+.sensor-modal-header-underline {
+    position: absolute;
+    width: 311px;
+    height: 2px;
+    left: 16px;
+    top: 86px;
+    
+    background: #FFFFFF;
+}
+
+/* Timeline Container */
+.sensor-modal-timeline-container {
+    position: absolute;
+    left: 16px;
+    top: 88px;
+    width: 311px;
+    height: 501px;
+}
+
+/* Rectangle 623 - Timeline Line */
+.sensor-modal-timeline-line {
+    position: absolute;
+    width: 2px;
+    height: 501px;
+    left: 15px;
+    top: 0;
+    
+    background: #70757D;
+}
+
+/* Sensor Modal Events */
+.sensor-modal-events {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sensor Modal Event */
+.sensor-modal-event {
+    position: absolute;
+    width: 311px;
+    left: 0;
+}
+
+/* Sensor Modal Event Icon */
+.sensor-modal-event-icon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sensor Modal Event Details */
+.sensor-modal-event-details {
+    position: absolute;
+    left: 48px;
+}
+
+/* Sensor Modal Event Timestamp */
+.sensor-modal-event-timestamp {
+    position: absolute;
+    top: -17px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Sensor Modal Event Name */
+.sensor-modal-event-name {
+    position: absolute;
+    top: 0;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Sensor Modal Event Separator */
+.sensor-modal-event-separator {
+    position: absolute;
+    width: 290px;
+    height: 2px;
+    left: 21px;
+    top: 15px;
+}
+
+/* Sensor Modal Timeline Markers */
+.sensor-modal-timeline-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 11px;
+    background: #70757D;
+    transform: rotate(45deg);
+}
+
+/* ===================================
    DASHBOARD SCREEN - Frame 9
    Exact Figma CSS Export
    =================================== */
