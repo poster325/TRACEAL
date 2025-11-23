@@ -82,6 +82,31 @@ class TracealApp {
             // Go back to login for now
             this.showScreen('login-screen');
         }, 1500);
+    },
+
+    setupRegisterForm() {
+        const form = document.getElementById('register-form');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.handleRegister();
+        });
+    },
+
+    handleRegister() {
+        const observerSerial = document.getElementById('register-observer-serial').value;
+        const userPassword = document.getElementById('register-user-password').value;
+        
+        if (!observerSerial || !userPassword) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        console.log('Observer registration:', observerSerial);
+        alert('Observer registered successfully! Next screens will be added.');
+        
+        // Go back to dashboard or login
+        this.showScreen('login-screen');
     }
 }
 

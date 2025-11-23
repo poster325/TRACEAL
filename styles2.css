@@ -509,6 +509,211 @@ body {
 }
 
 /* ===================================
+   OBSERVER REGISTRATION SCREEN - Frame 17
+   Exact Figma CSS Export
+   =================================== */
+
+#observer-register-screen {
+    /* Frame 17 */
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #1A1A1A;
+}
+
+/* Registration Content */
+.register-content {
+    position: relative;
+    width: 375px;
+    height: 100%;
+}
+
+/* Observer Identification */
+.register-title {
+    position: absolute;
+    width: 226px;
+    height: 35px;
+    left: calc(50% - 226px/2 - 0.5px);
+    top: 211.5px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Rectangle 519 (Stroke) */
+.register-title-underline {
+    position: absolute;
+    width: 226px;
+    height: 2px;
+    left: 74px;
+    top: 253px;
+    
+    background: #FFFFFF;
+}
+
+/* Register observer unit & authenticate... */
+.register-description {
+    position: absolute;
+    width: 343px;
+    height: 48px;
+    left: 16px;
+    top: 262.5px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Form Labels */
+.register-form-label {
+    position: absolute;
+    display: block;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    
+    color: #FFFFFF;
+}
+
+/* OBSERVER SERIAL */
+.register-form-label[for="register-observer-serial"] {
+    width: 96px;
+    height: 18px;
+    left: 16px;
+    top: 329.99px;
+}
+
+/* USER PASSWORD */
+.register-password-label {
+    width: 90px;
+    height: 18px;
+    left: 16px;
+    top: 405.99px;
+}
+
+/* Form Inputs */
+.register-form-input {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    background: #4C5158;
+    border-radius: 4px;
+    border: none;
+    padding: 0 16px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #FFFFFF;
+    outline: none;
+}
+
+/* Rectangle 596 - Observer Serial Input */
+#register-observer-serial {
+    top: 349.99px;
+}
+
+/* Rectangle 602 - Password Input */
+.register-password-input {
+    top: 425.99px;
+}
+
+.register-form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Rectangle 605 - Register Button */
+.register-btn-submit {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 501.99px;
+    
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Register Observer */
+.register-btn-text {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #1A1A1A;
+}
+
+.register-btn-submit:active {
+    opacity: 0.8;
+}
+
+/* ===================================
+   DASHBOARD SCREEN - Frame 9
+   Exact Figma CSS Export
+   =================================== */
+
+#dashboard-screen {
+    /* Frame 9 */
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #FFFFFF;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    position: relative;
+    width: 375px;
+    height: calc(100% - 88px - 49px - 34px); /* Total height - status/nav - tab bar - home indicator */
+    top: 88px; /* After status bar (44px) + nav bar (44px) */
+    overflow-y: auto;
+}
+
+/* Tab Bar */
+.tab-bar {
+    position: absolute;
+    bottom: 34px; /* Above home indicator */
+    left: 0;
+    width: 375px;
+    height: 49px;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* ===================================
    HOME INDICATOR
    =================================== */
 
