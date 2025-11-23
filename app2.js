@@ -5,6 +5,12 @@
 
 class TracealApp {
     constructor() {
+        // Store registration data
+        this.registrationData = {
+            userId: '',
+            observerSerial: '',
+            observerName: ''
+        };
         this.init();
     }
 
@@ -20,6 +26,7 @@ class TracealApp {
         this.setupEventListeners();
         this.setupRegisterForm();
         this.setupObserverNameForm();
+        this.setupConfirmScreen();
     }
 
     setupEventListeners() {
@@ -74,6 +81,9 @@ class TracealApp {
             return;
         }
         
+        // Store user ID for later display
+        this.registrationData.userId = userId;
+        
         // Show loading screen
         this.showScreen('loading-screen');
         
@@ -98,13 +108,16 @@ class TracealApp {
     }
 
     handleRegister() {
-        const observerSerial = document.getElementById('register-observer-serial').value;
+        const observerSerial = document.getElementById('register-observer-serial').value.trim();
         const userPassword = document.getElementById('register-user-password').value;
         
         if (!observerSerial || !userPassword) {
             alert('Please fill in all fields');
             return;
         }
+        
+        // Store observer serial for later display
+        this.registrationData.observerSerial = observerSerial;
         
         // Show serial verification loading screen
         this.showScreen('serial-loading-screen');
@@ -136,8 +149,52 @@ class TracealApp {
             return;
         }
         
+        // Store observer name
+        this.registrationData.observerName = observerName;
+        
         console.log('Observer named:', observerName);
-        alert('Observer naming successful! Dashboard will be added.');
+        
+        // Update confirmation screen with collected data
+        this.updateConfirmScreen();
+        
+        // Show confirmation screen
+        this.showScreen('confirm-screen');
+    }
+
+    setupConfirmScreen() {
+        const confirmBtn = document.getElementById('confirm-btn');
+        
+        if (confirmBtn) {
+            confirmBtn.addEventListener('click', () => {
+                this.handleConfirm();
+            });
+        }
+    }
+
+    updateConfirmScreen() {
+        // Update observer name
+        const observerNameEl = document.getElementById('confirm-observer-name');
+        if (observerNameEl) {
+            observerNameEl.textContent = this.registrationData.observerName;
+        }
+        
+        // Update observer serial
+        const serialEl = document.getElementById('confirm-serial');
+        if (serialEl) {
+            serialEl.textContent = `OBSERVER SERIAL: ${this.registrationData.observerSerial}`;
+        }
+        
+        // Update manager name (use userId converted to uppercase)
+        const managerEl = document.getElementById('confirm-manager');
+        if (managerEl) {
+            const managerName = this.registrationData.userId.toUpperCase().replace(/[^A-Z0-9]/g, ' ');
+            managerEl.textContent = `MANAGER NAME: ${managerName}`;
+        }
+    }
+
+    handleConfirm() {
+        console.log('Registration confirmed:', this.registrationData);
+        alert('Observer registered successfully! Dashboard will be added.');
         
         // Go back to login for now
         this.showScreen('login-screen');
