@@ -2251,34 +2251,24 @@ body {
 }
 
 /* Stats Container */
-.dashboard-stats {
-    position: absolute;
-    left: 16px;
-    top: 166px;
-}
-
-.dashboard-stat-row {
-    display: flex;
-    gap: 17px;
-    margin-bottom: 0;
-}
-
-.dashboard-stat-row:first-child {
-    margin-bottom: 0;
-}
-
 /* Registered Observers: / New Events to confirm: */
 .dashboard-stat-label {
+    position: absolute;
+    
     font-family: 'Test Söhne', 'Sohne', sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 13px;
     line-height: 140%;
     color: #1A1A1A;
+    margin: 0;
+    white-space: nowrap;
 }
 
 /* 4 */
 .dashboard-stat-value {
+    position: absolute;
+    
     font-family: 'Test Söhne', 'Sohne', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -2286,6 +2276,8 @@ body {
     line-height: 140%;
     text-align: right;
     color: #1A1A1A;
+    margin: 0;
+    transform: translateX(-100%);
 }
 
 /* Rectangle 602 - Observer Log Button */
@@ -2338,38 +2330,30 @@ body {
 
 /* Observer List */
 .dashboard-observer-list {
-    position: absolute;
-    left: 16px;
-    top: 258px;
-    width: 343px;
-}
-
-/* Observer Item */
-.dashboard-observer-item {
     position: relative;
-    height: 59px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.dashboard-observer-info {
-    flex: 1;
+    width: 375px;
+    height: 100%;
 }
 
 /* Observer Name */
 .dashboard-observer-name {
+    position: absolute;
+    left: 16px;
+    
     font-family: 'Test Söhne', 'Sohne', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
     line-height: 140%;
     color: #1A1A1A;
-    margin: 0 0 0 0;
+    margin: 0;
 }
 
 /* SERIAL */
 .dashboard-observer-serial {
+    position: absolute;
+    left: 16px;
+    
     font-family: 'Test Söhne', 'Sohne', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -2379,10 +2363,13 @@ body {
     align-items: center;
     color: #70757D;
     margin: 0;
+    transform: translateY(-50%);
 }
 
 /* Ellipse 10/11 - Badge */
 .dashboard-observer-badge {
+    position: absolute;
+    left: 327px;
     width: 32px;
     height: 32px;
     background: #E34949;
@@ -2392,7 +2379,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
-    line-height: 27px;
+    line-height: normal;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2403,6 +2390,8 @@ body {
 
 /* Observer Separator */
 .dashboard-observer-separator {
+    position: absolute;
+    left: 16px;
     width: 343px;
     height: 2px;
     background: #C8CCD2;

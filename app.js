@@ -50,6 +50,33 @@ class TracealApp {
                 }
             });
         }
+        
+        // Back buttons - all go back to dashboard
+        const backButtons = [
+            'log-back-btn',           // Observer Log
+            'event-back-btn',         // Event Log
+            'register-back-btn',      // Register Observer
+            'name-back-btn',          // Enter Observer Name
+            'confirm-back-btn'        // Confirm Registration
+        ];
+        
+        backButtons.forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    this.showScreen('dashboard-screen');
+                });
+            }
+        });
+        
+        // Settings button (dashboard) - placeholder for now
+        const settingsBtn = document.getElementById('settings-btn');
+        if (settingsBtn) {
+            settingsBtn.addEventListener('click', () => {
+                // Future: Open settings modal or screen
+                console.log('Settings clicked');
+            });
+        }
     }
 
     showScreen(screenId) {

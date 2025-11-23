@@ -119,6 +119,13 @@
             
             <!-- Navigation Bar -->
             <div class="nav-bar">
+                <!-- Back Button -->
+                <button class="back-btn" id="register-back-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
                 <!-- Logo Group -->
                 <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
             </div>
@@ -190,6 +197,13 @@
             
             <!-- Navigation Bar -->
             <div class="nav-bar">
+                <!-- Back Button -->
+                <button class="back-btn" id="name-back-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
                 <!-- Logo Group -->
                 <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
             </div>
@@ -231,6 +245,13 @@
             
             <!-- Navigation Bar -->
             <div class="nav-bar">
+                <!-- Back Button -->
+                <button class="back-btn" id="confirm-back-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
                 <!-- Logo Group -->
                 <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
             </div>
@@ -875,16 +896,10 @@
                 <div class="dashboard-title-underline"></div>
                 
                 <!-- Stats -->
-                <div class="dashboard-stats">
-                    <div class="dashboard-stat-row">
-                        <span class="dashboard-stat-label">Registered Observers:</span>
-                        <span class="dashboard-stat-value">4</span>
-                    </div>
-                    <div class="dashboard-stat-row">
-                        <span class="dashboard-stat-label">New Events to confirm:</span>
-                        <span class="dashboard-stat-value">4</span>
-                    </div>
-                </div>
+                <p class="dashboard-stat-label" style="left: 16px; top: 166px;">Registered Observers:</p>
+                <p class="dashboard-stat-value" style="left: 162px; top: 166px;">4</p>
+                <p class="dashboard-stat-label" style="left: 16px; top: 184px;">New Events to confirm:</p>
+                <p class="dashboard-stat-value" style="left: 162px; top: 184px;">4</p>
                 
                 <!-- Observer Log Button -->
                 <button class="dashboard-observer-log-btn" id="dashboard-observer-log-btn">
@@ -896,43 +911,38 @@
                 
                 <!-- Observer List -->
                 <div class="dashboard-observer-list">
-                    <!-- Observer 1 -->
-                    <div class="dashboard-observer-item">
-                        <div class="dashboard-observer-info">
-                            <p class="dashboard-observer-name">1125_Election_Ballot_12</p>
-                            <p class="dashboard-observer-serial">SERIAL: OU-29H-G</p>
-                        </div>
-                        <div class="dashboard-observer-badge">3</div>
-                    </div>
-                    <div class="dashboard-observer-separator"></div>
+                    <!-- Separator 1 -->
+                    <div class="dashboard-observer-separator" style="top: 258px;"></div>
                     
-                    <!-- Observer 2 -->
-                    <div class="dashboard-observer-item">
-                        <div class="dashboard-observer-info">
-                            <p class="dashboard-observer-name">N25_EvidenceRoom_Storage_1</p>
-                            <p class="dashboard-observer-serial">SERIAL: OU-4K9-F</p>
-                        </div>
-                        <div class="dashboard-observer-badge">2</div>
-                    </div>
-                    <div class="dashboard-observer-separator"></div>
+                    <!-- Observer 1: 1125_Election_Ballot_12 -->
+                    <p class="dashboard-observer-name" style="top: 269px;">1125_Election_Ballot_12</p>
+                    <p class="dashboard-observer-serial" style="top: 300.5px;">SERIAL: OU-29H-G</p>
+                    <div class="dashboard-observer-badge" style="top: 272.5px;">3</div>
                     
-                    <!-- Observer 3 -->
-                    <div class="dashboard-observer-item">
-                        <div class="dashboard-observer-info">
-                            <p class="dashboard-observer-name">N25_EvidenceRoom_Storage_2</p>
-                            <p class="dashboard-observer-serial">SERIAL: OU-9ZP-7</p>
-                        </div>
-                    </div>
-                    <div class="dashboard-observer-separator"></div>
+                    <!-- Separator 2 -->
+                    <div class="dashboard-observer-separator" style="top: 317px;"></div>
                     
-                    <!-- Observer 4 -->
-                    <div class="dashboard-observer-item">
-                        <div class="dashboard-observer-info">
-                            <p class="dashboard-observer-name">N25_EvidenceRoom_Storage_3</p>
-                            <p class="dashboard-observer-serial">SERIAL: OU-A3T-W</p>
-                        </div>
-                    </div>
-                    <div class="dashboard-observer-separator"></div>
+                    <!-- Observer 2: N25_EvidenceRoom_Storage_1 -->
+                    <p class="dashboard-observer-name" style="top: 328px;">N25_EvidenceRoom_Storage_1</p>
+                    <p class="dashboard-observer-serial" style="top: 359.5px;">SERIAL: OU-4K9-F</p>
+                    <div class="dashboard-observer-badge" style="top: 331.5px;">2</div>
+                    
+                    <!-- Separator 3 -->
+                    <div class="dashboard-observer-separator" style="top: 376px;"></div>
+                    
+                    <!-- Observer 3: N25_EvidenceRoom_Storage_2 -->
+                    <p class="dashboard-observer-name" style="top: 387px;">N25_EvidenceRoom_Storage_2</p>
+                    <p class="dashboard-observer-serial" style="top: 418.5px;">SERIAL: OU-9ZP-7</p>
+                    
+                    <!-- Separator 4 -->
+                    <div class="dashboard-observer-separator" style="top: 435px;"></div>
+                    
+                    <!-- Observer 4: N25_EvidenceRoom_Storage_3 -->
+                    <p class="dashboard-observer-name" style="top: 446px;">N25_EvidenceRoom_Storage_3</p>
+                    <p class="dashboard-observer-serial" style="top: 477.5px;">SERIAL: OU-A3T-W</p>
+                    
+                    <!-- Separator 5 -->
+                    <div class="dashboard-observer-separator" style="top: 494px;"></div>
                 </div>
                 
                 <!-- Register New Observer Button -->
