@@ -232,25 +232,12 @@ class TracealApp {
     }
 
     setupObserverLogScreen() {
-        const backBtn = document.getElementById('log-back-btn');
-        
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                // Go back to dashboard
-                this.showScreen('dashboard-screen');
-            });
-        }
+        // Back button is already handled in setupEventListeners
+        // Just setup other specific functionality here if needed
     }
 
     setupEventLogScreen() {
-        const backBtn = document.getElementById('event-back-btn');
-        
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                // Go back to dashboard
-                this.showScreen('dashboard-screen');
-            });
-        }
+        // Back button is already handled in setupEventListeners
         
         // Setup sensor detail modal
         this.setupSensorModal();
@@ -359,6 +346,15 @@ class TracealApp {
                 this.showScreen('observer-log-screen');
             });
         }
+        
+        // Make observer list items clickable to open event log
+        const observerNames = document.querySelectorAll('.dashboard-observer-name');
+        observerNames.forEach(name => {
+            name.style.cursor = 'pointer';
+            name.addEventListener('click', () => {
+                this.showScreen('event-log-screen');
+            });
+        });
         
         // Register New Observer button
         const registerBtn = document.getElementById('dashboard-register-btn');
