@@ -797,6 +797,53 @@
             <div class="tamper-bottom-bar"></div>
         </div>
 
+        <!-- Re-authentication Screen (Frame 15) -->
+        <div id="reauth-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="reauth-status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="reauth-nav-bar">
+                <!-- Logo Group -->
+                <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Re-authentication Content -->
+            <div class="reauth-content">
+                <!-- User Authentication -->
+                <h1 class="reauth-title">User Authentication</h1>
+                
+                <!-- Rectangle 519 (Stroke) -->
+                <div class="reauth-title-underline"></div>
+                
+                <!-- Description -->
+                <p class="reauth-description">Authenticate your administrator ID again to prove intentional deactivation.</p>
+                
+                <!-- Form -->
+                <form id="reauth-form">
+                    <!-- USER ID / SERIAL Label -->
+                    <label for="reauth-user-id" class="reauth-form-label">USER ID / SERIAL</label>
+                    
+                    <!-- Rectangle 596 - User ID Input -->
+                    <input type="text" id="reauth-user-id" class="reauth-form-input" placeholder="">
+                    
+                    <!-- PASSWORD Label -->
+                    <label for="reauth-password" class="reauth-form-label reauth-password-label">PASSWORD</label>
+                    
+                    <!-- Rectangle 602 - Password Input -->
+                    <input type="password" id="reauth-password" class="reauth-form-input reauth-password-input" placeholder="">
+                    
+                    <!-- Rectangle 605 - Authenticate Button -->
+                    <button type="submit" class="reauth-btn-submit">
+                        <span class="reauth-btn-text">Authenticate</span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Rectangle 512 - Bottom Bar -->
+            <div class="reauth-bottom-bar"></div>
+        </div>
+
         <!-- Dashboard Screen (Frame 9) -->
         <div id="dashboard-screen" class="screen">
             <!-- Status Bar -->

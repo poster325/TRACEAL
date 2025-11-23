@@ -1963,6 +1963,209 @@ body {
 }
 
 /* ===================================
+   RE-AUTHENTICATION SCREEN - Frame 15
+   Exact Figma CSS Export
+   =================================== */
+
+#reauth-screen {
+    /* Frame 15 */
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #E34949;
+}
+
+/* Rectangle 506 - Status Bar */
+.reauth-status-bar {
+    position: absolute;
+    width: 375px;
+    height: 44px;
+    left: 0px;
+    top: 0px;
+    background: #E34949;
+}
+
+/* Rectangle 508 - Navigation Bar */
+.reauth-nav-bar {
+    position: absolute;
+    width: 375px;
+    height: 44px;
+    left: 0px;
+    top: 44px;
+    background: #E34949;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Re-authentication Content */
+.reauth-content {
+    position: relative;
+    width: 375px;
+    height: 100%;
+}
+
+/* User Authentication */
+.reauth-title {
+    position: absolute;
+    width: 197px;
+    height: 35px;
+    left: calc(50% - 197px/2);
+    top: 211.5px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Rectangle 519 (Stroke) */
+.reauth-title-underline {
+    position: absolute;
+    width: 196.73px;
+    height: 2px;
+    left: 89px;
+    top: 253px;
+    
+    background: #FFFFFF;
+}
+
+/* Authenticate your administrator ID... */
+.reauth-description {
+    position: absolute;
+    width: 343px;
+    height: 48px;
+    left: 16px;
+    top: 262.5px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Form Labels */
+.reauth-form-label {
+    position: absolute;
+    display: block;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    
+    color: #FFFFFF;
+}
+
+/* USER ID / SERIAL */
+.reauth-form-label[for="reauth-user-id"] {
+    width: 86px;
+    height: 18px;
+    left: 16px;
+    top: 329.99px;
+}
+
+/* PASSWORD */
+.reauth-password-label {
+    width: 60px;
+    height: 18px;
+    left: 16px;
+    top: 405.99px;
+}
+
+/* Form Inputs */
+.reauth-form-input {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    padding: 0 16px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #1A1A1A;
+    outline: none;
+}
+
+/* Rectangle 596 - User ID Input */
+#reauth-user-id {
+    top: 349.99px;
+}
+
+/* Rectangle 602 - Password Input */
+.reauth-password-input {
+    top: 425.99px;
+}
+
+.reauth-form-input::placeholder {
+    color: rgba(26, 26, 26, 0.4);
+}
+
+/* Rectangle 605 - Authenticate Button */
+.reauth-btn-submit {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 501.99px;
+    
+    background: #5E1D1D;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Authenticate */
+.reauth-btn-text {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #E34949;
+}
+
+.reauth-btn-submit:active {
+    opacity: 0.8;
+}
+
+/* Rectangle 512 - Bottom Bar */
+.reauth-bottom-bar {
+    position: absolute;
+    width: 375px;
+    height: 34px;
+    left: 0px;
+    top: 778px;
+    
+    background: #1A1A1A;
+}
+
+/* ===================================
    DASHBOARD SCREEN - Frame 9
    Exact Figma CSS Export
    =================================== */

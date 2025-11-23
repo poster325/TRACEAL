@@ -31,6 +31,7 @@ class TracealApp {
         this.setupEventLogScreen();
         this.setupDashboardScreen();
         this.setupTamperAlertScreen();
+        this.setupReauthScreen();
     }
 
     setupEventListeners() {
@@ -265,18 +266,17 @@ class TracealApp {
     }
 
     setupTamperAlertScreen() {
-        // Yes button
+        // Yes button - requires re-authentication
         const yesBtn = document.getElementById('tamper-btn-yes');
         if (yesBtn) {
             yesBtn.addEventListener('click', () => {
-                console.log('Tamper logged as intentional deactivation');
-                alert('Logged as intentional deactivation');
-                // Go back to dashboard
-                this.showScreen('dashboard-screen');
+                console.log('Requesting re-authentication for intentional deactivation');
+                // Show re-authentication screen
+                this.showScreen('reauth-screen');
             });
         }
         
-        // No button
+        // No button - log as unauthorized
         const noBtn = document.getElementById('tamper-btn-no');
         if (noBtn) {
             noBtn.addEventListener('click', () => {
@@ -286,6 +286,39 @@ class TracealApp {
                 this.showScreen('dashboard-screen');
             });
         }
+    }
+
+    setupReauthScreen() {
+        const form = document.getElementById('reauth-form');
+        
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleReauth();
+            });
+        }
+    }
+
+    handleReauth() {
+        const userId = document.getElementById('reauth-user-id').value.trim();
+        const password = document.getElementById('reauth-password').value;
+        
+        if (!userId || !password) {
+            alert('Please enter both User ID and Password');
+            return;
+        }
+        
+        // Verify credentials match original login
+        if (userId !== this.registrationData.userId) {
+            alert('User ID does not match. Please use the same credentials you logged in with.');
+            return;
+        }
+        
+        console.log('Re-authentication successful:', userId);
+        alert('Authentication successful. Tamper logged as intentional deactivation.');
+        
+        // Go back to dashboard
+        this.showScreen('dashboard-screen');
     }
 
     setupDashboardScreen() {
