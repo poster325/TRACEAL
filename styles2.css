@@ -172,54 +172,48 @@ body {
 }
 
 /* ===================================
-   LOGIN SCREEN - Frame 4 (267:363)
-   Exact Figma Specifications
+   LOGIN SCREEN - Frame 4
+   Exact Figma CSS Export
    =================================== */
 
 #login-screen {
-    /* Background: RGB(0.298, 0.318, 0.345) = #1A1A1A */
-    background-color: #1A1A1A;
+    /* Frame 4 */
     position: relative;
     width: 375px;
     height: 812px;
+    background: #1A1A1A;
 }
 
-/* Status Bar (233:75)
-   Position: x:0, y:0
-   Size: 375x44 */
+/* Rectangle 506 - Status Bar */
 .status-bar {
     position: absolute;
-    left: 0;
-    top: 0;
     width: 375px;
     height: 44px;
-    background-color: #1A1A1A;
+    left: 0px;
+    top: 0px;
+    background: #1A1A1A;
 }
 
-/* Navigation Bar (233:77)
-   Position: x:0, y:44
-   Size: 375x44 */
+/* Rectangle 508 - Navigation Bar */
 .nav-bar {
     position: absolute;
-    left: 0;
-    top: 44px;
     width: 375px;
     height: 44px;
-    background-color: #1A1A1A;
+    left: 0px;
+    top: 44px;
+    background: #1A1A1A;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Logo Group (274:444) as SVG
-   Position: x:148.687, y:53.5 (relative to frame)
-   Size: 77.627x25 */
+/* Group 415 - Logo */
 .nav-logo {
     position: absolute;
-    left: 148.687px;
-    top: 9.5px;
-    width: 77.627px;
+    width: 77.63px;
     height: 25px;
+    left: calc(50% - 77.63px/2 - 0px);
+    top: 9.5px;
 }
 
 /* Content Wrapper */
@@ -229,55 +223,54 @@ body {
     height: 100%;
 }
 
-/* User Authentication Title (269:377)
-   Position: x:89, y:211.497
-   Size: 197x35
-   Font: Kräftig 22 */
+/* User Authentication */
 .login-title {
     position: absolute;
-    left: 89px;
-    top: 211.497px;
     width: 197px;
     height: 35px;
-    color: rgb(255, 255, 255);
-    font-family: 'Sohne', sans-serif;
+    left: calc(50% - 197px/2);
+    top: 211.5px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
     font-weight: 500;
     font-size: 22px;
     line-height: 35px;
-    letter-spacing: 0;
+    display: flex;
+    align-items: center;
     text-align: center;
+    
+    color: #FFFFFF;
     margin: 0;
 }
 
-/* Title Underline (275:661)
-   Position: x:89, y:252.997
-   Size: 196.727x2 */
+/* Rectangle 519 (Stroke) */
 .title-underline {
     position: absolute;
-    left: 89px;
-    top: 252.997px;
-    width: 196.727px;
+    width: 196.73px;
     height: 2px;
-    background-color: rgb(255, 255, 255);
+    left: 89px;
+    top: 253px;
+    
+    background: #FFFFFF;
 }
 
-/* Description Text (274:398)
-   Position: x:16, y:262.495
-   Size: 343x48
-   Font: Leicht 17, aligned center */
+/* Authenticate your administrator ID... */
 .login-description {
     position: absolute;
-    left: 16px;
-    top: 262.495px;
     width: 343px;
     height: 48px;
-    color: rgb(255, 255, 255);
-    font-family: 'Sohne', sans-serif;
+    left: 16px;
+    top: 262.5px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
     font-weight: 300;
     font-size: 17px;
-    line-height: 24px;
-    letter-spacing: 0;
+    line-height: 140%;
     text-align: center;
+    
+    color: #FFFFFF;
     margin: 0;
 }
 
@@ -323,38 +316,34 @@ body {
     margin: 0;
 }
 
-/* Form Labels
-   Font: Buch 11 */
+/* Form Labels */
 .form-label {
     position: absolute;
     display: block;
-    color: rgb(255, 255, 255);
-    font-family: 'Sohne', sans-serif;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
     font-weight: 400;
     font-size: 11px;
     line-height: 18px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    
+    color: #FFFFFF;
 }
 
-/* USER ID / SERIAL Label (269:386)
-   Position: x:16, y:329.994
-   Size: auto x 18 (width auto to fit text) */
+/* USER ID / SERIAL */
 .form-label[for="login-user-id"] {
-    left: 16px;
-    top: 329.994px;
-    width: auto;
+    width: 86px;
     height: 18px;
+    left: 16px;
+    top: 329.99px;
 }
 
-/* PASSWORD Label (269:389)
-   Position: x:16, y:405.994
-   Size: 60x18 */
+/* PASSWORD */
 .form-label[for="login-password"] {
-    left: 16px;
-    top: 405.994px;
     width: 60px;
     height: 18px;
+    left: 16px;
+    top: 405.99px;
 }
 
 /* Form Inputs */
@@ -428,29 +417,29 @@ body {
     opacity: 0.8;
 }
 
-/* Sign Up Text (274:451)
-   Position: x:138.5, y:557.994 (or below error if shown)
-   Size: 98x18
-   Font: Buch 11 */
+/* to register: SIGN UP */
 .signup-text {
     position: absolute;
-    left: 138.5px;
-    top: 557.994px;
     width: 98px;
     height: 18px;
-    color: rgba(255, 255, 255, 0.6);
-    font-family: 'Sohne', sans-serif;
+    left: 138.5px;
+    top: 557.99px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
     font-weight: 400;
     font-size: 11px;
     line-height: 18px;
-    letter-spacing: 0;
+    text-align: center;
+    
+    color: #FFFFFF;
     margin: 0;
     white-space: nowrap;
 }
 
 /* When error is shown, push signup text down */
 .login-error:not(.hidden) ~ .signup-text {
-    top: 634.994px;
+    top: 634.99px;
 }
 
 .signup-link {
