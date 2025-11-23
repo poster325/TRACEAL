@@ -1054,6 +1054,273 @@ body {
 }
 
 /* ===================================
+   OBSERVER LOG SCREEN - Frame 16
+   Exact Figma CSS Export
+   =================================== */
+
+#observer-log-screen {
+    /* Frame 16 */
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #FFFFFF;
+}
+
+/* Back Button - Frame */
+.back-btn {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 16px;
+    top: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Observer Log Content */
+.observer-log-content {
+    position: relative;
+    width: 375px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Observer Log */
+.observer-log-title {
+    position: absolute;
+    width: 134px;
+    height: 24px;
+    left: calc(50% - 134px/2 - 104.5px);
+    top: 108px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    
+    color: #1A1A1A;
+    margin: 0;
+}
+
+/* John A. Smith */
+.observer-log-manager {
+    position: absolute;
+    width: 67px;
+    height: 12px;
+    left: calc(50% - 67px/2 + 136px);
+    top: 118px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    
+    color: #4C5158;
+    margin: 0;
+}
+
+/* Rectangle 519 (Stroke) */
+.observer-log-title-underline {
+    position: absolute;
+    width: 343px;
+    height: 2px;
+    left: 16px;
+    top: 138px;
+    
+    background: #C8CCD2;
+}
+
+/* Summary Card */
+.observer-log-summary {
+    position: absolute;
+    left: 16px;
+    top: 154px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.summary-icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: 10px;
+}
+
+.summary-text {
+    position: relative;
+}
+
+/* All Observers Connected */
+.summary-title {
+    width: 246px;
+    height: 31px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #3B7FFF;
+    margin: 0;
+}
+
+/* 3 Responsible Observers */
+.summary-subtitle {
+    width: 145px;
+    height: 18px;
+    margin-top: -2px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #1A1A1A;
+    margin-bottom: 0;
+}
+
+/* Rectangle 608 - Timeline Line */
+.timeline-line {
+    position: absolute;
+    width: 2px;
+    height: 672px;
+    left: 31px;
+    top: 140px;
+    
+    background: #70757D;
+}
+
+/* Log Entries Container */
+.log-entries {
+    position: relative;
+    width: 100%;
+}
+
+/* Individual Log Entry */
+.log-entry {
+    position: absolute;
+    width: 343px;
+    left: 0;
+}
+
+/* Log Icon - Ellipse 12 */
+.log-icon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Log Details */
+.log-details {
+    position: absolute;
+    left: 64px;
+}
+
+/* Timestamp - 2025.11.25 15:19:32 */
+.log-timestamp {
+    position: absolute;
+    top: -17px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    margin: 0;
+}
+
+/* Event Name */
+.log-event-name {
+    position: absolute;
+    top: 0;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    margin: 0;
+}
+
+/* Observer Name */
+.log-observer-name {
+    position: absolute;
+    top: -17px;
+    right: 0;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    
+    color: #000000;
+    margin: 0;
+}
+
+/* Log Separator Lines */
+.log-separator {
+    position: absolute;
+    width: 322px;
+    height: 2px;
+    left: 37px;
+    top: 15px;
+}
+
+/* Timeline Markers - Polygon (diamond shapes) */
+.timeline-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 27px;
+    background: #70757D;
+    transform: rotate(45deg);
+}
+
+/* Rectangle 512 - Bottom Bar */
+.observer-log-bottom-bar {
+    position: absolute;
+    width: 375px;
+    height: 34px;
+    left: 0px;
+    top: 778px;
+    
+    background: #1A1A1A;
+}
+
+/* ===================================
    DASHBOARD SCREEN - Frame 9
    Exact Figma CSS Export
    =================================== */

@@ -27,6 +27,7 @@ class TracealApp {
         this.setupRegisterForm();
         this.setupObserverNameForm();
         this.setupConfirmScreen();
+        this.setupObserverLogScreen();
     }
 
     setupEventListeners() {
@@ -198,6 +199,17 @@ class TracealApp {
         
         // Go back to login for now
         this.showScreen('login-screen');
+    }
+
+    setupObserverLogScreen() {
+        const backBtn = document.getElementById('log-back-btn');
+        
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                // Go back to previous screen (dashboard when implemented)
+                this.showScreen('login-screen');
+            });
+        }
     }
 }
 
