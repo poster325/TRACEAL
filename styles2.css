@@ -1321,6 +1321,270 @@ body {
 }
 
 /* ===================================
+   EVENT LOG SCREEN - Frame 5
+   Exact Figma CSS Export
+   =================================== */
+
+#event-log-screen {
+    /* Frame 5 */
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #FFFFFF;
+}
+
+/* Event Log Content */
+.event-log-content {
+    position: relative;
+    width: 375px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Event Log */
+.event-log-title {
+    position: absolute;
+    width: 98px;
+    height: 24px;
+    left: calc(50% - 98px/2 - 122.5px);
+    top: 108px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    
+    color: #1A1A1A;
+    margin: 0;
+}
+
+/* N25_EvidenceRoom_Storage_1 */
+.event-log-observer {
+    position: absolute;
+    width: 152px;
+    height: 12px;
+    left: calc(50% - 152px/2 + 93.5px);
+    top: 118px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    
+    color: #4C5158;
+    margin: 0;
+}
+
+/* Rectangle 519 (Stroke) */
+.event-log-title-underline {
+    position: absolute;
+    width: 343px;
+    height: 2px;
+    left: 16px;
+    top: 138px;
+    
+    background: #C8CCD2;
+}
+
+/* Event Summary Card */
+.event-log-summary {
+    position: absolute;
+    left: 16px;
+    top: 154px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.event-summary-icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: 10px;
+}
+
+.event-summary-text {
+    position: relative;
+}
+
+/* System Tampered! */
+.event-summary-title {
+    width: 184px;
+    height: 31px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #E34949;
+    margin: 0;
+}
+
+/* 2 Recent Tampers */
+.event-summary-subtitle {
+    width: 105px;
+    height: 18px;
+    margin-top: -2px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #1A1A1A;
+    margin-bottom: 0;
+}
+
+/* Rectangle 608 - Timeline Line */
+.event-timeline-line {
+    position: absolute;
+    width: 2px;
+    height: 672px;
+    left: 31px;
+    top: 140px;
+    
+    background: #70757D;
+}
+
+/* Rectangle 622 - Tamper Highlight */
+.tamper-highlight {
+    position: absolute;
+    width: 375px;
+    height: 59px;
+    left: 0px;
+    
+    background: #E34949;
+}
+
+/* Event Entries Container */
+.event-entries {
+    position: relative;
+    width: 100%;
+}
+
+/* Individual Event Entry */
+.event-entry {
+    position: absolute;
+    width: 343px;
+    left: 0;
+}
+
+/* Event Icon */
+.event-icon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Event Details */
+.event-details {
+    position: absolute;
+    left: 64px;
+}
+
+/* Event Timestamp */
+.event-timestamp {
+    position: absolute;
+    top: -17px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    margin: 0;
+}
+
+/* Event Name */
+.event-name {
+    position: absolute;
+    top: 0;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    margin: 0;
+}
+
+/* Sensor ID */
+.event-sensor {
+    position: absolute;
+    top: -17px;
+    right: 0;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    
+    color: #000000;
+    margin: 0;
+}
+
+/* Event Separator Lines */
+.event-separator {
+    position: absolute;
+    width: 322px;
+    height: 2px;
+    left: 37px;
+    top: 15px;
+}
+
+/* Event Timeline Markers */
+.event-timeline-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 27px;
+    background: #70757D;
+    transform: rotate(45deg);
+}
+
+/* Rectangle 512 - Bottom Bar */
+.event-log-bottom-bar {
+    position: absolute;
+    width: 375px;
+    height: 34px;
+    left: 0px;
+    top: 778px;
+    
+    background: #1A1A1A;
+}
+
+/* ===================================
    DASHBOARD SCREEN - Frame 9
    Exact Figma CSS Export
    =================================== */
@@ -1333,27 +1597,303 @@ body {
     background: #FFFFFF;
 }
 
+/* Settings Button - Frame */
+.settings-btn {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 335px;
+    top: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
 /* Dashboard Content */
 .dashboard-content {
     position: relative;
     width: 375px;
-    height: calc(100% - 88px - 49px - 34px); /* Total height - status/nav - tab bar - home indicator */
-    top: 88px; /* After status bar (44px) + nav bar (44px) */
-    overflow-y: auto;
+    height: 100%;
 }
 
-/* Tab Bar */
-.tab-bar {
+/* John A. Smith */
+.dashboard-manager-name {
     position: absolute;
-    bottom: 34px; /* Above home indicator */
-    left: 0;
-    width: 375px;
-    height: 49px;
-    background: #FFFFFF;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 134px;
+    height: 24px;
+    left: calc(50% - 134px/2 - 104.27px);
+    top: 108px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    
+    color: #1A1A1A;
+    margin: 0;
+}
+
+/* KAIST ID */
+.dashboard-manager-id {
+    position: absolute;
+    width: 44px;
+    height: 12px;
+    left: calc(50% - 44px/2 + 147.5px);
+    top: 118px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    
+    color: #4C5158;
+    margin: 0;
+}
+
+/* Rectangle 610 (Stroke) */
+.dashboard-title-underline {
+    position: absolute;
+    width: 343px;
+    height: 2px;
+    left: 16px;
+    top: 138px;
+    
+    background: #C8CCD2;
+}
+
+/* Stats Container */
+.dashboard-stats {
+    position: absolute;
+    left: 16px;
+    top: 166px;
+}
+
+.dashboard-stat-row {
+    display: flex;
+    gap: 17px;
+    margin-bottom: 0;
+}
+
+.dashboard-stat-row:first-child {
+    margin-bottom: 0;
+}
+
+/* Registered Observers: / New Events to confirm: */
+.dashboard-stat-label {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 140%;
+    color: #1A1A1A;
+}
+
+/* 4 */
+.dashboard-stat-value {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    text-align: right;
+    color: #1A1A1A;
+}
+
+/* Rectangle 602 - Observer Log Button */
+.dashboard-observer-log-btn {
+    position: absolute;
+    width: 171px;
+    height: 44px;
+    left: 188px;
+    top: 162px;
+    
+    background: #4C5158;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 21px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
+.dashboard-observer-log-btn:active {
+    opacity: 0.8;
+}
+
+/* OBSERVERS */
+.dashboard-observers-title {
+    position: absolute;
+    width: 64px;
+    height: 18px;
+    left: 16px;
+    top: 240px;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 18px;
+    
+    color: #1A1A1A;
+    margin: 0;
+}
+
+/* Observer List */
+.dashboard-observer-list {
+    position: absolute;
+    left: 16px;
+    top: 258px;
+    width: 343px;
+}
+
+/* Observer Item */
+.dashboard-observer-item {
+    position: relative;
+    height: 59px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-observer-info {
+    flex: 1;
+}
+
+/* Observer Name */
+.dashboard-observer-name {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    color: #1A1A1A;
+    margin: 0 0 0 0;
+}
+
+/* SERIAL */
+.dashboard-observer-serial {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #70757D;
+    margin: 0;
+}
+
+/* Ellipse 10/11 - Badge */
+.dashboard-observer-badge {
+    width: 32px;
+    height: 32px;
+    background: #E34949;
+    border-radius: 50%;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
+/* Observer Separator */
+.dashboard-observer-separator {
+    width: 343px;
+    height: 2px;
+    background: #C8CCD2;
+}
+
+/* Rectangle 602 - Register New Observer Button */
+.dashboard-register-btn {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 527px;
+    
+    background: #3B7FFF;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Register New Observer */
+.dashboard-register-btn-text {
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
+.dashboard-register-btn:active {
+    opacity: 0.8;
+}
+
+/* DELETE OBSERVER */
+.dashboard-delete-link {
+    position: absolute;
+    width: 99px;
+    height: 18px;
+    left: calc(50% - 99px/2);
+    top: 580px;
+    
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    text-align: center;
+    
+    color: #E34949;
+}
+
+/* Rectangle 512 - Bottom Bar */
+.dashboard-bottom-bar {
+    position: absolute;
+    width: 375px;
+    height: 34px;
+    left: 0px;
+    top: 778px;
+    
+    background: #1A1A1A;
 }
 
 /* ===================================

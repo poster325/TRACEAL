@@ -28,6 +28,8 @@ class TracealApp {
         this.setupObserverNameForm();
         this.setupConfirmScreen();
         this.setupObserverLogScreen();
+        this.setupEventLogScreen();
+        this.setupDashboardScreen();
     }
 
     setupEventListeners() {
@@ -91,9 +93,8 @@ class TracealApp {
         // Simulate loading for 1.5 seconds
         setTimeout(() => {
             console.log('Login successful:', userId);
-            alert('Dashboard will be added in next screen');
-            // Go back to login for now
-            this.showScreen('login-screen');
+            // Show dashboard
+            this.showScreen('dashboard-screen');
         }, 1500);
     }
 
@@ -195,10 +196,10 @@ class TracealApp {
 
     handleConfirm() {
         console.log('Registration confirmed:', this.registrationData);
-        alert('Observer registered successfully! Dashboard will be added.');
+        alert('Observer registered successfully!');
         
-        // Go back to login for now
-        this.showScreen('login-screen');
+        // Go back to dashboard
+        this.showScreen('dashboard-screen');
     }
 
     setupObserverLogScreen() {
@@ -206,10 +207,64 @@ class TracealApp {
         
         if (backBtn) {
             backBtn.addEventListener('click', () => {
-                // Go back to previous screen (dashboard when implemented)
-                this.showScreen('login-screen');
+                // Go back to dashboard
+                this.showScreen('dashboard-screen');
             });
         }
+    }
+
+    setupEventLogScreen() {
+        const backBtn = document.getElementById('event-back-btn');
+        
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                // Go back to dashboard
+                this.showScreen('dashboard-screen');
+            });
+        }
+    }
+
+    setupDashboardScreen() {
+        // Observer Log button
+        const observerLogBtn = document.getElementById('dashboard-observer-log-btn');
+        if (observerLogBtn) {
+            observerLogBtn.addEventListener('click', () => {
+                this.showScreen('observer-log-screen');
+            });
+        }
+        
+        // Register New Observer button
+        const registerBtn = document.getElementById('dashboard-register-btn');
+        if (registerBtn) {
+            registerBtn.addEventListener('click', () => {
+                this.showScreen('observer-register-screen');
+            });
+        }
+        
+        // Delete Observer button
+        const deleteBtn = document.getElementById('dashboard-delete-btn');
+        if (deleteBtn) {
+            deleteBtn.addEventListener('click', () => {
+                alert('Delete observer functionality will be added');
+            });
+        }
+        
+        // Settings button
+        const settingsBtn = document.getElementById('settings-btn');
+        if (settingsBtn) {
+            settingsBtn.addEventListener('click', () => {
+                alert('Settings functionality will be added');
+            });
+        }
+        
+        // Observer items - click to view event log
+        const observerItems = document.querySelectorAll('.dashboard-observer-item');
+        observerItems.forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => {
+                this.showScreen('event-log-screen');
+            });
+        });
     }
 }
 

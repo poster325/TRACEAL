@@ -450,6 +450,207 @@
             <div class="observer-log-bottom-bar"></div>
         </div>
 
+        <!-- Event Log Screen (Frame 5) -->
+        <div id="event-log-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <!-- Back Button -->
+                <button class="back-btn" id="event-back-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Logo Group -->
+                <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Event Log Content -->
+            <div class="event-log-content">
+                <!-- Event Log Title -->
+                <h1 class="event-log-title">Event Log</h1>
+                
+                <!-- Observer Name -->
+                <p class="event-log-observer">N25_EvidenceRoom_Storage_1</p>
+                
+                <!-- Rectangle 519 (Stroke) -->
+                <div class="event-log-title-underline"></div>
+                
+                <!-- Summary Card -->
+                <div class="event-log-summary">
+                    <div class="event-summary-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="16" fill="#E34949"/>
+                            <path d="M16 10V16M16 22H16.01" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="event-summary-text">
+                        <h2 class="event-summary-title">System Tampered!</h2>
+                        <p class="event-summary-subtitle">2 Recent Tampers</p>
+                    </div>
+                </div>
+                
+                <!-- Rectangle 608 - Timeline Line -->
+                <div class="event-timeline-line"></div>
+                
+                <!-- Event Entries -->
+                <div class="event-entries">
+                    <!-- Tamper 1 - Rectangle 622 -->
+                    <div class="tamper-highlight" style="top: 219px;"></div>
+                    
+                    <!-- Tamper 2 - Rectangle 622 -->
+                    <div class="tamper-highlight" style="top: 278px;"></div>
+                    
+                    <!-- Entry 1: Tamper Detected -->
+                    <div class="event-entry" style="top: 232px;">
+                        <div class="event-icon" style="background: #FFFFFF;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 9V13M12 17H12.01" stroke="#E34949" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp" style="color: #FFFFFF;">2025.11.25 18:33:22</p>
+                            <p class="event-name" style="color: #FFFFFF;">Tamper Detected</p>
+                            <p class="event-sensor" style="color: #FFFFFF;">Sensor ID: SU-87SJT-2</p>
+                        </div>
+                        <div class="event-separator" style="background: #FFFFFF;"></div>
+                    </div>
+                    
+                    <!-- Entry 2: Tamper Detected -->
+                    <div class="event-entry" style="top: 291px;">
+                        <div class="event-icon" style="background: #FFFFFF;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 9V13M12 17H12.01" stroke="#E34949" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp" style="color: #FFFFFF;">2025.11.25 15:19:32</p>
+                            <p class="event-name" style="color: #FFFFFF;">Tamper Detected</p>
+                            <p class="event-sensor" style="color: #FFFFFF;">Sensor ID: SU-3AJOF-K</p>
+                        </div>
+                        <div class="event-separator" style="background: #FFFFFF;"></div>
+                        <div class="event-timeline-marker" style="top: 56px;"></div>
+                    </div>
+                    
+                    <!-- Entry 3: Seal Activated -->
+                    <div class="event-entry" style="top: 380px;">
+                        <div class="event-icon" style="background: #4C5158;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="10" width="8" height="8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp">2025.11.25 12:00:25</p>
+                            <p class="event-name">Seal Activated</p>
+                            <p class="event-sensor">Sensor ID: SU-1908S-L</p>
+                        </div>
+                        <div class="event-separator" style="background: #4C5158;"></div>
+                        <div class="event-timeline-marker" style="top: -33px;"></div>
+                    </div>
+                    
+                    <!-- Entry 4: Seal Activated -->
+                    <div class="event-entry" style="top: 439px;">
+                        <div class="event-icon" style="background: #4C5158;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="10" width="8" height="8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp">2025.11.25 12:00:14</p>
+                            <p class="event-name">Seal Activated</p>
+                            <p class="event-sensor">Sensor ID: SU-3AJOF-K</p>
+                        </div>
+                        <div class="event-separator" style="background: #4C5158;"></div>
+                    </div>
+                    
+                    <!-- Entry 5: Seal Activated -->
+                    <div class="event-entry" style="top: 498px;">
+                        <div class="event-icon" style="background: #4C5158;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="10" width="8" height="8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp">2025.11.25 12:00:02</p>
+                            <p class="event-name">Seal Activated</p>
+                            <p class="event-sensor">Sensor ID: SU-87SJT-2</p>
+                        </div>
+                        <div class="event-separator" style="background: #4C5158;"></div>
+                        <div class="event-timeline-marker" style="top: 56px;"></div>
+                    </div>
+                    
+                    <!-- Entry 6: Seal Deactivated -->
+                    <div class="event-entry" style="top: 587px;">
+                        <div class="event-icon" style="background: #C8CCD2;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="10" width="8" height="8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp">2025.11.13 21:34:22</p>
+                            <p class="event-name">Seal Deactivated</p>
+                            <p class="event-sensor">Sensor ID: SU-87SJT-2</p>
+                        </div>
+                        <div class="event-separator" style="background: #C8CCD2;"></div>
+                    </div>
+                    
+                    <!-- Entry 7: Low Battery -->
+                    <div class="event-entry" style="top: 646px;">
+                        <div class="event-icon" style="background: #E34949;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="6" y="10" width="12" height="8" rx="1" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                                <line x1="18" y1="12" x2="18" y2="16" stroke="#FFFFFF" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp">2025.11.13 21:31:00</p>
+                            <p class="event-name">Low Battery</p>
+                            <p class="event-sensor">Sensor ID: SU-87SJT-2</p>
+                        </div>
+                        <div class="event-separator" style="background: #E34949;"></div>
+                        <div class="event-timeline-marker" style="top: 56px;"></div>
+                    </div>
+                    
+                    <!-- Entry 8: Seal Deactivated -->
+                    <div class="event-entry" style="top: 735px;">
+                        <div class="event-icon" style="background: #C8CCD2;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="10" width="8" height="8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp">2025.11.10 21:30:22</p>
+                            <p class="event-name">Seal Deactivated</p>
+                            <p class="event-sensor">Sensor ID: SU-1908S-L</p>
+                        </div>
+                        <div class="event-separator" style="background: #C8CCD2;"></div>
+                        <div class="event-timeline-marker" style="top: -33px;"></div>
+                    </div>
+                    
+                    <!-- Entry 9: Seal Activated -->
+                    <div class="event-entry" style="top: 794px;">
+                        <div class="event-icon" style="background: #4C5158;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="10" width="8" height="8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="event-details">
+                            <p class="event-timestamp">2025.11.10 12:00:22</p>
+                            <p class="event-name">Seal Activated</p>
+                            <p class="event-sensor">Sensor ID: SU-1908S-L</p>
+                        </div>
+                        <div class="event-separator" style="background: #4C5158;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rectangle 512 - Bottom Bar -->
+            <div class="event-log-bottom-bar"></div>
+        </div>
+
         <!-- Dashboard Screen (Frame 9) -->
         <div id="dashboard-screen" class="screen">
             <!-- Status Bar -->
@@ -459,20 +660,99 @@
             <div class="nav-bar">
                 <!-- Logo Group -->
                 <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+                
+                <!-- Settings Icon -->
+                <button class="settings-btn" id="settings-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="2" stroke="#FFFFFF" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="9" stroke="#FFFFFF" stroke-width="2"/>
+                    </svg>
+                </button>
             </div>
 
             <!-- Dashboard Content -->
             <div class="dashboard-content">
-                <!-- Content will be added based on additional Figma CSS -->
+                <!-- Manager Name - John A. Smith -->
+                <h1 class="dashboard-manager-name">John A. Smith</h1>
+                
+                <!-- KAIST ID -->
+                <p class="dashboard-manager-id">KAIST ID</p>
+                
+                <!-- Rectangle 610 (Stroke) -->
+                <div class="dashboard-title-underline"></div>
+                
+                <!-- Stats -->
+                <div class="dashboard-stats">
+                    <div class="dashboard-stat-row">
+                        <span class="dashboard-stat-label">Registered Observers:</span>
+                        <span class="dashboard-stat-value">4</span>
+                    </div>
+                    <div class="dashboard-stat-row">
+                        <span class="dashboard-stat-label">New Events to confirm:</span>
+                        <span class="dashboard-stat-value">4</span>
+                    </div>
+                </div>
+                
+                <!-- Observer Log Button -->
+                <button class="dashboard-observer-log-btn" id="dashboard-observer-log-btn">
+                    <span>Observer Log</span>
+                </button>
+                
+                <!-- OBSERVERS Section -->
+                <h2 class="dashboard-observers-title">OBSERVERS</h2>
+                
+                <!-- Observer List -->
+                <div class="dashboard-observer-list">
+                    <!-- Observer 1 -->
+                    <div class="dashboard-observer-item">
+                        <div class="dashboard-observer-info">
+                            <p class="dashboard-observer-name">1125_Election_Ballot_12</p>
+                            <p class="dashboard-observer-serial">SERIAL: OU-29H-G</p>
+                        </div>
+                        <div class="dashboard-observer-badge">3</div>
+                    </div>
+                    <div class="dashboard-observer-separator"></div>
+                    
+                    <!-- Observer 2 -->
+                    <div class="dashboard-observer-item">
+                        <div class="dashboard-observer-info">
+                            <p class="dashboard-observer-name">N25_EvidenceRoom_Storage_1</p>
+                            <p class="dashboard-observer-serial">SERIAL: OU-4K9-F</p>
+                        </div>
+                        <div class="dashboard-observer-badge">2</div>
+                    </div>
+                    <div class="dashboard-observer-separator"></div>
+                    
+                    <!-- Observer 3 -->
+                    <div class="dashboard-observer-item">
+                        <div class="dashboard-observer-info">
+                            <p class="dashboard-observer-name">N25_EvidenceRoom_Storage_2</p>
+                            <p class="dashboard-observer-serial">SERIAL: OU-9ZP-7</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-observer-separator"></div>
+                    
+                    <!-- Observer 4 -->
+                    <div class="dashboard-observer-item">
+                        <div class="dashboard-observer-info">
+                            <p class="dashboard-observer-name">N25_EvidenceRoom_Storage_3</p>
+                            <p class="dashboard-observer-serial">SERIAL: OU-A3T-W</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-observer-separator"></div>
+                </div>
+                
+                <!-- Register New Observer Button -->
+                <button class="dashboard-register-btn" id="dashboard-register-btn">
+                    <span class="dashboard-register-btn-text">Register New Observer</span>
+                </button>
+                
+                <!-- DELETE OBSERVER Link -->
+                <button class="dashboard-delete-link" id="dashboard-delete-btn">DELETE OBSERVER</button>
             </div>
             
-            <!-- Tab Bar -->
-            <div class="tab-bar">
-                <!-- Tabs will be added based on additional Figma CSS -->
-            </div>
-            
-            <!-- Home Indicator -->
-            <div class="home-indicator"></div>
+            <!-- Rectangle 512 - Bottom Bar -->
+            <div class="dashboard-bottom-bar"></div>
         </div>
     </div>
 
