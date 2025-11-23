@@ -350,11 +350,11 @@ body {
 
 /* USER ID / SERIAL Label (269:386)
    Position: x:16, y:329.994
-   Size: 86x18 */
+   Size: auto x 18 (width auto to fit text) */
 .form-label[for="login-user-id"] {
     left: 16px;
     top: 329.994px;
-    width: 86px;
+    width: auto;
     height: 18px;
 }
 
