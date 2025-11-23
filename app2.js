@@ -18,6 +18,7 @@ class TracealApp {
         }, 2500);
         
         this.setupEventListeners();
+        this.setupRegisterForm();
     }
 
     setupEventListeners() {
@@ -82,16 +83,18 @@ class TracealApp {
             // Go back to login for now
             this.showScreen('login-screen');
         }, 1500);
-    },
+    }
 
     setupRegisterForm() {
         const form = document.getElementById('register-form');
         
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleRegister();
-        });
-    },
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleRegister();
+            });
+        }
+    }
 
     handleRegister() {
         const observerSerial = document.getElementById('register-observer-serial').value;
