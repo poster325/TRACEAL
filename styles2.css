@@ -94,91 +94,80 @@ body {
 }
 
 /* ===================================
-   SPLASH SCREEN
-   Exact Figma Specifications
+   SPLASH SCREEN - Frame 8
+   Exact Figma CSS Export
    =================================== */
 
 #splash-screen {
-    /* Rectangle 445 (220:18122)
-       Position: x:0, y:0
-       Size: 375x812
-       Fill: RGB(0.298, 0.318, 0.345) = #1A1A1A */
-    background-color: #1A1A1A;
+    /* Frame 8 */
     position: relative;
     width: 375px;
     height: 812px;
+    background: #1A1A1A;
 }
 
-/* TRACEAL Text (220:18123)
-   Position: x:112, y:371
-   Size: 151x54
-   Fill: RGB(1, 1, 1) = White
-   Font: 34px */
+/* TRACEAL */
 .splash-traceal {
     position: absolute;
-    left: 112px;
-    top: 371px;
     width: 151px;
     height: 54px;
+    left: 112px;
+    top: 371px;
     
-    color: rgb(255, 255, 255);
-    font-family: 'Sohne', sans-serif;
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
     font-weight: 400;
     font-size: 34px;
     line-height: 54px;
-    letter-spacing: 0;
+    
+    color: #FFFFFF;
     
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* CONSOLE Text (220:18125)
-   Position: x:134, y:414
-   Size: 108x27
-   Fill: RGB(1, 1, 1) = White
-   Font: 17px */
+/* CONSOLE */
 .splash-console {
     position: absolute;
-    left: 134px;
-    top: 414px;
     width: 108px;
     height: 27px;
+    left: 133.5px;
+    top: 414px;
     
-    color: rgb(255, 255, 255);
-    font-family: 'Sohne', sans-serif;
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
     font-weight: 300;
     font-size: 17px;
     line-height: 27px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     
+    color: #FFFFFF;
+    
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* TAMPER-LOGGING SYSTEM Text (220:18124)
-   Position: x:67, y:743
-   Size: 242x21
-   Fill: RGB(1, 1, 1) = White
-   Font: 13px */
+/* TAMPER-LOGGING SYSTEM */
 .splash-footer {
     position: absolute;
-    left: 67px;
-    top: 743px;
     width: 242px;
     height: 21px;
+    left: 67px;
+    top: 743px;
     
-    color: rgb(255, 255, 255);
-    font-family: 'Sohne', sans-serif;
+    font-family: 'Test Söhne', 'Sohne', sans-serif;
+    font-style: normal;
     font-weight: 300;
     font-size: 13px;
     line-height: 21px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    white-space: nowrap;
     
+    color: #FFFFFF;
+    white-space: nowrap;
     text-align: center;
 }
 
