@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>TRACEAL Console</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- iPhone Container -->
+    <div id="app-container">
+        <!-- Splash Screen -->
+        <div id="splash-screen" class="screen active">
+            <div class="splash-traceal">TRACEAL</div>
+            <div class="splash-console">CONSOLE</div>
+            <div class="splash-footer">TAMPER-LOGGING SYSTEM</div>
+        </div>
+
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <!-- Status Bar (233:75) -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar (233:77) -->
+            <div class="nav-bar">
+                <!-- Logo Group (274:444) -->
+                <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Main Content -->
+            <div class="login-content">
+                <!-- Title (269:377) -->
+                <h1 class="login-title">User Authentication</h1>
+                
+                <!-- Title Underline (275:661) -->
+                <div class="title-underline"></div>
+                
+                <!-- Description (274:398) -->
+                <p class="login-description">Authenticate your administrator ID to enter the Traceal management environment.</p>
+                
+                <!-- USER ID / SERIAL Label (269:386) -->
+                <label class="form-label" for="login-user-id">USER ID / SERIAL</label>
+                
+                <!-- User ID Input (269:379) -->
+                <input type="text" id="login-user-id" class="form-input">
+                
+                <!-- PASSWORD Label (269:389) -->
+                <label class="form-label" for="login-password">PASSWORD</label>
+                
+                <!-- Password Input (269:388) -->
+                <input type="password" id="login-password" class="form-input">
+                
+                <!-- Login Button (269:394) with Text (273:397) -->
+                <button class="btn-login" id="login-btn">
+                    <span class="btn-text">Log In</span>
+                </button>
+                
+                <!-- Error Message (hidden by default, appears below Log In button) -->
+                <div id="login-error" class="login-error hidden">
+                    <svg class="icon error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                        <path d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12,12,0,0,1,16,28Z"/>
+                        <path d="M15 8H17V18H15z"/>
+                        <circle cx="16" cy="23" r="1.5"/>
+                    </svg>
+                    <div class="error-text">
+                        <div>Authentication Failed —</div>
+                        <div>Please check your credentials.</div>
+                    </div>
+                </div>
+                
+                <!-- Sign Up Link (274:451) -->
+                <p class="signup-text">to register: <span class="signup-link">SIGN UP</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app2.js"></script>
+</body>
+</html>
