@@ -105,11 +105,16 @@ class TracealApp {
             return;
         }
         
-        console.log('Observer registration:', observerSerial);
-        alert('Observer registered successfully! Next screens will be added.');
+        // Show serial verification loading screen
+        this.showScreen('serial-loading-screen');
         
-        // Go back to dashboard or login
-        this.showScreen('login-screen');
+        // Simulate serial verification for 1.5 seconds
+        setTimeout(() => {
+            console.log('Observer registration successful:', observerSerial);
+            alert('Observer registered successfully! Dashboard will be added.');
+            // Go back to login for now
+            this.showScreen('login-screen');
+        }, 1500);
     }
 }
 
