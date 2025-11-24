@@ -355,8 +355,19 @@ observerLogBtn.addEventListener('click', () => {
             const now = new Date();
             const timestamp = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
             
-            // Store trigger timestamp
+            // Store trigger timestamp locally
             localStorage.setItem('demo_tamper_timestamp', timestamp);
+            
+            // Store trigger timestamp in Firebase for cross-device sync
+            if (database) {
+                database.ref('demo/tamper_timestamp').set(timestamp)
+                    .then(() => {
+                        console.log('Trigger activated! Timestamp synced to Firebase:', timestamp);
+                    })
+                    .catch((error) => {
+                        console.error('Error syncing to Firebase:', error);
+                    });
+            }
             
             // Update demo's observer events count to 1
             const demoObserversKey = 'observers_demo';
@@ -570,6 +581,37 @@ if (settingsIcon) {
 // Auto-refresh for demo account when trigger is activated
 let lastCheckedTimestamp = null;
 
+function refreshDemoView(timestamp) {
+    console.log('Trigger detected! Auto-refreshing demo view...', timestamp);
+    
+    // Store locally
+    localStorage.setItem('demo_tamper_timestamp', timestamp);
+    lastCheckedTimestamp = timestamp;
+    
+    // Update observers data with new event count
+    const demoObserversKey = 'observers_demo';
+    const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
+    if (demoObservers.length > 0) {
+        demoObservers[0].events = 1;
+        localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
+    }
+    
+    // Refresh dashboard if currently on dashboard
+    const dashboardScreen = document.getElementById('dashboard-screen');
+    if (dashboardScreen && dashboardScreen.classList.contains('active')) {
+        renderObserverList();
+    }
+    
+    // Refresh event log if currently viewing the demo observer
+    const eventLogScreen = document.getElementById('event-log-screen');
+    if (eventLogScreen && eventLogScreen.classList.contains('active')) {
+        const selectedObserver = localStorage.getItem('selectedObserver');
+        if (selectedObserver === 'N25_Demo_1124') {
+            renderEventLog('N25_Demo_1124');
+        }
+    }
+}
+
 function checkForTriggerUpdate() {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (!loggedInUser) return;
@@ -582,36 +624,36 @@ function checkForTriggerUpdate() {
         
         // If timestamp exists and changed since last check
         if (currentTimestamp && currentTimestamp !== lastCheckedTimestamp) {
-            lastCheckedTimestamp = currentTimestamp;
-            console.log('Trigger detected! Auto-refreshing demo view...', currentTimestamp);
-            
-            // Update observers data with new event count
-            const demoObserversKey = 'observers_demo';
-            const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
-            if (demoObservers.length > 0) {
-                demoObservers[0].events = 1;
-                localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
-            }
-            
-            // Refresh dashboard if currently on dashboard
-            const dashboardScreen = document.getElementById('dashboard-screen');
-            if (dashboardScreen && dashboardScreen.classList.contains('active')) {
-                renderObserverList();
-            }
-            
-            // Refresh event log if currently viewing the demo observer
-            const eventLogScreen = document.getElementById('event-log-screen');
-            if (eventLogScreen && eventLogScreen.classList.contains('active')) {
-                const selectedObserver = localStorage.getItem('selectedObserver');
-                if (selectedObserver === 'N25_Demo_1124') {
-                    renderEventLog('N25_Demo_1124');
-                }
-            }
+            refreshDemoView(currentTimestamp);
         }
     }
 }
 
-// Poll for updates every 2 seconds (for same-device testing)
+// Firebase Real-time Listener for cross-device sync
+function setupFirebaseListener() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) return;
+    
+    const user = JSON.parse(loggedInUser);
+    
+    // Only set up listener if logged in as demo and Firebase is available
+    if (user.userId === 'demo' && database) {
+        console.log('Setting up Firebase listener for demo account...');
+        
+        database.ref('demo/tamper_timestamp').on('value', (snapshot) => {
+            const timestamp = snapshot.val();
+            if (timestamp && timestamp !== lastCheckedTimestamp) {
+                console.log('Firebase update received:', timestamp);
+                refreshDemoView(timestamp);
+            }
+        });
+    }
+}
+
+// Initialize Firebase listener on page load
+setTimeout(setupFirebaseListener, 1000);
+
+// Poll for updates every 2 seconds (for fallback/same-device testing)
 setInterval(checkForTriggerUpdate, 2000);
 
 // Also listen to storage events (for cross-tab updates on same device)
