@@ -24,17 +24,30 @@ function switchScreen(fromScreen, toScreen) {
 
 // Observer Management
 function loadObservers() {
-    const stored = localStorage.getItem('observers');
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) return [];
+    
+    const user = JSON.parse(loggedInUser);
+    const storageKey = `observers_${user.userId}`;
+    const stored = localStorage.getItem(storageKey);
+    
     if (stored) {
         return JSON.parse(stored);
     }
-    // First time - use default observers
-    localStorage.setItem('observers', JSON.stringify(defaultObservers));
-    return defaultObservers;
+    
+    // First time - use user-specific default observers
+    const defaultObs = userObservers[user.userId] || userObservers['default'];
+    localStorage.setItem(storageKey, JSON.stringify(defaultObs));
+    return defaultObs;
 }
 
 function saveObservers(observers) {
-    localStorage.setItem('observers', JSON.stringify(observers));
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) return;
+    
+    const user = JSON.parse(loggedInUser);
+    const storageKey = `observers_${user.userId}`;
+    localStorage.setItem(storageKey, JSON.stringify(observers));
 }
 
 function renderObserverList() {
@@ -492,10 +505,20 @@ popupDarkener.addEventListener('click', () => {
 // Initialize popup handlers
 initPopupHandlers();
 
-// Logout functionality (if needed)
+// Logout functionality
 function logout() {
     localStorage.removeItem('loggedInUser');
     location.reload();
+}
+
+// Settings icon click handler (logout)
+const settingsIcon = document.getElementById('settings-icon');
+if (settingsIcon) {
+    settingsIcon.addEventListener('click', () => {
+        if (confirm('Are you sure you want to log out?')) {
+            logout();
+        }
+    });
 }
 
 // Start the app
