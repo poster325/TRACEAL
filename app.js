@@ -567,5 +567,43 @@ if (settingsIcon) {
     });
 }
 
+// Auto-refresh for demo account when trigger is activated
+window.addEventListener('storage', (e) => {
+    if (e.key === 'demo_tamper_timestamp') {
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (loggedInUser) {
+            const user = JSON.parse(loggedInUser);
+            
+            // Only refresh if logged in as demo
+            if (user.userId === 'demo') {
+                console.log('Trigger detected! Auto-refreshing demo view...');
+                
+                // Update observers data with new event count
+                const demoObserversKey = 'observers_demo';
+                const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
+                if (demoObservers.length > 0) {
+                    demoObservers[0].events = 1;
+                    localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
+                }
+                
+                // Refresh dashboard if currently on dashboard
+                const dashboardScreen = document.getElementById('dashboard-screen');
+                if (dashboardScreen && dashboardScreen.classList.contains('active')) {
+                    renderObserverList();
+                }
+                
+                // Refresh event log if currently viewing the demo observer
+                const eventLogScreen = document.getElementById('event-log-screen');
+                if (eventLogScreen && eventLogScreen.classList.contains('active')) {
+                    const selectedObserver = localStorage.getItem('selectedObserver');
+                    if (selectedObserver === 'N25_Demo_1124') {
+                        renderEventLog('N25_Demo_1124');
+                    }
+                }
+            }
+        }
+    }
+});
+
 // Start the app
 initApp();
