@@ -74,6 +74,18 @@ function renderObserverList() {
         
         // Add click handler
         itemDiv.addEventListener('click', () => {
+            // Store selected observer for event log
+            localStorage.setItem('selectedObserver', observer.name);
+            
+            // Update event log title
+            const eventObserverName = document.querySelector('.event-observer-name');
+            if (eventObserverName) {
+                eventObserverName.textContent = observer.name;
+            }
+            
+            // Render event log
+            renderEventLog(observer.name);
+            
             switchScreen('dashboard', 'eventLog');
         });
         
@@ -331,6 +343,120 @@ function updateObserverLogWithUser() {
             logManagerName.textContent = user.name;
         }
     }
+}
+
+// Event Log Rendering
+function parseTimestamp(timestamp) {
+    // Parse "2025.11.25 18:33:22" format
+    const parts = timestamp.split(' ');
+    const date = parts[0].split('.');
+    const time = parts[1].split(':');
+    return new Date(date[0], date[1] - 1, date[2], time[0], time[1], time[2]);
+}
+
+function shouldShowTriangle(currentTimestamp, previousTimestamp) {
+    if (!previousTimestamp) return false;
+    
+    const current = parseTimestamp(currentTimestamp);
+    const previous = parseTimestamp(previousTimestamp);
+    const hoursDiff = Math.abs(current - previous) / (1000 * 60 * 60);
+    
+    return hoursDiff > 5;
+}
+
+function renderEventLog(observerName) {
+    const events = eventLogDatabase[observerName] || [];
+    
+    // Count tamper events for the alert
+    const tamperCount = events.filter(e => e.type === "tamper_detected").length;
+    
+    // Update alert section if tampers exist
+    if (tamperCount > 0) {
+        document.querySelector('.event-alert-subtitle').textContent = `${tamperCount} Recent Tamper${tamperCount > 1 ? 's' : ''}`;
+    }
+    
+    // Render events starting from top position
+    let currentTop = 219; // Starting position for first red background
+    const eventContainer = document.querySelector('#event-log-screen');
+    
+    // Remove old dynamic events (keep static header elements)
+    const oldEvents = eventContainer.querySelectorAll('.dynamic-event');
+    oldEvents.forEach(el => el.remove());
+    
+    events.forEach((event, index) => {
+        const config = eventConfig[event.type];
+        if (!config) return;
+        
+        // Check if triangle needed (time gap > 5 hours from previous event)
+        const showTriangle = index > 0 && shouldShowTriangle(event.timestamp, events[index - 1].timestamp);
+        
+        // Add red background for tamper events
+        if (config.useRedBackground) {
+            const redBg = document.createElement('div');
+            redBg.className = 'event-red-bg dynamic-event';
+            redBg.style.top = `${currentTop}px`;
+            eventContainer.appendChild(redBg);
+        }
+        
+        const iconTop = currentTop + 13;
+        const textTop = currentTop + 28;
+        const timestampTop = currentTop + 13;
+        
+        // Add divider
+        const divider = document.createElement('div');
+        divider.className = 'event-divider dynamic-event';
+        divider.style.top = `${textTop}px`;
+        divider.style.background = config.dividerColor;
+        eventContainer.appendChild(divider);
+        
+        // Add icon
+        const iconWrapper = document.createElement('div');
+        iconWrapper.className = 'event-icon-wrapper dynamic-event';
+        iconWrapper.style.top = `${iconTop}px`;
+        iconWrapper.style.background = config.circleColor;
+        
+        const icon = document.createElement('img');
+        icon.src = `svgs/${config.icon}`;
+        icon.className = 'log-icon-img';
+        if (event.type === 'tamper_detected' && config.useRedBackground) {
+            icon.classList.add('event-tamper-icon');
+        }
+        iconWrapper.appendChild(icon);
+        eventContainer.appendChild(iconWrapper);
+        
+        // Add event name
+        const eventName = document.createElement('p');
+        eventName.className = config.textWhite ? 'event-name-white dynamic-event' : 'event-name dynamic-event';
+        eventName.style.top = `${textTop}px`;
+        eventName.textContent = config.name;
+        eventContainer.appendChild(eventName);
+        
+        // Add timestamp
+        const eventTime = document.createElement('p');
+        eventTime.className = config.textWhite ? 'event-timestamp-white dynamic-event' : 'event-timestamp dynamic-event';
+        eventTime.style.top = `${timestampTop}px`;
+        eventTime.textContent = event.timestamp;
+        eventContainer.appendChild(eventTime);
+        
+        // Add sensor ID
+        const sensorId = document.createElement('p');
+        sensorId.className = config.textWhite ? 'event-sensor-white dynamic-event' : 'event-sensor dynamic-event';
+        sensorId.style.top = `${timestampTop - 1}px`;
+        sensorId.textContent = `Sensor ID: ${event.sensorId}`;
+        eventContainer.appendChild(sensorId);
+        
+        // Move to next position
+        currentTop += config.useRedBackground ? 59 : 59;
+        
+        // Add triangle if time gap > 5 hours
+        if (showTriangle) {
+            const triangle = document.createElement('div');
+            triangle.className = 'event-timeline-triangle dynamic-event';
+            triangle.style.top = `${currentTop + 10}px`;
+            eventContainer.appendChild(triangle);
+            currentTop += 41; // Additional space for triangle
+        }
+    });
 }
 
 // Event Log Navigation (Per Observer)
