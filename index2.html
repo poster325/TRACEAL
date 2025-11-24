@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- iOS Web App Settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TRACEAL">
+    <meta name="format-detection" content="telephone=no">
+    
+    <title>TRACEAL Console</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="apple-touch-icon" href="logo.png">
+</head>
+<body>
+    <!-- iPhone Container -->
+    <div id="app-container">
+        <!-- Splash Screen / Starting Page (275:646) -->
+        <div id="splash-screen" class="screen active">
+            <p class="splash-traceal">TRACEAL</p>
+            <p class="splash-console">CONSOLE</p>
+            <p class="splash-footer">TAMPER-LOGGING SYSTEM</p>
+        </div>
+
+        <!-- Login Screen (267:363) -->
+        <div id="login-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Title Underline -->
+            <div class="title-underline"></div>
+            
+            <!-- Title -->
+            <h1 class="login-title">User Authentication</h1>
+            
+            <!-- Description -->
+            <p class="login-description">Authenticate your administrator ID to<br>enter the Traceal management environment.</p>
+            
+            <!-- USER ID / SERIAL Label -->
+            <label class="form-label user-id-label">USER ID / SERIAL</label>
+            
+            <!-- User ID Input -->
+            <input type="text" id="login-user-id" class="form-input user-id-input" autocomplete="off" autocapitalize="none">
+            
+            <!-- PASSWORD Label -->
+            <label class="form-label password-label">PASSWORD</label>
+            
+            <!-- Password Input -->
+            <input type="password" id="login-password" class="form-input password-input">
+            
+            <!-- Login Button -->
+            <button class="btn-login" id="login-btn">Log In</button>
+            
+            <!-- Error Message -->
+            <div id="login-error" class="login-error hidden">
+                <svg class="icon error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <path d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12,12,0,0,1,16,28Z"/>
+                    <path d="M15 8H17V18H15z"/>
+                    <circle cx="16" cy="23" r="1.5"/>
+                </svg>
+                <div class="error-text">
+                    <div>Authentication Failed —</div>
+                    <div>Please check your credentials.</div>
+                </div>
+            </div>
+            
+            <!-- Sign Up Link -->
+            <p class="signup-text">to register: <span class="signup-link">SIGN UP</span></p>
+            
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
+
+        <!-- Loading Screen (275:514) -->
+        <div id="loading-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner"></div>
+            
+            <!-- Loading Text -->
+            <p class="loading-text">Verifying credentials...</p>
+            
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
+
+        <!-- Manager Dashboard (277:799) -->
+        <div id="dashboard-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar-dashboard"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar-dashboard">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+                <img src="svgs/settingicon.svg" alt="Settings" class="settings-icon">
+            </div>
+
+            <!-- Manager Info -->
+            <div class="manager-section">
+                <p class="manager-name" id="manager-name">John A. Smith</p>
+                <p class="manager-id" id="manager-id">KAIST ID</p>
+            </div>
+            
+            <!-- Divider Line -->
+            <div class="divider-line top-divider"></div>
+
+            <!-- Stats -->
+            <div class="dashboard-stats">
+                <p class="stat-label">Registered Observers: <span class="stat-value" id="registered-count">4</span></p>
+                <p class="stat-label">New Events to confirm: <span class="stat-value" id="events-count">4</span></p>
+            </div>
+
+            <!-- Observer Log Button -->
+            <button class="btn-observer-log">Observer Log</button>
+
+            <!-- Observers Section -->
+            <p class="section-label">OBSERVERS</p>
+
+            <!-- Observer List -->
+            <div id="observer-list" class="observer-list">
+                <!-- Item 1 -->
+                <div class="observer-item">
+                    <div class="observer-info">
+                        <p class="observer-name">1125_Election_Ballot_12</p>
+                        <p class="observer-serial">SERIAL: OU-29H-G</p>
+                    </div>
+                    <div class="badge-alert">3</div>
+                </div>
+                <div class="divider-line"></div>
+
+                <!-- Item 2 -->
+                <div class="observer-item">
+                    <div class="observer-info">
+                        <p class="observer-name">N25_EvidenceRoom_Storage_1</p>
+                        <p class="observer-serial">SERIAL: OU-4K9-F</p>
+                    </div>
+                    <div class="badge-alert">2</div>
+                </div>
+                <div class="divider-line"></div>
+
+                <!-- Item 3 -->
+                <div class="observer-item">
+                    <div class="observer-info">
+                        <p class="observer-name">N25_EvidenceRoom_Storage_2</p>
+                        <p class="observer-serial">SERIAL: OU-9ZP-7</p>
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+
+                <!-- Item 4 -->
+                <div class="observer-item">
+                    <div class="observer-info">
+                        <p class="observer-name">N25_EvidenceRoom_Storage_3</p>
+                        <p class="observer-serial">SERIAL: OU-A3T-W</p>
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Register Button -->
+            <button class="btn-register" id="register-btn">Register New Observer</button>
+
+            <!-- Delete Link -->
+            <p class="delete-link">DELETE OBSERVER</p>
+
+            <!-- Home Indicator -->
+            <div class="home-indicator-dashboard"></div>
+        </div>
+    </div>
+
+    <script src="app2.js"></script>
+</body>
+</html>

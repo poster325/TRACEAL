@@ -2,116 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="TRACEAL">
     <title>TRACEAL Console</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
-    <div id="app">
-        <!-- Frame 8: Splash Screen (275:646) -->
-        <div id="splash" class="screen active">
-            <div class="traceal-text">TRACEAL</div>
-            <div class="console-text">CONSOLE</div>
-            <div class="footer-text">TAMPER-LOGGING SYSTEM</div>
+    <!-- iPhone Container -->
+    <div id="app-container">
+        <!-- Splash Screen -->
+        <div id="splash-screen" class="screen active">
+            <div class="splash-traceal">TRACEAL</div>
+            <div class="splash-console">CONSOLE</div>
+            <div class="splash-footer">TAMPER-LOGGING SYSTEM</div>
         </div>
 
-        <!-- Frame 4: Login (267:363) -->
-        <div id="login" class="screen">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <!-- Status Bar (233:75) -->
             <div class="status-bar"></div>
-            <div class="nav-bar"></div>
-            <img src="logo.svg" class="logo">
             
-            <div class="login-title">User Authentication</div>
-            <div class="login-underline"></div>
-            <div class="login-description">Authenticate your administrator ID to enter the Traceal management environment.</div>
-            
-            <label class="input-label" style="left: 16px; top: 329.99px;">USER ID / SERIAL</label>
-            <input type="text" class="input-field" id="login-userid" style="left: 16px; top: 349.99px;">
-            
-            <label class="input-label" style="left: 16px; top: 405.99px;">PASSWORD</label>
-            <input type="password" class="input-field" id="login-password" style="left: 16px; top: 425.99px;">
-            
-            <button class="btn-primary" id="login-btn" style="left: 16px; top: 501.99px;">Log In</button>
-            
-            <div id="login-error" class="login-error hidden">
-                <img src="icons/Group 416.svg" class="error-icon">
-                <div class="error-text">
-                    <div>Authentication Failed —</div>
-                    <div>Please check your credentials.</div>
-                </div>
+            <!-- Navigation Bar (233:77) -->
+            <div class="nav-bar">
+                <!-- Logo Group (274:444) -->
+                <img src="logo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
             </div>
-            
-            <div class="signup-link">to register: <span style="color: #3B7FFF;">SIGN UP</span></div>
-            <div class="home-indicator"></div>
-        </div>
 
-        <!-- Frame 6: Loading (275:514) -->
-        <div id="loading" class="screen">
-            <div class="status-bar"></div>
-            <div class="nav-bar"></div>
-            <img src="logo.svg" class="logo">
-            <div class="loading-spinner"></div>
-            <div class="loading-text">Verifying credentials...</div>
-            <div class="home-indicator"></div>
+            <!-- Main Content -->
+            <div class="login-content">
+                <!-- Title (269:377) -->
+                <h1 class="login-title">User Authentication</h1>
+                
+                <!-- Title Underline (275:661) -->
+                <div class="title-underline"></div>
+                
+                <!-- Description (274:398) -->
+                <p class="login-description">Authenticate your administrator ID to enter the Traceal management environment.</p>
+                
+                <!-- USER ID / SERIAL Label (269:386) -->
+                <label class="form-label" for="login-user-id">USER ID / SERIAL</label>
+                
+                <!-- User ID Input (269:379) -->
+                <input type="text" id="login-user-id" class="form-input">
+                
+                <!-- PASSWORD Label (269:389) -->
+                <label class="form-label" for="login-password">PASSWORD</label>
+                
+                <!-- Password Input (269:388) -->
+                <input type="password" id="login-password" class="form-input">
+                
+                <!-- Login Button (269:394) with Text (273:397) -->
+                <button class="btn-login" id="login-btn">
+                    <span class="btn-text">Log In</span>
+                </button>
+                
+                <!-- Error Message (hidden by default, appears below Log In button) -->
+                <div id="login-error" class="login-error hidden">
+                    <svg class="icon error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                        <path d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12,12,0,0,1,16,28Z"/>
+                        <path d="M15 8H17V18H15z"/>
+                        <circle cx="16" cy="23" r="1.5"/>
+                    </svg>
+                    <div class="error-text">
+                        <div>Authentication Failed —</div>
+                        <div>Please check your credentials.</div>
+                    </div>
+                </div>
+                
+                <!-- Sign Up Link (274:451) -->
+                <p class="signup-text">to register: <span class="signup-link">SIGN UP</span></p>
+            </div>
         </div>
-
-        <!-- Frame 9: Dashboard (277:799) -->
-        <div id="dashboard" class="screen">
-            <div class="status-bar"></div>
-            <div class="nav-bar"></div>
-            <img src="logo.svg" class="logo">
-            <button class="settings-btn" id="settings-btn">
-                <img src="icons/Frame.svg" width="24" height="24">
-            </button>
-            
-            <div class="dashboard-name">John A. Smith</div>
-            <div class="dashboard-id">KAIST ID</div>
-            <div class="dashboard-underline"></div>
-            
-            <div class="dashboard-stat-label" style="left: 16px; top: 166px;">Registered Observers:</div>
-            <div class="dashboard-stat-value" style="left: 162px; top: 166px;">4</div>
-            <div class="dashboard-stat-label" style="left: 16px; top: 184px;">New Events to confirm:</div>
-            <div class="dashboard-stat-value" style="left: 162px; top: 184px;">4</div>
-            
-            <button class="dashboard-observer-log-btn" id="observer-log-btn">Observer Log</button>
-            
-            <div class="dashboard-observers-label">OBSERVERS</div>
-            
-            <!-- Observer Items (exact Figma positioning) -->
-            <div class="dashboard-observer-separator" style="top: 258px;"></div>
-            <div class="dashboard-observer-name clickable" style="top: 269px;" data-observer="1125_Election_Ballot_12">1125_Election_Ballot_12</div>
-            <div class="dashboard-observer-serial" style="top: 300.5px;">SERIAL: OU-29H-G</div>
-            <div class="dashboard-observer-badge" style="top: 272.5px;">3</div>
-            
-            <div class="dashboard-observer-separator" style="top: 317px;"></div>
-            <div class="dashboard-observer-name clickable" style="top: 328px;" data-observer="N25_EvidenceRoom_Storage_1">N25_EvidenceRoom_Storage_1</div>
-            <div class="dashboard-observer-serial" style="top: 359.5px;">SERIAL: OU-4K9-F</div>
-            <div class="dashboard-observer-badge" style="top: 331.5px;">2</div>
-            
-            <div class="dashboard-observer-separator" style="top: 376px;"></div>
-            <div class="dashboard-observer-name clickable" style="top: 387px;" data-observer="N25_EvidenceRoom_Storage_2">N25_EvidenceRoom_Storage_2</div>
-            <div class="dashboard-observer-serial" style="top: 418.5px;">SERIAL: OU-9ZP-7</div>
-            
-            <div class="dashboard-observer-separator" style="top: 435px;"></div>
-            <div class="dashboard-observer-name clickable" style="top: 446px;" data-observer="N25_EvidenceRoom_Storage_3">N25_EvidenceRoom_Storage_3</div>
-            <div class="dashboard-observer-serial" style="top: 477.5px;">SERIAL: OU-A3T-W</div>
-            
-            <div class="dashboard-observer-separator" style="top: 494px;"></div>
-            
-            <button class="btn-register" id="register-btn">Register New Observer</button>
-            <div class="delete-link" id="delete-btn">DELETE OBSERVER</div>
-            <div class="home-indicator"></div>
-        </div>
-
-        <!-- More screens will be added in next iteration due to token limits -->
-        <!-- This is the foundation with exact Figma positioning -->
     </div>
 
-    <script src="app.js"></script>
+    <script src="app2.js"></script>
 </body>
 </html>
-
