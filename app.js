@@ -16,11 +16,20 @@ const screens = {
 
 // Switch Screen Function
 function switchScreen(fromScreen, toScreen) {
+    console.log(`Switching from ${fromScreen} to ${toScreen}`);
+    
     if (screens[fromScreen]) {
         screens[fromScreen].classList.remove('active');
+        console.log(`Removed active from ${fromScreen}`);
+    } else if (fromScreen) {
+        console.warn(`Screen not found: ${fromScreen}`);
     }
+    
     if (screens[toScreen]) {
         screens[toScreen].classList.add('active');
+        console.log(`Added active to ${toScreen}`, screens[toScreen]);
+    } else {
+        console.error(`Screen not found: ${toScreen}`);
     }
 }
 
@@ -159,11 +168,13 @@ confirmRegisterBtn.addEventListener('click', () => {
 const observerLogBtn = document.getElementById('observer-log-btn');
 const observerLogBackBtn = document.getElementById('observer-log-back');
 const eventLogBackBtn = document.getElementById('event-log-back');
+const registerBackBtn = document.getElementById('register-back-btn');
 const sensorPopup = document.getElementById('sensor-popup');
 
 // Dashboard -> Observer Log
 if (observerLogBtn) {
     observerLogBtn.addEventListener('click', () => {
+        console.log('Observer Log button clicked');
         switchScreen('dashboard', 'observerLog');
     });
 }
@@ -182,10 +193,20 @@ if (eventLogBackBtn) {
     });
 }
 
+// Register Screen -> Back to Dashboard
+if (registerBackBtn) {
+    registerBackBtn.addEventListener('click', () => {
+        switchScreen('registerObserver', 'dashboard');
+    });
+}
+
 // Observer items click to view Event Log
 const observerItems = document.querySelectorAll('.observer-item');
-observerItems.forEach(item => {
+console.log('Found observer items:', observerItems.length);
+observerItems.forEach((item, index) => {
+    item.style.cursor = 'pointer';
     item.addEventListener('click', () => {
+        console.log('Observer item clicked:', index);
         switchScreen('dashboard', 'eventLog');
     });
 });
