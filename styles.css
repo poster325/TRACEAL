@@ -1486,6 +1486,11 @@ body {
     margin: auto;
 }
 
+.popup-icon-img.event-tamper-icon {
+    position: relative;
+    top: -2px;
+}
+
 .popup-icon-dark {
     filter: brightness(0) saturate(100%) invert(31%) sepia(7%) saturate(851%) hue-rotate(169deg) brightness(94%) contrast(88%);
 }
