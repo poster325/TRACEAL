@@ -7,7 +7,9 @@ const screens = {
     registerObserver: document.getElementById('register-observer-screen'),
     registerLoading: document.getElementById('register-loading-screen'),
     registerName: document.getElementById('register-name-screen'),
-    registerConfirm: document.getElementById('register-confirm-screen')
+    registerConfirm: document.getElementById('register-confirm-screen'),
+    observerLog: document.getElementById('observer-log-screen'),
+    eventLog: document.getElementById('event-log-screen')
 };
 
 // Switch Screen Function
@@ -150,6 +152,60 @@ confirmRegisterBtn.addEventListener('click', () => {
     
     switchScreen('registerConfirm', 'dashboard');
 });
+
+// Event Log Navigation
+const observerLogBtn = document.getElementById('observer-log-btn');
+const observerLogBackBtn = document.getElementById('observer-log-back');
+const eventLogBackBtn = document.getElementById('event-log-back');
+const sensorPopup = document.getElementById('sensor-popup');
+
+// Dashboard -> Observer Log
+if (observerLogBtn) {
+    observerLogBtn.addEventListener('click', () => {
+        switchScreen('dashboard', 'observerLog');
+    });
+}
+
+// Observer Log -> Back to Dashboard
+if (observerLogBackBtn) {
+    observerLogBackBtn.addEventListener('click', () => {
+        switchScreen('observerLog', 'dashboard');
+    });
+}
+
+// Event Log -> Back to Dashboard
+if (eventLogBackBtn) {
+    eventLogBackBtn.addEventListener('click', () => {
+        switchScreen('eventLog', 'dashboard');
+    });
+}
+
+// Observer items click to view Event Log
+const observerItems = document.querySelectorAll('.observer-item');
+observerItems.forEach(item => {
+    item.addEventListener('click', () => {
+        switchScreen('dashboard', 'eventLog');
+    });
+});
+
+// Event items in Event Log can show sensor popup
+const eventItems = document.querySelectorAll('.event-item, .event-alert-full');
+eventItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (sensorPopup) {
+            sensorPopup.style.display = 'flex';
+        }
+    });
+});
+
+// Close popup when clicking overlay
+if (sensorPopup) {
+    sensorPopup.addEventListener('click', (e) => {
+        if (e.target === sensorPopup) {
+            sensorPopup.style.display = 'none';
+        }
+    });
+}
 
 // Start the app
 initApp();

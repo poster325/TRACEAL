@@ -948,3 +948,523 @@ body {
 .btn-confirm-register:active {
     opacity: 0.8;
 }
+
+/* ===== EVENT LOG SCREENS ===== */
+
+/* Observer Log Screen (300:2540) */
+#observer-log-screen {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: var(--color-bg-white);
+    border-radius: 50px;
+}
+
+/* Event Log per Observer Screen (274:400) */
+#event-log-screen {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: var(--color-bg-white);
+    border-radius: 50px;
+}
+
+/* Common Elements for Event Logs */
+.page-title {
+    position: absolute;
+    width: 134px;
+    height: 24px;
+    left: calc(50% - 134px/2 - 104.5px);
+    top: 108px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    color: var(--color-text-dark);
+}
+
+.manager-name-label {
+    position: absolute;
+    left: calc(50% - 67px/2 + 136px);
+    top: 118px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 110%;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    color: #4C5158;
+}
+
+/* Timeline Vertical Line */
+.timeline-line {
+    position: absolute;
+    width: 2px;
+    height: 812px;
+    left: 31px;
+    top: 140px;
+    background: #70757D;
+}
+
+/* Status Header (OK) */
+.status-header {
+    position: absolute;
+    left: 16px;
+    top: 164px;
+}
+
+.status-ok-circle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;
+    top: 164px;
+    background: #3B7FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.status-header-text {
+    position: absolute;
+    left: 64px;
+    top: 154px;
+}
+
+.status-title {
+    position: absolute;
+    width: 246px;
+    height: 31px;
+    left: 64px;
+    top: 154px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+}
+
+.status-ok-text {
+    color: #3B7FFF;
+}
+
+.status-subtitle {
+    position: absolute;
+    width: 145px;
+    height: 18px;
+    left: 64px;
+    top: 183px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-dark);
+}
+
+/* Tamper Warning Header */
+.tamper-header {
+    position: absolute;
+    left: 16px;
+    top: 164px;
+}
+
+.tamper-icon-circle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;
+    top: 164px;
+    background: #E34949;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tamper-warning-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.tamper-header-text {
+    position: absolute;
+    left: 64px;
+    top: 154px;
+}
+
+.tamper-title {
+    position: absolute;
+    width: 184px;
+    height: 31px;
+    left: 64px;
+    top: 154px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #E34949;
+}
+
+.tamper-subtitle {
+    position: absolute;
+    width: 105px;
+    height: 18px;
+    left: 64px;
+    top: 183px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-dark);
+}
+
+/* Event Items */
+.event-item {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.event-icon-circle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-icon-active {
+    background: #4C5158;
+}
+
+.event-icon-inactive {
+    background: #C8CCD2;
+}
+
+.event-icon-alert {
+    background: #E34949;
+}
+
+.event-icon-tamper {
+    background: #FFFFFF;
+}
+
+.event-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.event-line {
+    position: absolute;
+    width: 322px;
+    height: 2px;
+    left: 37px;
+}
+
+.event-line-active {
+    background: #4C5158;
+}
+
+.event-line-inactive {
+    background: #C8CCD2;
+}
+
+.event-line-alert {
+    background: #E34949;
+}
+
+.event-line-tamper {
+    background: #FFFFFF;
+}
+
+.event-content {
+    position: absolute;
+    left: 64px;
+}
+
+.event-time {
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.event-title {
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.event-observer {
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #000000;
+    position: absolute;
+    right: 16px;
+}
+
+/* Timeline Markers (triangles) */
+.timeline-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 27px;
+    background: #70757D;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.timeline-marker-gap {
+    /* Used for spacing between grouped events */
+}
+
+/* Full-Width Alert Events */
+.event-alert-full {
+    position: absolute;
+    width: 375px;
+    height: 59px;
+    left: 0px;
+    background: #E34949;
+}
+
+.event-content-white {
+    /* Modifier for white text on alert background */
+}
+
+.event-time-white,
+.event-title-white,
+.event-observer-white {
+    color: #FFFFFF !important;
+}
+
+/* Popup Modal (Sensor Detail) */
+.popup-overlay {
+    position: fixed;
+    width: 375px;
+    height: 812px;
+    left: 0px;
+    top: 0px;
+    background: rgba(26, 26, 26, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-container {
+    position: absolute;
+    width: 343px;
+    height: 589px;
+    left: 16px;
+    top: 140px;
+    background: #4C5158;
+    border-radius: 4px;
+    overflow-y: auto;
+}
+
+.popup-header {
+    position: relative;
+    padding: 39px 16px 0;
+}
+
+.popup-sensor-label {
+    position: absolute;
+    width: 71px;
+    height: 15px;
+    left: 152px;
+    top: 179px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.popup-sensor-id {
+    position: absolute;
+    width: 89px;
+    height: 24px;
+    left: calc(50% - 89px/2);
+    top: 194px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.popup-divider {
+    position: absolute;
+    width: 311px;
+    height: 2px;
+    left: 32px;
+    top: 226px;
+    background: #FFFFFF;
+}
+
+.popup-timeline-line {
+    position: absolute;
+    width: 2px;
+    height: 501px;
+    left: 47px;
+    top: 228px;
+    background: #70757D;
+}
+
+.popup-event-item {
+    position: relative;
+    margin: 20px 0;
+}
+
+.popup-event-icon-circle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-icon-active {
+    background: #FFFFFF;
+}
+
+.popup-icon-inactive {
+    background: #C8CCD2;
+}
+
+.popup-icon-alert {
+    background: #E34949;
+}
+
+.popup-icon-tamper {
+    background: #E34949;
+}
+
+.popup-event-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.popup-event-line {
+    position: absolute;
+    width: 290px;
+    height: 2px;
+    left: 53px;
+}
+
+.popup-line-active {
+    background: #FFFFFF;
+}
+
+.popup-line-inactive {
+    background: #C8CCD2;
+}
+
+.popup-line-alert {
+    background: #E34949;
+}
+
+.popup-line-tamper {
+    background: #E34949;
+}
+
+.popup-event-content {
+    position: absolute;
+    left: 80px;
+}
+
+.popup-event-time {
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.popup-event-title {
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.popup-timeline-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 43px;
+    background: #70757D;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Back Button in Nav Bar */
+.nav-back-btn {
+    position: absolute;
+    left: 16px;
+    top: 54px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-back-icon {
+    width: 24px;
+    height: 24px;
+}
