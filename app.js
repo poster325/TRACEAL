@@ -23,10 +23,13 @@ function switchScreen(fromScreen, toScreen) {
 
 // Initialize App
 function initApp() {
-    // Show splash for 2 seconds, then go to login
-    setTimeout(() => {
-        switchScreen('splash', 'login');
-    }, 2000);
+    // For debugging: go directly to dashboard
+    switchScreen('splash', 'dashboard');
+    
+    // Production: Show splash for 2 seconds, then go to login
+    // setTimeout(() => {
+    //     switchScreen('splash', 'login');
+    // }, 2000);
 }
 
 // Login Handling
