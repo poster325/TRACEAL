@@ -351,10 +351,15 @@ observerLogBtn.addEventListener('click', () => {
     if (loggedInUser) {
         const user = JSON.parse(loggedInUser);
         
-        // Special behavior for demo account - trigger alarm
+        // Special behavior for demo account - trigger alarm after 10 seconds
         if (user.userId === 'demo') {
-            triggerDemoTamper();
-            switchScreen('dashboard', 'alarm');
+            console.log('Demo account - alarm will trigger in 10 seconds...');
+            
+            setTimeout(() => {
+                triggerDemoTamper();
+                switchScreen('dashboard', 'alarm');
+            }, 10000);
+            
             return;
         }
     }
