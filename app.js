@@ -1,12 +1,3 @@
-// Sample User Database
-const userDatabase = [
-    { name: "John A. Smith", userId: "john.smith", password: "admin123" },
-    { name: "Sarah Connor", userId: "sarah.connor", password: "pass456" },
-    { name: "Michael Chen", userId: "michael.chen", password: "secure789" },
-    { name: "Emily Rodriguez", userId: "emily.rodriguez", password: "test2024" },
-    { name: "David Kim", userId: "david.kim", password: "manager01" }
-];
-
 // Screen Management
 const screens = {
     splash: document.getElementById('splash-screen'),

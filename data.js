@@ -1,0 +1,58 @@
+// TRACEAL Console - Data Storage
+
+// Sample User Database
+const userDatabase = [
+    { name: "John A. Smith", userId: "john.smith", password: "admin123" },
+    { name: "Sarah Connor", userId: "sarah.connor", password: "pass456" },
+    { name: "Michael Chen", userId: "michael.chen", password: "secure789" },
+    { name: "Emily Rodriguez", userId: "emily.rodriguez", password: "test2024" },
+    { name: "David Kim", userId: "david.kim", password: "manager01" }
+];
+
+// Observer Units Database (example data)
+const observerUnitsDatabase = [
+    {
+        id: "OU-29H-G",
+        name: "1125_Election_Ballot_12",
+        status: "alert",
+        events: 3,
+        manager: "John A. Smith"
+    },
+    {
+        id: "OU-4K9-F",
+        name: "N25_EvidenceRoom_Storage_1",
+        status: "alert",
+        events: 2,
+        manager: "John A. Smith"
+    },
+    {
+        id: "OU-9ZP-7",
+        name: "N25_EvidenceRoom_Storage_2",
+        status: "normal",
+        events: 0,
+        manager: "John A. Smith"
+    },
+    {
+        id: "OU-A3T-W",
+        name: "N25_EvidenceRoom_Storage_3",
+        status: "normal",
+        events: 0,
+        manager: "John A. Smith"
+    }
+];
+
+// Event Log Database (example data for an observer)
+const eventLogDatabase = {
+    "OU-87SJT-2": [
+        { type: "tamper", timestamp: "2025.11.25 18:33:22", sensorId: "SU-87SJT-2" },
+        { type: "tamper", timestamp: "2025.11.25 15:19:32", sensorId: "SU-3AJOF-K" },
+        { type: "seal_activated", timestamp: "2025.11.25 12:00:25", sensorId: "SU-1908S-L" },
+        { type: "seal_activated", timestamp: "2025.11.25 12:00:14", sensorId: "SU-3AJOF-K" },
+        { type: "seal_activated", timestamp: "2025.11.25 12:00:02", sensorId: "SU-87SJT-2" },
+        { type: "seal_deactivated", timestamp: "2025.11.13 21:34:22", sensorId: "SU-87SJT-2" },
+        { type: "low_battery", timestamp: "2025.11.13 21:31:00", sensorId: "SU-87SJT-2" },
+        { type: "seal_deactivated", timestamp: "2025.11.10 21:30:22", sensorId: "SU-1908S-L" },
+        { type: "seal_activated", timestamp: "2025.11.10 12:00:22", sensorId: "SU-1908S-L" }
+    ]
+};
+
