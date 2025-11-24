@@ -1490,6 +1490,7 @@ body {
 .popup-icon-img.event-tamper-icon {
     position: relative;
     top: -2px;
+    filter: none !important;
 }
 
 .popup-icon-dark {
