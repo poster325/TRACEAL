@@ -1060,6 +1060,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .log-icon-img {
@@ -1149,15 +1150,18 @@ body {
     width: 322px;
     height: 2px;
     left: 37px;
+    z-index: 1;
 }
 
-.timeline-diamond {
+.timeline-triangle {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 0;
+    height: 0;
     left: 27px;
-    background: #70757D;
-    transform: rotate(45deg);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #70757D;
+    z-index: 1;
 }
 
 .home-indicator-log {
