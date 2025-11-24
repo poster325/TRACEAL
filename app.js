@@ -344,8 +344,21 @@ confirmRegisterBtn.addEventListener('click', () => {
 const observerLogBtn = document.getElementById('observer-log-btn');
 const backFromLogBtn = document.getElementById('back-from-log');
 
-// Observer Log Button -> Observer Log Screen
+// Observer Log Button -> Observer Log Screen OR Trigger Alarm (for demo)
 observerLogBtn.addEventListener('click', () => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        const user = JSON.parse(loggedInUser);
+        
+        // Special behavior for demo account - trigger alarm
+        if (user.userId === 'demo') {
+            triggerDemoTamper();
+            switchScreen('dashboard', 'alarm');
+            return;
+        }
+    }
+    
+    // Normal behavior for other accounts
     updateObserverLogWithUser();
     switchScreen('dashboard', 'observerLog');
 });
@@ -543,8 +556,19 @@ if (settingsIcon) {
     });
 }
 
-// Alarm Screen "No" Button -> Event Log
+// Alarm Screen Buttons
+const alarmYesBtn = document.getElementById('alarm-yes-btn');
 const alarmNoBtn = document.getElementById('alarm-no-btn');
+
+// "Yes" button -> Back to Dashboard
+if (alarmYesBtn) {
+    alarmYesBtn.addEventListener('click', () => {
+        renderObserverList();
+        switchScreen('alarm', 'dashboard');
+    });
+}
+
+// "No" button -> Event Log
 if (alarmNoBtn) {
     alarmNoBtn.addEventListener('click', () => {
         // Set selected observer to demo observer
@@ -556,7 +580,7 @@ if (alarmNoBtn) {
             eventObserverName.textContent = 'N25_Demo_1124';
         }
         
-        // Render event log
+        // Render event log with tamper event
         renderEventLog('N25_Demo_1124');
         
         // Switch to event log screen
@@ -564,7 +588,7 @@ if (alarmNoBtn) {
     });
 }
 
-// Automatic Tamper Trigger for Demo Account
+// Trigger Tamper Event for Demo Account
 function triggerDemoTamper() {
     console.log('Triggering demo tamper event...');
     
@@ -582,36 +606,8 @@ function triggerDemoTamper() {
         localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
     }
     
-    // Refresh dashboard if currently on dashboard
-    const dashboardScreen = document.getElementById('dashboard-screen');
-    if (dashboardScreen && dashboardScreen.classList.contains('active')) {
-        renderObserverList();
-    }
-    
     console.log('Demo tamper triggered at:', timestamp);
-    
-    // Show alarm screen after 10 more seconds
-    setTimeout(() => {
-        console.log('Showing alarm screen...');
-        switchScreen('dashboard', 'alarm');
-    }, 10000);
 }
-
-function setupDemoAutoTrigger() {
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (!loggedInUser) return;
-    
-    const user = JSON.parse(loggedInUser);
-    
-    // Only trigger for demo account
-    if (user.userId === 'demo') {
-        console.log('Demo account detected - tamper will trigger in 15 seconds...');
-        setTimeout(triggerDemoTamper, 15000);
-    }
-}
-
-// Initialize auto-trigger when demo logs in
-setTimeout(setupDemoAutoTrigger, 1000);
 
 // Start the app
 initApp();

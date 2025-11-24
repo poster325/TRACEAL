@@ -1563,6 +1563,7 @@ body {
 /* Alarm Screen Styles */
 #alarm-screen {
     background: #E34949;
+    z-index: 9999;
 }
 
 .alarm-bg {
