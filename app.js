@@ -164,14 +164,12 @@ confirmRegisterBtn.addEventListener('click', () => {
 });
 
 // Observer Log Navigation
+const observerLogBtn = document.getElementById('observer-log-btn');
 const backFromLogBtn = document.getElementById('back-from-log');
-const observerItems = document.querySelectorAll('.observer-item');
 
-// Observer Item -> Observer Log
-observerItems.forEach(item => {
-    item.addEventListener('click', () => {
-        switchScreen('dashboard', 'observerLog');
-    });
+// Observer Log Button -> Observer Log Screen
+observerLogBtn.addEventListener('click', () => {
+    switchScreen('dashboard', 'observerLog');
 });
 
 // Back from Observer Log -> Dashboard
