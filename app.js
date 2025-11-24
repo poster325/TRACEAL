@@ -197,5 +197,30 @@ backFromEventLogBtn.addEventListener('click', () => {
     switchScreen('eventLog', 'dashboard');
 });
 
+// Popup Modal for Sensor Detail
+const sensorPopup = document.getElementById('sensor-popup');
+const popupDarkener = document.getElementById('popup-darkener');
+
+// Show popup when clicking on event items in event log
+// We'll add click handlers to all event entries that show event names
+function initPopupHandlers() {
+    const eventNames = document.querySelectorAll('#event-log-screen .event-name, #event-log-screen .event-name-white');
+    
+    eventNames.forEach(eventName => {
+        eventName.style.cursor = 'pointer';
+        eventName.addEventListener('click', () => {
+            sensorPopup.classList.remove('hidden');
+        });
+    });
+}
+
+// Close popup when clicking outside the card (on darkener)
+popupDarkener.addEventListener('click', () => {
+    sensorPopup.classList.add('hidden');
+});
+
+// Initialize popup handlers
+initPopupHandlers();
+
 // Start the app
 initApp();

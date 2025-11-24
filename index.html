@@ -550,6 +550,63 @@
             <p class="event-timestamp" style="top: 794px;">2025.11.10 12:00:22</p>
             <p class="event-sensor" style="top: 793px;">Sensor ID: SU-1908S-L</p>
         </div>
+
+        <!-- Popup Modal for Sensor Event Detail -->
+        <div id="sensor-popup" class="popup-overlay hidden">
+            <div class="popup-darkener" id="popup-darkener"></div>
+            <div class="popup-card">
+                <!-- Sensor Title -->
+                <p class="popup-sensor-label">SENSOR UNIT</p>
+                <h2 class="popup-sensor-id">SU-87SJT-2</h2>
+                <div class="popup-title-divider"></div>
+
+                <!-- Timeline Line -->
+                <div class="popup-timeline-line"></div>
+
+                <!-- Event: Tamper Detected -->
+                <div class="popup-event-divider" style="top: 257px; background: #E34949;"></div>
+                <div class="popup-event-icon" style="top: 242px; background: #E34949;">
+                    <img src="svgs/tamperdetectedicon.svg" alt="" class="popup-icon-img event-tamper-icon">
+                </div>
+                <p class="popup-event-name" style="top: 257px;">Tamper Detected</p>
+                <p class="popup-event-time" style="top: 242px;">2025.11.25 18:33:22</p>
+                <div class="popup-timeline-triangle" style="top: 297px;"></div>
+
+                <!-- Event: Seal Activated #1 -->
+                <div class="popup-event-divider" style="top: 347px; background: #FFFFFF;"></div>
+                <div class="popup-event-icon" style="top: 332px; background: #FFFFFF;">
+                    <img src="svgs/sealactivatedicon.svg" alt="" class="popup-icon-img popup-icon-dark">
+                </div>
+                <p class="popup-event-name" style="top: 347px;">Seal Activated</p>
+                <p class="popup-event-time" style="top: 332px;">2025.11.25 12:00:02</p>
+                <div class="popup-timeline-triangle" style="top: 388px;"></div>
+
+                <!-- Event: Seal Deactivated -->
+                <div class="popup-event-divider" style="top: 436px; background: #C8CCD2;"></div>
+                <div class="popup-event-icon" style="top: 421px; background: #C8CCD2;">
+                    <img src="svgs/sealdeactivatedicon.svg" alt="" class="popup-icon-img popup-icon-dark">
+                </div>
+                <p class="popup-event-name" style="top: 436px;">Seal Deactivated</p>
+                <p class="popup-event-time" style="top: 421px;">2025.11.13 21:34:22</p>
+
+                <!-- Event: Low Battery -->
+                <div class="popup-event-divider" style="top: 495px; background: #E34949;"></div>
+                <div class="popup-event-icon" style="top: 480px; background: #E34949;">
+                    <img src="svgs/lowbatteryicon.svg" alt="" class="popup-icon-img">
+                </div>
+                <p class="popup-event-name" style="top: 495px;">Low Battery</p>
+                <p class="popup-event-time" style="top: 480px;">2025.11.13 21:31:00</p>
+                <div class="popup-timeline-triangle" style="top: 536px;"></div>
+
+                <!-- Event: Seal Activated #2 -->
+                <div class="popup-event-divider" style="top: 584px; background: #FFFFFF;"></div>
+                <div class="popup-event-icon" style="top: 569px; background: #FFFFFF;">
+                    <img src="svgs/sealactivatedicon.svg" alt="" class="popup-icon-img popup-icon-dark">
+                </div>
+                <p class="popup-event-name" style="top: 584px;">Seal Activated</p>
+                <p class="popup-event-time" style="top: 569px;">2025.11.05 11:13:23</p>
+            </div>
+        </div>
     </div>
 
     <script src="app.js"></script>
