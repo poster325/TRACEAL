@@ -1559,3 +1559,104 @@ body {
     border-bottom: 10px solid #70757D;
     z-index: 1;
 }
+
+/* Alarm Screen Styles */
+#alarm-screen {
+    background: #E34949;
+}
+
+.alarm-bg {
+    background: #E34949 !important;
+}
+
+.alarm-icon-wrapper {
+    position: absolute;
+    width: 182.31px;
+    height: 158.53px;
+    left: calc(50% - 182.31px / 2 - 0.35px);
+    top: 238px;
+}
+
+.alarm-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.alarm-title {
+    position: absolute;
+    width: 347px;
+    height: 37px;
+    left: calc(50% - 347px / 2);
+    top: 406px;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 110%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.alarm-question {
+    position: absolute;
+    width: 343px;
+    height: 24px;
+    left: 16px;
+    top: 442px;
+    font-family: 'Test Söhne';
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.btn-alarm-yes {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 502px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #E34949;
+    cursor: pointer;
+}
+
+.btn-alarm-no {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 556px;
+    background: #5E1D1D;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #E34949;
+    cursor: pointer;
+}
+
+.alarm-indicator {
+    background: #1A1A1A;
+}

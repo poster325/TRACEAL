@@ -13,10 +13,6 @@
     <title>TRACEAL Console</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="apple-touch-icon" href="logo.png">
-    
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 </head>
 <body>
     <!-- iPhone Container -->
@@ -489,9 +485,39 @@
                 <p class="popup-event-time" style="top: 429px;">2025.11.05 11:13:23</p>
             </div>
         </div>
+
+        <!-- Alarm Triggered Screen -->
+        <div id="alarm-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar alarm-bg"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar alarm-bg">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Warning Icon (Triangle with !) -->
+            <div class="alarm-icon-wrapper">
+                <img src="svgs/warningimagegiantforalarm.svg" alt="Warning" class="alarm-icon">
+            </div>
+
+            <!-- Tamper Detected Title -->
+            <h1 class="alarm-title">TAMPER DETECTED</h1>
+
+            <!-- Question Text -->
+            <p class="alarm-question">Was this removal intentional?</p>
+
+            <!-- Yes Button (White) -->
+            <button class="btn-alarm-yes">Yes, log it as deactivation</button>
+
+            <!-- No Button (Dark Red) -->
+            <button class="btn-alarm-no" id="alarm-no-btn">No</button>
+
+            <!-- Home Indicator -->
+            <div class="home-indicator alarm-indicator"></div>
+        </div>
     </div>
 
-    <script src="firebase-config.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
 </body>

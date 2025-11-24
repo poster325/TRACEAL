@@ -346,41 +346,6 @@ const backFromLogBtn = document.getElementById('back-from-log');
 
 // Observer Log Button -> Observer Log Screen
 observerLogBtn.addEventListener('click', () => {
-    // Special trigger functionality for "tri" user
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (loggedInUser) {
-        const user = JSON.parse(loggedInUser);
-        if (user.userId === 'tri') {
-            // Update demo's tamper detected timestamp to current time
-            const now = new Date();
-            const timestamp = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-            
-            // Store trigger timestamp locally
-            localStorage.setItem('demo_tamper_timestamp', timestamp);
-            
-            // Store trigger timestamp in Firebase for cross-device sync
-            if (database) {
-                database.ref('demo/tamper_timestamp').set(timestamp)
-                    .then(() => {
-                        console.log('Trigger activated! Timestamp synced to Firebase:', timestamp);
-                    })
-                    .catch((error) => {
-                        console.error('Error syncing to Firebase:', error);
-                    });
-            }
-            
-            // Update demo's observer events count to 1
-            const demoObserversKey = 'observers_demo';
-            const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
-            if (demoObservers.length > 0) {
-                demoObservers[0].events = 1;
-                localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
-            }
-            
-            console.log('Trigger activated! Demo tamper timestamp updated to:', timestamp);
-        }
-    }
-    
     updateObserverLogWithUser();
     switchScreen('dashboard', 'observerLog');
 });
@@ -578,17 +543,38 @@ if (settingsIcon) {
     });
 }
 
-// Auto-refresh for demo account when trigger is activated
-let lastCheckedTimestamp = null;
+// Alarm Screen "No" Button -> Event Log
+const alarmNoBtn = document.getElementById('alarm-no-btn');
+if (alarmNoBtn) {
+    alarmNoBtn.addEventListener('click', () => {
+        // Set selected observer to demo observer
+        localStorage.setItem('selectedObserver', 'N25_Demo_1124');
+        
+        // Update event log title
+        const eventObserverName = document.querySelector('.event-observer-name');
+        if (eventObserverName) {
+            eventObserverName.textContent = 'N25_Demo_1124';
+        }
+        
+        // Render event log
+        renderEventLog('N25_Demo_1124');
+        
+        // Switch to event log screen
+        switchScreen('alarm', 'eventLog');
+    });
+}
 
-function refreshDemoView(timestamp) {
-    console.log('Trigger detected! Auto-refreshing demo view...', timestamp);
+// Automatic Tamper Trigger for Demo Account
+function triggerDemoTamper() {
+    console.log('Triggering demo tamper event...');
     
-    // Store locally
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    
+    // Store trigger timestamp
     localStorage.setItem('demo_tamper_timestamp', timestamp);
-    lastCheckedTimestamp = timestamp;
     
-    // Update observers data with new event count
+    // Update demo's observer events count to 1
     const demoObserversKey = 'observers_demo';
     const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
     if (demoObservers.length > 0) {
@@ -602,66 +588,30 @@ function refreshDemoView(timestamp) {
         renderObserverList();
     }
     
-    // Refresh event log if currently viewing the demo observer
-    const eventLogScreen = document.getElementById('event-log-screen');
-    if (eventLogScreen && eventLogScreen.classList.contains('active')) {
-        const selectedObserver = localStorage.getItem('selectedObserver');
-        if (selectedObserver === 'N25_Demo_1124') {
-            renderEventLog('N25_Demo_1124');
-        }
-    }
+    console.log('Demo tamper triggered at:', timestamp);
+    
+    // Show alarm screen after 10 more seconds
+    setTimeout(() => {
+        console.log('Showing alarm screen...');
+        switchScreen('dashboard', 'alarm');
+    }, 10000);
 }
 
-function checkForTriggerUpdate() {
+function setupDemoAutoTrigger() {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (!loggedInUser) return;
     
     const user = JSON.parse(loggedInUser);
     
-    // Only check if logged in as demo
+    // Only trigger for demo account
     if (user.userId === 'demo') {
-        const currentTimestamp = localStorage.getItem('demo_tamper_timestamp');
-        
-        // If timestamp exists and changed since last check
-        if (currentTimestamp && currentTimestamp !== lastCheckedTimestamp) {
-            refreshDemoView(currentTimestamp);
-        }
+        console.log('Demo account detected - tamper will trigger in 15 seconds...');
+        setTimeout(triggerDemoTamper, 15000);
     }
 }
 
-// Firebase Real-time Listener for cross-device sync
-function setupFirebaseListener() {
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (!loggedInUser) return;
-    
-    const user = JSON.parse(loggedInUser);
-    
-    // Only set up listener if logged in as demo and Firebase is available
-    if (user.userId === 'demo' && database) {
-        console.log('Setting up Firebase listener for demo account...');
-        
-        database.ref('demo/tamper_timestamp').on('value', (snapshot) => {
-            const timestamp = snapshot.val();
-            if (timestamp && timestamp !== lastCheckedTimestamp) {
-                console.log('Firebase update received:', timestamp);
-                refreshDemoView(timestamp);
-            }
-        });
-    }
-}
-
-// Initialize Firebase listener on page load
-setTimeout(setupFirebaseListener, 1000);
-
-// Poll for updates every 2 seconds (for fallback/same-device testing)
-setInterval(checkForTriggerUpdate, 2000);
-
-// Also listen to storage events (for cross-tab updates on same device)
-window.addEventListener('storage', (e) => {
-    if (e.key === 'demo_tamper_timestamp') {
-        checkForTriggerUpdate();
-    }
-});
+// Initialize auto-trigger when demo logs in
+setTimeout(setupDemoAutoTrigger, 1000);
 
 // Start the app
 initApp();
