@@ -622,6 +622,71 @@
             <div class="home-indicator"></div>
         </div>
 
+        <!-- Authenticate Alarm Screen (300:2505) -->
+        <div id="auth-alarm-screen" class="screen" data-name="authenticatealarm" data-node-id="300:2505">
+            <!-- Status Bar (Red) -->
+            <div class="status-bar status-bar-alarm"></div>
+            
+            <!-- Navigation Bar (Red) -->
+            <div class="nav-bar nav-bar-alarm">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Title Underline -->
+            <div class="title-underline-alarm"></div>
+
+            <!-- Page Title -->
+            <h1 class="auth-alarm-title">User Authentication</h1>
+
+            <!-- Description -->
+            <p class="auth-alarm-description">Authenticate your administrator ID again to prove intentional deactivation.</p>
+
+            <!-- Form Labels -->
+            <label class="form-label form-label-alarm" for="auth-alarm-user-id">USER ID / SERIAL</label>
+            <label class="form-label form-label-alarm" for="auth-alarm-password">PASSWORD</label>
+
+            <!-- Input Fields -->
+            <input type="text" id="auth-alarm-user-id" class="form-input form-input-alarm" autocomplete="off">
+            <input type="password" id="auth-alarm-password" class="form-input form-input-alarm" autocomplete="off">
+
+            <!-- Authenticate Button -->
+            <button class="btn-authenticate-alarm" id="authenticate-alarm-btn">Authenticate</button>
+
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
+
+        <!-- Alarm Triggered Screen (280:940) -->
+        <div id="alarm-triggered-screen" class="screen" data-name="alarmtrigerred" data-node-id="280:940">
+            <!-- Status Bar (Red) -->
+            <div class="status-bar status-bar-alarm"></div>
+            
+            <!-- Navigation Bar (Red) -->
+            <div class="nav-bar nav-bar-alarm">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Warning Icon -->
+            <div class="alarm-warning-icon">
+                <img src="svgs/warningimagegiantforalarm.svg" alt="Warning" class="alarm-icon-img">
+            </div>
+
+            <!-- Tamper Detected Title -->
+            <h1 class="alarm-title">TAMPER DETECTED</h1>
+
+            <!-- Question -->
+            <p class="alarm-question">Was this removal intentional?</p>
+
+            <!-- Yes Button -->
+            <button class="btn-alarm-yes" id="alarm-yes-btn">Yes, log it as deactivation</button>
+
+            <!-- No Button -->
+            <button class="btn-alarm-no" id="alarm-no-btn">No</button>
+
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
+
         <!-- Sensor Detail Popup Modal (303:3183) -->
         <div id="sensor-popup" class="popup-overlay" style="display: none;">
             <div class="popup-container">

@@ -9,7 +9,9 @@ const screens = {
     registerName: document.getElementById('register-name-screen'),
     registerConfirm: document.getElementById('register-confirm-screen'),
     observerLog: document.getElementById('observer-log-screen'),
-    eventLog: document.getElementById('event-log-screen')
+    eventLog: document.getElementById('event-log-screen'),
+    authAlarm: document.getElementById('auth-alarm-screen'),
+    alarmTriggered: document.getElementById('alarm-triggered-screen')
 };
 
 // Switch Screen Function
@@ -206,6 +208,70 @@ if (sensorPopup) {
         }
     });
 }
+
+// Alarm Screen Handlers
+const alarmYesBtn = document.getElementById('alarm-yes-btn');
+const alarmNoBtn = document.getElementById('alarm-no-btn');
+const authenticateAlarmBtn = document.getElementById('authenticate-alarm-btn');
+const authAlarmUserId = document.getElementById('auth-alarm-user-id');
+const authAlarmPassword = document.getElementById('auth-alarm-password');
+
+// Alarm Triggered -> Authenticate Alarm (when Yes is clicked)
+if (alarmYesBtn) {
+    alarmYesBtn.addEventListener('click', () => {
+        switchScreen('alarmTriggered', 'authAlarm');
+    });
+}
+
+// Alarm Triggered -> Back to Event Log (when No is clicked)
+if (alarmNoBtn) {
+    alarmNoBtn.addEventListener('click', () => {
+        switchScreen('alarmTriggered', 'eventLog');
+    });
+}
+
+// Authenticate Alarm -> Dashboard (after authentication)
+if (authenticateAlarmBtn) {
+    authenticateAlarmBtn.addEventListener('click', () => {
+        const userId = authAlarmUserId.value.trim();
+        const password = authAlarmPassword.value.trim();
+
+        if (userId && password) {
+            // Clear form fields
+            authAlarmUserId.value = '';
+            authAlarmPassword.value = '';
+            
+            switchScreen('authAlarm', 'dashboard');
+        }
+    });
+}
+
+// Allow Enter key in alarm auth form
+if (authAlarmPassword) {
+    authAlarmPassword.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            authenticateAlarmBtn.click();
+        }
+    });
+}
+
+if (authAlarmUserId) {
+    authAlarmUserId.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            authAlarmPassword.focus();
+        }
+    });
+}
+
+// Simulate tamper detection - click on tamper events to trigger alarm
+const tamperEvents = document.querySelectorAll('.event-alert-full');
+tamperEvents.forEach(event => {
+    event.addEventListener('click', (e) => {
+        // Stop propagation to prevent sensor popup
+        e.stopPropagation();
+        switchScreen('eventLog', 'alarmTriggered');
+    });
+});
 
 // Start the app
 initApp();

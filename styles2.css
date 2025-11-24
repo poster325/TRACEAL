@@ -1468,3 +1468,226 @@ body {
     width: 24px;
     height: 24px;
 }
+
+/* ===== ALARM SCREENS ===== */
+
+/* Authenticate Alarm Screen (300:2505) */
+#auth-alarm-screen {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #E34949;
+    border-radius: 50px;
+}
+
+/* Alarm Status Bar (Red) */
+.status-bar-alarm {
+    background: #E34949 !important;
+}
+
+.nav-bar-alarm {
+    background: #E34949 !important;
+}
+
+.title-underline-alarm {
+    position: absolute;
+    width: 196.73px;
+    height: 2px;
+    left: 89px;
+    top: 253px;
+    background: #FFFFFF;
+}
+
+.auth-alarm-title {
+    position: absolute;
+    width: 197px;
+    height: 35px;
+    left: calc(50% - 197px/2);
+    top: 211.5px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.auth-alarm-description {
+    position: absolute;
+    width: 343px;
+    height: 48px;
+    left: 16px;
+    top: 262.5px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.form-label-alarm {
+    color: #FFFFFF !important;
+}
+
+#auth-alarm-screen .form-label:first-of-type {
+    position: absolute;
+    left: 16px;
+    top: 329.99px;
+}
+
+#auth-alarm-screen .form-label:last-of-type {
+    position: absolute;
+    left: 16px;
+    top: 405.99px;
+}
+
+.form-input-alarm {
+    background: #FFFFFF !important;
+    color: var(--color-text-dark);
+}
+
+#auth-alarm-user-id {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 349.99px;
+    border-radius: 4px;
+}
+
+#auth-alarm-password {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 425.99px;
+    border-radius: 4px;
+}
+
+.btn-authenticate-alarm {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 501.99px;
+    background: #5E1D1D;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: #E34949;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-authenticate-alarm:active {
+    opacity: 0.8;
+}
+
+/* Alarm Triggered Screen (280:940) */
+#alarm-triggered-screen {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #E34949;
+    border-radius: 50px;
+}
+
+.alarm-warning-icon {
+    position: absolute;
+    width: 182.31px;
+    height: 158.53px;
+    left: calc(50% - 182.31px/2 - 0.35px);
+    top: 238px;
+}
+
+.alarm-icon-img {
+    width: 100%;
+    height: 100%;
+}
+
+.alarm-title {
+    position: absolute;
+    width: 347px;
+    height: 37px;
+    left: calc(50% - 347px/2);
+    top: 406px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 110%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.alarm-question {
+    position: absolute;
+    width: 343px;
+    height: 24px;
+    left: 16px;
+    top: 442px;
+    font-family: 'Test Söhne';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.btn-alarm-yes {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 502px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: #E34949;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-alarm-yes:active {
+    opacity: 0.8;
+}
+
+.btn-alarm-no {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 556px;
+    background: #5E1D1D;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: #E34949;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-alarm-no:active {
+    opacity: 0.8;
+}
