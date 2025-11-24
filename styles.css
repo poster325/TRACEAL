@@ -402,9 +402,10 @@ body {
     width: 375px;
     height: 812px;
     background: #FFFFFF;
+    overflow: hidden;
 }
 
-/* Dashboard Status & Nav Bars */
+/* Dashboard Status Bar */
 .status-bar-dashboard {
     position: absolute;
     width: 375px;
@@ -414,6 +415,7 @@ body {
     background: #1A1A1A;
 }
 
+/* Dashboard Nav Bar */
 .nav-bar-dashboard {
     position: absolute;
     width: 375px;
@@ -423,6 +425,7 @@ body {
     background: #1A1A1A;
 }
 
+/* Settings Icon */
 .settings-icon {
     position: absolute;
     width: 24px;
@@ -432,18 +435,19 @@ body {
     cursor: pointer;
 }
 
-/* Manager Section */
+/* Manager Section - exact positioning from Figma */
 .manager-section {
     position: absolute;
     width: 375px;
     left: 0px;
-    top: 108px;
+    top: 0px;
 }
 
+/* Manager Name - left-[calc(50%-171.27px)] top-[132px] translate-y-[-100%] */
 .manager-name {
     position: absolute;
     left: calc(50% - 171.27px);
-    top: 0px;
+    top: 108px;  /* 132 - 24 (height) = 108 */
     font-family: 'Test Söhne';
     font-weight: 500;
     font-size: 22px;
@@ -451,37 +455,35 @@ body {
     color: #1A1A1A;
 }
 
+/* Manager ID - left-[calc(50%+169.5px)] translate-x-[-100%] top-[130px] translate-y-[-100%] */
 .manager-id {
     position: absolute;
-    left: calc(50% + 169.5px);
-    top: 10px;
+    right: calc(50% - 169.5px);
+    top: 118px;  /* 130 - 12 (height) = 118 */
     font-family: 'Test Söhne';
     font-weight: 400;
     font-size: 11px;
     line-height: 110%;
     text-align: right;
     color: #4C5158;
-    transform: translateX(-100%);
 }
 
-/* Divider Lines */
-.divider-line {
+/* Top Divider - top-[138px] */
+.top-divider {
     position: absolute;
     width: 343px;
     height: 2px;
     left: 16px;
+    top: 138px;
     background: #C8CCD2;
 }
 
-.top-divider {
-    top: 138px;
-}
-
-/* Dashboard Stats */
+/* Dashboard Stats - top-[166px] and top-[184px] */
 .dashboard-stats {
     position: absolute;
     left: 16px;
     top: 166px;
+    width: 160px;
 }
 
 .stat-label {
@@ -490,11 +492,12 @@ body {
     font-size: 13px;
     line-height: 140%;
     color: #1A1A1A;
-    margin: 0 0 18px 0;
+    margin: 0;
+    display: block;
 }
 
-.stat-label:last-child {
-    margin-bottom: 0;
+.stat-label:first-child {
+    margin-bottom: 18px;  /* 184 - 166 = 18 */
 }
 
 .stat-value {
@@ -505,7 +508,7 @@ body {
     color: #1A1A1A;
 }
 
-/* Observer Log Button */
+/* Observer Log Button - left-[188px] top-[162px] */
 .btn-observer-log {
     position: absolute;
     width: 171px;
@@ -524,11 +527,9 @@ body {
     cursor: pointer;
 }
 
-/* Section Label */
+/* Section Label - left-[16px] top-[240px] */
 .section-label {
     position: absolute;
-    width: 64px;
-    height: 18px;
     left: 16px;
     top: 240px;
     font-family: 'Test Söhne';
@@ -538,7 +539,7 @@ body {
     color: #1A1A1A;
 }
 
-/* Observer List */
+/* Observer List - starts at top-[269px] with dividers at 258, 317, 376, 435, 494 */
 .observer-list {
     position: absolute;
     left: 0px;
@@ -549,17 +550,15 @@ body {
 .observer-item {
     position: relative;
     width: 375px;
-    min-height: 59px;
-    padding: 0 16px;
+    padding: 11px 16px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     cursor: pointer;
 }
 
 .observer-info {
     flex: 1;
-    padding: 11px 0;
 }
 
 .observer-name {
@@ -594,17 +593,19 @@ body {
     line-height: 27px;
     color: #FFFFFF;
     flex-shrink: 0;
+    margin-top: 3px;
 }
 
 .observer-list .divider-line {
     position: relative;
+    width: 343px;
+    height: 2px;
     left: 0px;
     margin: 0 16px;
-    width: 343px;
     background: #C8CCD2;
 }
 
-/* Register Button */
+/* Register Button - left-[16px] top-[527px] */
 .btn-register {
     position: absolute;
     width: 343px;
@@ -623,13 +624,12 @@ body {
     cursor: pointer;
 }
 
-/* Delete Link */
+/* Delete Link - left-1/2 top-[580px] translate-x-[-50%] */
 .delete-link {
     position: absolute;
-    width: 99px;
-    height: 18px;
-    left: calc(50% - 99px/2);
+    left: 50%;
     top: 580px;
+    transform: translateX(-50%);
     font-family: 'Test Söhne';
     font-weight: 400;
     font-size: 11px;
