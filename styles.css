@@ -494,12 +494,14 @@ body {
 .stat-label {
     position: absolute;
     left: 16px;
+    width: auto;
     font-family: 'Test Söhne';
     font-weight: 300;
     font-size: 13px;
     line-height: 140%;
     color: var(--color-text-dark);
     margin: 0;
+    height: 18px;
 }
 
 .stat-label:nth-child(1) {
