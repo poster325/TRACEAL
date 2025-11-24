@@ -988,3 +988,184 @@ body {
 .btn-confirm-register:active {
     opacity: 0.8;
 }
+
+/* ===== OBSERVER LOG SCREEN ===== */
+
+#observer-log-screen {
+    background: var(--color-white);
+}
+
+.log-title {
+    position: absolute;
+    width: 134px;
+    height: 24px;
+    left: calc(50% - 134px/2 - 104.5px);
+    top: 108px;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 110%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.log-manager-name {
+    position: absolute;
+    width: 67px;
+    height: 12px;
+    left: calc(50% - 67px/2 + 136px);
+    top: 118px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 110%;
+    color: #4C5158;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.log-title-divider {
+    position: absolute;
+    width: 343px;
+    height: 2px;
+    left: 16px;
+    top: 138px;
+    background: #C8CCD2;
+}
+
+.timeline-line {
+    position: absolute;
+    width: 2px;
+    height: 672px;
+    left: 31px;
+    top: 140px;
+    background: #70757D;
+}
+
+.log-entry {
+    position: absolute;
+    width: 100%;
+}
+
+.log-icon-wrapper {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.log-icon-img {
+    width: 24px;
+    height: 24px;
+}
+
+.log-event-title {
+    position: absolute;
+    width: 246px;
+    height: 31px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 140%;
+    color: #3B7FFF;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.log-event-subtitle {
+    position: absolute;
+    width: 145px;
+    height: 18px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.log-event-name {
+    position: absolute;
+    width: 238px;
+    height: 24px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.log-timestamp {
+    position: absolute;
+    width: 94px;
+    height: 15px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.log-observer-name {
+    position: absolute;
+    width: 155px;
+    height: 15px;
+    left: 204px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.log-divider {
+    position: absolute;
+    width: 322px;
+    height: 2px;
+    left: 37px;
+}
+
+.timeline-diamond {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 27px;
+    background: #70757D;
+    transform: rotate(45deg);
+}
+
+.home-indicator-log {
+    position: absolute;
+    width: 375px;
+    height: 34px;
+    left: 0px;
+    top: 778px;
+    background: var(--color-bg-primary);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

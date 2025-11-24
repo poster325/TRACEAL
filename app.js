@@ -7,7 +7,8 @@ const screens = {
     registerObserver: document.getElementById('register-observer-screen'),
     registerLoading: document.getElementById('register-loading-screen'),
     registerName: document.getElementById('register-name-screen'),
-    registerConfirm: document.getElementById('register-confirm-screen')
+    registerConfirm: document.getElementById('register-confirm-screen'),
+    observerLog: document.getElementById('observer-log-screen')
 };
 
 // Switch Screen Function
@@ -160,6 +161,22 @@ confirmRegisterBtn.addEventListener('click', () => {
     registerObserverName.value = '';
     
     switchScreen('registerConfirm', 'dashboard');
+});
+
+// Observer Log Navigation
+const backFromLogBtn = document.getElementById('back-from-log');
+const observerItems = document.querySelectorAll('.observer-item');
+
+// Observer Item -> Observer Log
+observerItems.forEach(item => {
+    item.addEventListener('click', () => {
+        switchScreen('dashboard', 'observerLog');
+    });
+});
+
+// Back from Observer Log -> Dashboard
+backFromLogBtn.addEventListener('click', () => {
+    switchScreen('observerLog', 'dashboard');
 });
 
 // Start the app
