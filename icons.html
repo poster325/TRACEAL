@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Icons Reference - TRACEAL</title>
+    <style>
+        body {
+            font-family: 'Sohne', -apple-system, sans-serif;
+            padding: 40px;
+            background: #f4f4f4;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+        }
+        .icon-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+        .icon-name {
+            font-size: 12px;
+            margin-top: 10px;
+            color: #666;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>IBM Carbon Icons - 24×24px Default</h1>
+    <p>All icons set to 24×24px by default. Add icons here as needed.</p>
+    
+    <div class="icon-grid">
+        <!-- Example: Notification Icon -->
+        <div class="icon-item">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <path d="M28.7071,19.293,26,16.5859V13a10.0136,10.0136,0,0,0-9-9.9492V1H15V3.0508A10.0136,10.0136,0,0,0,6,13v3.5859L3.2929,19.293A1,1,0,0,0,3,20v3a1,1,0,0,0,1,1h7v.7768a5,5,0,0,0,10,0V24h7a1,1,0,0,0,1-1V20A1,1,0,0,0,28.7071,19.293ZM19,24.7768a3,3,0,0,1-6,0V24h6ZM26,22H6V20.4141l2.707-2.707A1,1,0,0,0,9,17V13a7,7,0,0,1,14,0v4a1,1,0,0,0,.293.7071L26,20.4141Z"/>
+            </svg>
+            <div class="icon-name">notification</div>
+        </div>
+
+        <!-- Example: User Icon -->
+        <div class="icon-item">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <path d="M16,4A5,5,0,1,1,11,9a5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z"/>
+                <path d="M26,30H24V25a5,5,0,0,0-5-5H13a5,5,0,0,0-5,5v5H6V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z"/>
+            </svg>
+            <div class="icon-name">user</div>
+        </div>
+
+        <!-- Example: Search Icon -->
+        <div class="icon-item">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <path d="M29,27.5859l-7.5521-7.5521a11.0177,11.0177,0,1,0-1.4141,1.4141L27.5859,29ZM4,13a9,9,0,1,1,9,9A9.01,9.01,0,0,1,4,13Z"/>
+            </svg>
+            <div class="icon-name">search</div>
+        </div>
+
+        <!-- Add more icons as needed -->
+    </div>
+
+    <h2 style="margin-top: 40px;">Usage in HTML:</h2>
+    <pre style="background: white; padding: 20px; border-radius: 8px; overflow-x: auto;">
+&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;
+  &lt;!-- SVG path data here --&gt;
+&lt;/svg&gt;
+    </pre>
+
+    <h2 style="margin-top: 20px;">Icon Sources:</h2>
+    <ul>
+        <li>Carbon Design System: <a href="https://carbondesignsystem.com/guidelines/icons/library/" target="_blank">https://carbondesignsystem.com/guidelines/icons/library/</a></li>
+        <li>GitHub SVG Files: <a href="https://github.com/carbon-design-system/carbon/tree/main/packages/icons/src/svg" target="_blank">GitHub Repository</a></li>
+    </ul>
+</body>
+</html>
+

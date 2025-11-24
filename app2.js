@@ -7,29 +7,16 @@ const screens = {
     registerObserver: document.getElementById('register-observer-screen'),
     registerLoading: document.getElementById('register-loading-screen'),
     registerName: document.getElementById('register-name-screen'),
-    registerConfirm: document.getElementById('register-confirm-screen'),
-    observerLog: document.getElementById('observer-log-screen'),
-    eventLog: document.getElementById('event-log-screen'),
-    authAlarm: document.getElementById('auth-alarm-screen'),
-    alarmTriggered: document.getElementById('alarm-triggered-screen')
+    registerConfirm: document.getElementById('register-confirm-screen')
 };
 
 // Switch Screen Function
 function switchScreen(fromScreen, toScreen) {
-    console.log(`Switching from ${fromScreen} to ${toScreen}`);
-    
     if (screens[fromScreen]) {
         screens[fromScreen].classList.remove('active');
-        console.log(`Removed active from ${fromScreen}`);
-    } else if (fromScreen) {
-        console.warn(`Screen not found: ${fromScreen}`);
     }
-    
     if (screens[toScreen]) {
         screens[toScreen].classList.add('active');
-        console.log(`Added active to ${toScreen}`, screens[toScreen]);
-    } else {
-        console.error(`Screen not found: ${toScreen}`);
     }
 }
 
@@ -162,136 +149,6 @@ confirmRegisterBtn.addEventListener('click', () => {
     registerObserverName.value = '';
     
     switchScreen('registerConfirm', 'dashboard');
-});
-
-// Event Log Navigation
-const observerLogBtn = document.getElementById('observer-log-btn');
-const observerLogBackBtn = document.getElementById('observer-log-back');
-const eventLogBackBtn = document.getElementById('event-log-back');
-const registerBackBtn = document.getElementById('register-back-btn');
-const sensorPopup = document.getElementById('sensor-popup');
-
-// Dashboard -> Observer Log
-if (observerLogBtn) {
-    observerLogBtn.addEventListener('click', () => {
-        console.log('Observer Log button clicked');
-        switchScreen('dashboard', 'observerLog');
-    });
-}
-
-// Observer Log -> Back to Dashboard
-if (observerLogBackBtn) {
-    observerLogBackBtn.addEventListener('click', () => {
-        switchScreen('observerLog', 'dashboard');
-    });
-}
-
-// Event Log -> Back to Dashboard
-if (eventLogBackBtn) {
-    eventLogBackBtn.addEventListener('click', () => {
-        switchScreen('eventLog', 'dashboard');
-    });
-}
-
-// Register Screen -> Back to Dashboard
-if (registerBackBtn) {
-    registerBackBtn.addEventListener('click', () => {
-        switchScreen('registerObserver', 'dashboard');
-    });
-}
-
-// Observer items click to view Event Log
-const observerItems = document.querySelectorAll('.observer-item');
-console.log('Found observer items:', observerItems.length);
-observerItems.forEach((item, index) => {
-    item.style.cursor = 'pointer';
-    item.addEventListener('click', () => {
-        console.log('Observer item clicked:', index);
-        switchScreen('dashboard', 'eventLog');
-    });
-});
-
-// Event items in Event Log can show sensor popup
-const eventItems = document.querySelectorAll('.event-item, .event-alert-full');
-eventItems.forEach(item => {
-    item.addEventListener('click', () => {
-        if (sensorPopup) {
-            sensorPopup.style.display = 'flex';
-        }
-    });
-});
-
-// Close popup when clicking overlay
-if (sensorPopup) {
-    sensorPopup.addEventListener('click', (e) => {
-        if (e.target === sensorPopup) {
-            sensorPopup.style.display = 'none';
-        }
-    });
-}
-
-// Alarm Screen Handlers
-const alarmYesBtn = document.getElementById('alarm-yes-btn');
-const alarmNoBtn = document.getElementById('alarm-no-btn');
-const authenticateAlarmBtn = document.getElementById('authenticate-alarm-btn');
-const authAlarmUserId = document.getElementById('auth-alarm-user-id');
-const authAlarmPassword = document.getElementById('auth-alarm-password');
-
-// Alarm Triggered -> Authenticate Alarm (when Yes is clicked)
-if (alarmYesBtn) {
-    alarmYesBtn.addEventListener('click', () => {
-        switchScreen('alarmTriggered', 'authAlarm');
-    });
-}
-
-// Alarm Triggered -> Back to Event Log (when No is clicked)
-if (alarmNoBtn) {
-    alarmNoBtn.addEventListener('click', () => {
-        switchScreen('alarmTriggered', 'eventLog');
-    });
-}
-
-// Authenticate Alarm -> Dashboard (after authentication)
-if (authenticateAlarmBtn) {
-    authenticateAlarmBtn.addEventListener('click', () => {
-        const userId = authAlarmUserId.value.trim();
-        const password = authAlarmPassword.value.trim();
-
-        if (userId && password) {
-            // Clear form fields
-            authAlarmUserId.value = '';
-            authAlarmPassword.value = '';
-            
-            switchScreen('authAlarm', 'dashboard');
-        }
-    });
-}
-
-// Allow Enter key in alarm auth form
-if (authAlarmPassword) {
-    authAlarmPassword.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            authenticateAlarmBtn.click();
-        }
-    });
-}
-
-if (authAlarmUserId) {
-    authAlarmUserId.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            authAlarmPassword.focus();
-        }
-    });
-}
-
-// Simulate tamper detection - click on tamper events to trigger alarm
-const tamperEvents = document.querySelectorAll('.event-alert-full');
-tamperEvents.forEach(event => {
-    event.addEventListener('click', (e) => {
-        // Stop propagation to prevent sensor popup
-        e.stopPropagation();
-        switchScreen('eventLog', 'alarmTriggered');
-    });
 });
 
 // Start the app

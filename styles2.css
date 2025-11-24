@@ -398,92 +398,96 @@ body {
 
 /* ===== DASHBOARD SCREEN (277:799) ===== */
 #dashboard-screen {
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #FFFFFF;
-    overflow: hidden;
+    background: var(--color-bg-white);
 }
 
-/* Dashboard Status Bar */
+/* Dashboard Status & Nav Bars */
 .status-bar-dashboard {
     position: absolute;
     width: 375px;
     height: 44px;
     left: 0px;
     top: 0px;
-    background: #1A1A1A;
+    background: var(--color-bg-primary);
 }
 
-/* Dashboard Nav Bar */
 .nav-bar-dashboard {
     position: absolute;
     width: 375px;
     height: 44px;
     left: 0px;
     top: 44px;
-    background: #1A1A1A;
+    background: var(--color-bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Settings Icon */
 .settings-icon {
     position: absolute;
     width: 24px;
     height: 24px;
-    left: 335px;
-    top: 54px;
+    right: 16px;
     cursor: pointer;
 }
 
-/* Manager Section - exact positioning from Figma */
+/* Manager Section */
 .manager-section {
     position: absolute;
-    width: 375px;
-    left: 0px;
-    top: 0px;
+    width: 343px;
+    left: 16px;
+    top: 108px;
 }
 
-/* Manager Name - left-[calc(50%-171.27px)] top-[132px] translate-y-[-100%] */
 .manager-name {
     position: absolute;
-    left: calc(50% - 171.27px);
-    top: 108px;  /* 132 - 24 (height) = 108 */
+    width: 134px;
+    height: 24px;
+    left: calc(50% - 134px/2 - 104.27px);
+    top: 0px;
     font-family: 'Test Söhne';
     font-weight: 500;
     font-size: 22px;
     line-height: 110%;
-    color: #1A1A1A;
+    display: flex;
+    align-items: flex-end;
+    color: var(--color-text-dark);
 }
 
-/* Manager ID - left-[calc(50%+169.5px)] translate-x-[-100%] top-[130px] translate-y-[-100%] */
 .manager-id {
     position: absolute;
-    right: calc(50% - 169.5px);
-    top: 118px;  /* 130 - 12 (height) = 118 */
+    width: 44px;
+    height: 12px;
+    left: calc(50% - 44px/2 + 147.5px);
+    top: 10px;
     font-family: 'Test Söhne';
     font-weight: 400;
     font-size: 11px;
     line-height: 110%;
+    display: flex;
+    align-items: flex-end;
     text-align: right;
-    color: #4C5158;
+    color: var(--color-bg-secondary);
 }
 
-/* Top Divider - top-[138px] */
-.top-divider {
+/* Divider Lines */
+.divider-line {
     position: absolute;
     width: 343px;
     height: 2px;
     left: 16px;
-    top: 138px;
-    background: #C8CCD2;
+    background: var(--color-divider);
 }
 
-/* Dashboard Stats - top-[166px] and top-[184px] */
+.top-divider {
+    top: 138px;
+}
+
+/* Dashboard Stats */
 .dashboard-stats {
     position: absolute;
     left: 16px;
     top: 166px;
-    width: 160px;
 }
 
 .stat-label {
@@ -491,13 +495,8 @@ body {
     font-weight: 300;
     font-size: 13px;
     line-height: 140%;
-    color: #1A1A1A;
-    margin: 0;
-    display: block;
-}
-
-.stat-label:first-child {
-    margin-bottom: 18px;  /* 184 - 166 = 18 */
+    color: var(--color-text-dark);
+    margin-bottom: 18px;
 }
 
 .stat-value {
@@ -505,17 +504,20 @@ body {
     font-weight: 400;
     font-size: 13px;
     line-height: 140%;
-    color: #1A1A1A;
+    color: var(--color-text-dark);
+    position: absolute;
+    left: 146px;
+    text-align: right;
 }
 
-/* Observer Log Button - left-[188px] top-[162px] */
+/* Observer Log Button */
 .btn-observer-log {
     position: absolute;
     width: 171px;
     height: 44px;
     left: 188px;
     top: 162px;
-    background: #4C5158;
+    background: var(--color-bg-secondary);
     border-radius: 4px;
     border: none;
     font-family: 'Test Söhne';
@@ -523,23 +525,25 @@ body {
     font-size: 13px;
     line-height: 21px;
     text-align: center;
-    color: #FFFFFF;
+    color: var(--color-text-white);
     cursor: pointer;
 }
 
-/* Section Label - left-[16px] top-[240px] */
+/* Section Label */
 .section-label {
     position: absolute;
+    width: 64px;
+    height: 18px;
     left: 16px;
     top: 240px;
     font-family: 'Test Söhne';
     font-weight: 500;
     font-size: 11px;
     line-height: 18px;
-    color: #1A1A1A;
+    color: var(--color-text-dark);
 }
 
-/* Observer List - starts at top-[269px] with dividers at 258, 317, 376, 435, 494 */
+/* Observer List */
 .observer-list {
     position: absolute;
     left: 0px;
@@ -549,12 +553,10 @@ body {
 
 .observer-item {
     position: relative;
-    width: 375px;
-    padding: 11px 16px;
+    height: 59px;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    cursor: pointer;
+    align-items: center;
+    padding: 0 16px;
 }
 
 .observer-info {
@@ -566,8 +568,8 @@ body {
     font-weight: 400;
     font-size: 17px;
     line-height: 140%;
-    color: #1A1A1A;
-    margin: 0 0 4px 0;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
 }
 
 .observer-serial {
@@ -575,14 +577,13 @@ body {
     font-weight: 400;
     font-size: 11px;
     line-height: 140%;
-    color: #70757D;
-    margin: 0;
+    color: var(--color-text-secondary);
 }
 
 .badge-alert {
     width: 32px;
     height: 32px;
-    background: #E34949;
+    background: var(--color-accent-red);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -591,28 +592,24 @@ body {
     font-weight: 400;
     font-size: 17px;
     line-height: 27px;
-    color: #FFFFFF;
-    flex-shrink: 0;
-    margin-top: 3px;
+    color: var(--color-text-white);
 }
 
 .observer-list .divider-line {
     position: relative;
-    width: 343px;
-    height: 2px;
     left: 0px;
     margin: 0 16px;
-    background: #C8CCD2;
+    width: 343px;
 }
 
-/* Register Button - left-[16px] top-[527px] */
+/* Register Button */
 .btn-register {
     position: absolute;
     width: 343px;
     height: 44px;
     left: 16px;
     top: 527px;
-    background: #3B7FFF;
+    background: var(--color-accent-blue);
     border-radius: 4px;
     border: none;
     font-family: 'Test Söhne';
@@ -620,22 +617,23 @@ body {
     font-size: 17px;
     line-height: 27px;
     text-align: center;
-    color: #FFFFFF;
+    color: var(--color-text-white);
     cursor: pointer;
 }
 
-/* Delete Link - left-1/2 top-[580px] translate-x-[-50%] */
+/* Delete Link */
 .delete-link {
     position: absolute;
-    left: 50%;
+    width: 99px;
+    height: 18px;
+    left: calc(50% - 99px/2);
     top: 580px;
-    transform: translateX(-50%);
     font-family: 'Test Söhne';
     font-weight: 400;
     font-size: 11px;
     line-height: 18px;
     text-align: center;
-    color: #E34949;
+    color: var(--color-accent-red);
     cursor: pointer;
 }
 
@@ -646,7 +644,7 @@ body {
     height: 34px;
     left: 0px;
     top: 778px;
-    background: #1A1A1A;
+    background: var(--color-bg-primary);
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -948,724 +946,5 @@ body {
 }
 
 .btn-confirm-register:active {
-    opacity: 0.8;
-}
-
-/* ===== EVENT LOG SCREENS ===== */
-
-/* Observer Log Screen (300:2540) */
-/* ===== OBSERVER LOG & EVENT LOG SCREENS - EXACT FIGMA POSITIONING ===== */
-
-/* Observer Log Screen (300:2540) */
-#observer-log-screen {
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #FFFFFF;
-    overflow: hidden;
-}
-
-/* Event Log per Observer Screen (300:2837 / 274:400) */
-#event-log-screen {
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #FFFFFF;
-    overflow: hidden;
-}
-
-/* Page Title - left-[calc(50%-171.5px)] top-[108px] for Observer Log */
-/* Page Title - left-[calc(50%-122.5px)] top-[108px] for Event Log */
-.page-title {
-    position: absolute;
-    top: 108px;
-    font-family: 'Test Söhne';
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 110%;
-    color: #1A1A1A;
-}
-
-#observer-log-screen .page-title {
-    left: calc(50% - 171.5px);
-}
-
-#event-log-screen .page-title {
-    left: calc(50% - 122.5px);
-}
-
-/* Manager Name Label - right-aligned */
-.manager-name-label {
-    position: absolute;
-    right: calc(50% - 169.5px);
-    top: 118px;
-    font-family: 'Test Söhne';
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 110%;
-    text-align: right;
-    color: #4C5158;
-}
-
-/* Title Underline - top-[138px] */
-.title-underline {
-    position: absolute;
-    width: 343px;
-    height: 2px;
-    left: 16px;
-    top: 138px;
-    background: #C8CCD2;
-}
-
-/* Timeline Vertical Line - left-[31px] top-[140px] */
-.timeline-line {
-    position: absolute;
-    width: 2px;
-    height: 672px;
-    left: 31px;
-    top: 140px;
-    background: #70757D;
-}
-
-/* Status Header - top-[164px] */
-.status-header {
-    position: absolute;
-    width: 343px;
-    left: 16px;
-    top: 164px;
-}
-
-.status-ok-circle {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 16px;
-    top: 164px;
-    background: #3B7FFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.status-ok-header .status-icon {
-    width: 18px;
-    height: 18px;
-}
-
-.status-title {
-    position: absolute;
-    left: 64px;
-    top: 158px;
-    font-family: 'Test Söhne';
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 140%;
-}
-
-.status-ok-text {
-    color: #3B7FFF;
-}
-
-.status-tamper-text {
-    color: #E34949;
-}
-
-.status-subtitle {
-    position: absolute;
-    left: 64px;
-    top: 183px;
-    font-family: 'Test Söhne';
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 140%;
-    color: #1A1A1A;
-}
-
-/* Tamper Warning Icon Circle */
-.status-tamper-circle {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 16px;
-    top: 164px;
-    background: #E34949;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Event Item Container */
-.event-item-container {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 375px;
-}
-
-/* Individual Event Items */
-.event-item {
-    position: absolute;
-    width: 375px;
-    left: 0px;
-}
-
-/* Event Circle */
-.event-circle, .event-deleted-circle, .event-power-circle, 
-.event-connected-circle, .event-signal-circle {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.event-deleted-circle {
-    background: #C8CCD2;
-}
-
-.event-power-circle {
-    background: #E34949;
-}
-
-.event-connected-circle {
-    background: #4C5158;
-}
-
-.event-signal-circle {
-    background: #E34949;
-}
-
-.event-icon {
-    width: 18px;
-    height: 18px;
-}
-
-/* Event Horizontal Line */
-.event-line {
-    position: absolute;
-    width: 322px;
-    height: 2px;
-    left: 37px;
-}
-
-.event-line-deleted {
-    background: #C8CCD2;
-}
-
-.event-line-power {
-    background: #E34949;
-}
-
-.event-line-connected {
-    background: #4C5158;
-}
-
-.event-line-signal {
-    background: #E34949;
-}
-
-/* Event Details */
-.event-details {
-    position: absolute;
-    left: 64px;
-}
-
-.event-timestamp {
-    font-family: 'Test Söhne';
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    color: #1A1A1A;
-    margin: 0 0 2px 0;
-}
-
-.event-title {
-    font-family: 'Test Söhne';
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 140%;
-    color: #1A1A1A;
-    margin: 0;
-}
-
-.event-observer-name {
-    position: absolute;
-    right: 16px;
-    font-family: 'Test Söhne';
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    text-align: right;
-    color: #1A1A1A;
-}
-
-.event-sensor-id {
-    position: absolute;
-    right: 16px;
-    font-family: 'Test Söhne';
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 18px;
-    text-align: right;
-    color: #000000;
-}
-
-/* Timeline Triangle Markers */
-.event-triangle {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 27px;
-    background: #70757D;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
-/* Full-Width Alert Event Backgrounds */
-.event-alert-bg {
-    position: absolute;
-    width: 375px;
-    height: 59px;
-    left: 0px;
-    background: #E34949;
-}
-
-/* White text modifiers for events on red background */
-.event-timestamp-white {
-    color: #FFFFFF !important;
-}
-
-.event-title-white {
-    color: #FFFFFF !important;
-}
-
-.event-sensor-id-white {
-    color: #FFFFFF !important;
-}
-
-/* Popup Modal (Sensor Detail) */
-.popup-overlay {
-    position: fixed;
-    width: 375px;
-    height: 812px;
-    left: 0px;
-    top: 0px;
-    background: rgba(26, 26, 26, 0.3);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-container {
-    position: absolute;
-    width: 343px;
-    height: 589px;
-    left: 16px;
-    top: 140px;
-    background: #4C5158;
-    border-radius: 4px;
-    overflow-y: auto;
-}
-
-.popup-header {
-    position: relative;
-    padding: 39px 16px 0;
-}
-
-.popup-sensor-label {
-    position: absolute;
-    width: 71px;
-    height: 15px;
-    left: 152px;
-    top: 179px;
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    color: #FFFFFF;
-}
-
-.popup-sensor-id {
-    position: absolute;
-    width: 89px;
-    height: 24px;
-    left: calc(50% - 89px/2);
-    top: 194px;
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.popup-divider {
-    position: absolute;
-    width: 311px;
-    height: 2px;
-    left: 32px;
-    top: 226px;
-    background: #FFFFFF;
-}
-
-.popup-timeline-line {
-    position: absolute;
-    width: 2px;
-    height: 501px;
-    left: 47px;
-    top: 228px;
-    background: #70757D;
-}
-
-.popup-event-item {
-    position: relative;
-    margin: 20px 0;
-}
-
-.popup-event-icon-circle {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-icon-active {
-    background: #FFFFFF;
-}
-
-.popup-icon-inactive {
-    background: #C8CCD2;
-}
-
-.popup-icon-alert {
-    background: #E34949;
-}
-
-.popup-icon-tamper {
-    background: #E34949;
-}
-
-.popup-event-icon {
-    width: 18px;
-    height: 18px;
-}
-
-.popup-event-line {
-    position: absolute;
-    width: 290px;
-    height: 2px;
-    left: 53px;
-}
-
-.popup-line-active {
-    background: #FFFFFF;
-}
-
-.popup-line-inactive {
-    background: #C8CCD2;
-}
-
-.popup-line-alert {
-    background: #E34949;
-}
-
-.popup-line-tamper {
-    background: #E34949;
-}
-
-.popup-event-content {
-    position: absolute;
-    left: 80px;
-}
-
-.popup-event-time {
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
-}
-
-.popup-event-title {
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
-}
-
-.popup-timeline-marker {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 43px;
-    background: #70757D;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
-/* Back Button in Nav Bar */
-.nav-back-btn {
-    position: absolute;
-    left: 16px;
-    top: 54px;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.nav-back-icon {
-    width: 24px;
-    height: 24px;
-    display: block;
-}
-
-.nav-back-icon {
-    width: 24px;
-    height: 24px;
-}
-
-/* ===== ALARM SCREENS ===== */
-
-/* Authenticate Alarm Screen (300:2505) */
-#auth-alarm-screen {
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #E34949;
-    border-radius: 50px;
-}
-
-/* Alarm Status Bar (Red) */
-.status-bar-alarm {
-    background: #E34949 !important;
-}
-
-.nav-bar-alarm {
-    background: #E34949 !important;
-}
-
-.title-underline-alarm {
-    position: absolute;
-    width: 196.73px;
-    height: 2px;
-    left: 89px;
-    top: 253px;
-    background: #FFFFFF;
-}
-
-.auth-alarm-title {
-    position: absolute;
-    width: 197px;
-    height: 35px;
-    left: calc(50% - 197px/2);
-    top: 211.5px;
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.auth-alarm-description {
-    position: absolute;
-    width: 343px;
-    height: 48px;
-    left: 16px;
-    top: 262.5px;
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.form-label-alarm {
-    color: #FFFFFF !important;
-}
-
-#auth-alarm-screen .form-label:first-of-type {
-    position: absolute;
-    left: 16px;
-    top: 329.99px;
-}
-
-#auth-alarm-screen .form-label:last-of-type {
-    position: absolute;
-    left: 16px;
-    top: 405.99px;
-}
-
-.form-input-alarm {
-    background: #FFFFFF !important;
-    color: var(--color-text-dark);
-}
-
-#auth-alarm-user-id {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 349.99px;
-    border-radius: 4px;
-}
-
-#auth-alarm-password {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 425.99px;
-    border-radius: 4px;
-}
-
-.btn-authenticate-alarm {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 501.99px;
-    background: #5E1D1D;
-    border-radius: 4px;
-    border: none;
-    font-family: 'Test Söhne';
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    text-align: center;
-    color: #E34949;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.btn-authenticate-alarm:active {
-    opacity: 0.8;
-}
-
-/* Alarm Triggered Screen (280:940) */
-#alarm-triggered-screen {
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: #E34949;
-    border-radius: 50px;
-}
-
-.alarm-warning-icon {
-    position: absolute;
-    width: 182.31px;
-    height: 158.53px;
-    left: calc(50% - 182.31px/2 - 0.35px);
-    top: 238px;
-}
-
-.alarm-icon-img {
-    width: 100%;
-    height: 100%;
-}
-
-.alarm-title {
-    position: absolute;
-    width: 347px;
-    height: 37px;
-    left: calc(50% - 347px/2);
-    top: 406px;
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 34px;
-    line-height: 110%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.alarm-question {
-    position: absolute;
-    width: 343px;
-    height: 24px;
-    left: 16px;
-    top: 442px;
-    font-family: 'Test Söhne';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 140%;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.btn-alarm-yes {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 502px;
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: none;
-    font-family: 'Test Söhne';
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    text-align: center;
-    color: #E34949;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.btn-alarm-yes:active {
-    opacity: 0.8;
-}
-
-.btn-alarm-no {
-    position: absolute;
-    width: 343px;
-    height: 44px;
-    left: 16px;
-    top: 556px;
-    background: #5E1D1D;
-    border-radius: 4px;
-    border: none;
-    font-family: 'Test Söhne';
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 27px;
-    text-align: center;
-    color: #E34949;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.btn-alarm-no:active {
     opacity: 0.8;
 }
