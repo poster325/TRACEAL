@@ -679,7 +679,8 @@ body {
 .back-btn {
     position: absolute;
     left: 16px;
-    top: 54px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 24px;
     height: 24px;
     background: transparent;
@@ -689,6 +690,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 }
 
 .back-icon {
