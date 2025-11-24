@@ -659,3 +659,292 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 100px;
 }
+
+/* ===== OBSERVER REGISTRATION SCREENS ===== */
+
+/* Observer Register First Screen (300:2651) */
+#register-observer-screen {
+    background: var(--color-bg-primary);
+}
+
+.register-title-underline {
+    position: absolute;
+    width: 226px;
+    height: 2px;
+    left: 74px;
+    top: 253px;
+    background: var(--color-text-white);
+}
+
+.register-title {
+    position: absolute;
+    width: auto;
+    height: 35px;
+    left: 50%;
+    top: 229px;
+    transform: translate(-50%, -50%);
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-white);
+    white-space: nowrap;
+}
+
+.register-description {
+    position: absolute;
+    width: 343px;
+    left: 50%;
+    top: 262.5px;
+    transform: translateX(-50%);
+    font-family: 'Test Söhne';
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-text-white);
+}
+
+.register-serial-label {
+    left: 16px;
+    top: 329.99px;
+}
+
+.register-serial-input {
+    top: 349.99px;
+}
+
+.register-password-label {
+    left: 16px;
+    top: 405.99px;
+}
+
+.register-password-input {
+    top: 425.99px;
+}
+
+.btn-register-observer {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 501.99px;
+    background: var(--color-bg-white);
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-register-observer:active {
+    opacity: 0.8;
+}
+
+/* Observer Register Loading Screen (303:3147) */
+#register-loading-screen {
+    background: var(--color-bg-primary);
+}
+
+/* Observer Register Name Screen (301:2837) */
+#register-name-screen {
+    background: var(--color-bg-primary);
+}
+
+.register-name-underline {
+    position: absolute;
+    width: 202px;
+    height: 2px;
+    left: 86px;
+    top: 295.5px;
+    background: var(--color-text-white);
+}
+
+.register-name-title {
+    position: absolute;
+    width: auto;
+    height: 35px;
+    left: 50%;
+    top: 271.5px;
+    transform: translate(-50%, -50%);
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-white);
+    white-space: nowrap;
+}
+
+.register-name-description {
+    position: absolute;
+    width: 343px;
+    left: 50%;
+    top: 305px;
+    transform: translateX(-50%);
+    font-family: 'Test Söhne';
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-text-white);
+}
+
+.register-unit-name-label {
+    left: 50%;
+    top: 372.5px;
+    transform: translateX(-50%);
+}
+
+.register-name-input {
+    top: 392.5px;
+}
+
+.btn-name-observer {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 468.5px;
+    background: var(--color-bg-white);
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-name-observer:active {
+    opacity: 0.8;
+}
+
+/* Observer Register Confirm Screen (301:2866) */
+#register-confirm-screen {
+    background: var(--color-bg-primary);
+}
+
+.register-confirm-underline {
+    position: absolute;
+    width: 250px;
+    height: 2px;
+    left: 62px;
+    top: 285.5px;
+    background: var(--color-text-white);
+}
+
+.register-confirm-title {
+    position: absolute;
+    width: auto;
+    height: 35px;
+    left: 50%;
+    top: 261.5px;
+    transform: translate(-50%, -50%);
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-white);
+    white-space: nowrap;
+}
+
+.register-confirm-description {
+    position: absolute;
+    width: 343px;
+    left: 50%;
+    top: 295px;
+    transform: translateX(-50%);
+    font-family: 'Test Söhne';
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-text-white);
+}
+
+.register-confirm-observer-name {
+    position: absolute;
+    width: 317px;
+    left: 16px;
+    top: 370.5px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    color: var(--color-text-secondary);
+}
+
+.register-confirm-divider {
+    position: absolute;
+    width: 343px;
+    height: 2px;
+    left: 16px;
+    top: 402.5px;
+    background: var(--color-text-secondary);
+}
+
+.register-confirm-serial {
+    position: absolute;
+    left: 16px;
+    top: 416.5px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.register-confirm-manager {
+    position: absolute;
+    left: 16px;
+    top: 438.5px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    color: var(--color-text-secondary);
+}
+
+.btn-confirm-register {
+    position: absolute;
+    width: 343px;
+    height: 44px;
+    left: 16px;
+    top: 484.5px;
+    background: var(--color-bg-white);
+    border-radius: 4px;
+    border: none;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-confirm-register:active {
+    opacity: 0.8;
+}

@@ -180,6 +180,134 @@
             <!-- Home Indicator -->
             <div class="home-indicator-dashboard"></div>
         </div>
+
+        <!-- Observer Register - First Screen (300:2651) -->
+        <div id="register-observer-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Title Underline -->
+            <div class="register-title-underline"></div>
+            
+            <!-- Title -->
+            <h1 class="register-title">Observer Identification</h1>
+            
+            <!-- Description -->
+            <p class="register-description">Register observer unit & authenticate your ID to monitor new observer.</p>
+            
+            <!-- OBSERVER SERIAL Label -->
+            <label class="form-label register-serial-label">OBSERVER SERIAL</label>
+            
+            <!-- Observer Serial Input -->
+            <input type="text" id="register-serial" class="form-input register-serial-input" autocomplete="off" autocapitalize="characters">
+            
+            <!-- USER PASSWORD Label -->
+            <label class="form-label register-password-label">USER PASSWORD</label>
+            
+            <!-- Password Input -->
+            <input type="password" id="register-password" class="form-input register-password-input">
+            
+            <!-- Register Button -->
+            <button class="btn-register-observer" id="register-observer-btn">Register Observer</button>
+            
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
+
+        <!-- Observer Register - Loading Screen (303:3147) -->
+        <div id="register-loading-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner"></div>
+            
+            <!-- Loading Text -->
+            <p class="loading-text">Verifying Serial...</p>
+            
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
+
+        <!-- Observer Register - Name Screen (301:2837) -->
+        <div id="register-name-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Title Underline -->
+            <div class="register-name-underline"></div>
+            
+            <!-- Title -->
+            <h1 class="register-name-title">Enter Oberver Name</h1>
+            
+            <!-- Description -->
+            <p class="register-name-description">Assign a properly structured name<br>to your observer unit</p>
+            
+            <!-- Observer Unit Name Label -->
+            <label class="form-label register-unit-name-label">Observer Unit Name</label>
+            
+            <!-- Observer Name Input -->
+            <input type="text" id="register-observer-name" class="form-input register-name-input" autocomplete="off">
+            
+            <!-- Name Observer Button -->
+            <button class="btn-name-observer" id="name-observer-btn">Name Observer</button>
+            
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
+
+        <!-- Observer Register - Confirm Screen (301:2866) -->
+        <div id="register-confirm-screen" class="screen">
+            <!-- Status Bar -->
+            <div class="status-bar"></div>
+            
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <img src="svgs/traceallogo.svg" alt="TRACEAL CONSOLE" class="nav-logo">
+            </div>
+
+            <!-- Title Underline -->
+            <div class="register-confirm-underline"></div>
+            
+            <!-- Title -->
+            <h1 class="register-confirm-title">Confirm Final Information</h1>
+            
+            <!-- Description -->
+            <p class="register-confirm-description">By confirming, acknowledge that you are the responsible operator for this observer.</p>
+            
+            <!-- Observer Details -->
+            <p class="register-confirm-observer-name" id="confirm-observer-name">N25_EvidenceRoom_Storage_1</p>
+            
+            <!-- Divider -->
+            <div class="register-confirm-divider"></div>
+            
+            <!-- Observer Serial -->
+            <p class="register-confirm-serial" id="confirm-observer-serial">OBSERVER SERIAL: OU-4K9-F   </p>
+            
+            <!-- Manager Name -->
+            <p class="register-confirm-manager" id="confirm-manager-name">MANAGER NAME: JOHN A. SMITH</p>
+            
+            <!-- Confirm Button -->
+            <button class="btn-confirm-register" id="confirm-register-btn">Confirm & Register</button>
+            
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+        </div>
     </div>
 
     <script src="app2.js"></script>
