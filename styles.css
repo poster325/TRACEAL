@@ -675,6 +675,31 @@ body {
 
 /* ===== OBSERVER REGISTRATION SCREENS ===== */
 
+/* Back Button */
+.back-btn {
+    position: absolute;
+    left: 16px;
+    top: 54px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.back-btn:active {
+    opacity: 0.6;
+}
+
 /* Observer Register First Screen (300:2651) */
 #register-observer-screen {
     background: var(--color-bg-primary);

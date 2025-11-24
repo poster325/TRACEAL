@@ -82,6 +82,7 @@ const registerBtn = document.getElementById('register-btn');
 const registerObserverBtn = document.getElementById('register-observer-btn');
 const nameObserverBtn = document.getElementById('name-observer-btn');
 const confirmRegisterBtn = document.getElementById('confirm-register-btn');
+const backToDashboardBtn = document.getElementById('back-to-dashboard');
 
 const registerSerial = document.getElementById('register-serial');
 const registerPassword = document.getElementById('register-password');
@@ -90,6 +91,16 @@ const registerObserverName = document.getElementById('register-observer-name');
 // Dashboard -> Register Observer Screen
 registerBtn.addEventListener('click', () => {
     switchScreen('dashboard', 'registerObserver');
+});
+
+// Back to Dashboard
+backToDashboardBtn.addEventListener('click', () => {
+    // Clear form fields
+    registerSerial.value = '';
+    registerPassword.value = '';
+    registerObserverName.value = '';
+    
+    switchScreen('registerObserver', 'dashboard');
 });
 
 // Register Observer -> Loading Screen
