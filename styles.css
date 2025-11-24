@@ -486,17 +486,28 @@ body {
 /* Dashboard Stats */
 .dashboard-stats {
     position: absolute;
-    left: 16px;
-    top: 166px;
+    left: 0;
+    top: 0;
+    width: 375px;
 }
 
 .stat-label {
+    position: absolute;
+    left: 16px;
     font-family: 'Test Söhne';
     font-weight: 300;
     font-size: 13px;
     line-height: 140%;
     color: var(--color-text-dark);
-    margin-bottom: 18px;
+    margin: 0;
+}
+
+.stat-label:nth-child(1) {
+    top: 166px;
+}
+
+.stat-label:nth-child(2) {
+    top: 184px;
 }
 
 .stat-value {
@@ -506,7 +517,7 @@ body {
     line-height: 140%;
     color: var(--color-text-dark);
     position: absolute;
-    left: 146px;
+    left: 162px;
     text-align: right;
 }
 
