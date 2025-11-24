@@ -568,40 +568,56 @@ if (settingsIcon) {
 }
 
 // Auto-refresh for demo account when trigger is activated
-window.addEventListener('storage', (e) => {
-    if (e.key === 'demo_tamper_timestamp') {
-        const loggedInUser = localStorage.getItem('loggedInUser');
-        if (loggedInUser) {
-            const user = JSON.parse(loggedInUser);
+let lastCheckedTimestamp = null;
+
+function checkForTriggerUpdate() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) return;
+    
+    const user = JSON.parse(loggedInUser);
+    
+    // Only check if logged in as demo
+    if (user.userId === 'demo') {
+        const currentTimestamp = localStorage.getItem('demo_tamper_timestamp');
+        
+        // If timestamp exists and changed since last check
+        if (currentTimestamp && currentTimestamp !== lastCheckedTimestamp) {
+            lastCheckedTimestamp = currentTimestamp;
+            console.log('Trigger detected! Auto-refreshing demo view...', currentTimestamp);
             
-            // Only refresh if logged in as demo
-            if (user.userId === 'demo') {
-                console.log('Trigger detected! Auto-refreshing demo view...');
-                
-                // Update observers data with new event count
-                const demoObserversKey = 'observers_demo';
-                const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
-                if (demoObservers.length > 0) {
-                    demoObservers[0].events = 1;
-                    localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
-                }
-                
-                // Refresh dashboard if currently on dashboard
-                const dashboardScreen = document.getElementById('dashboard-screen');
-                if (dashboardScreen && dashboardScreen.classList.contains('active')) {
-                    renderObserverList();
-                }
-                
-                // Refresh event log if currently viewing the demo observer
-                const eventLogScreen = document.getElementById('event-log-screen');
-                if (eventLogScreen && eventLogScreen.classList.contains('active')) {
-                    const selectedObserver = localStorage.getItem('selectedObserver');
-                    if (selectedObserver === 'N25_Demo_1124') {
-                        renderEventLog('N25_Demo_1124');
-                    }
+            // Update observers data with new event count
+            const demoObserversKey = 'observers_demo';
+            const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
+            if (demoObservers.length > 0) {
+                demoObservers[0].events = 1;
+                localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
+            }
+            
+            // Refresh dashboard if currently on dashboard
+            const dashboardScreen = document.getElementById('dashboard-screen');
+            if (dashboardScreen && dashboardScreen.classList.contains('active')) {
+                renderObserverList();
+            }
+            
+            // Refresh event log if currently viewing the demo observer
+            const eventLogScreen = document.getElementById('event-log-screen');
+            if (eventLogScreen && eventLogScreen.classList.contains('active')) {
+                const selectedObserver = localStorage.getItem('selectedObserver');
+                if (selectedObserver === 'N25_Demo_1124') {
+                    renderEventLog('N25_Demo_1124');
                 }
             }
         }
+    }
+}
+
+// Poll for updates every 2 seconds (for same-device testing)
+setInterval(checkForTriggerUpdate, 2000);
+
+// Also listen to storage events (for cross-tab updates on same device)
+window.addEventListener('storage', (e) => {
+    if (e.key === 'demo_tamper_timestamp') {
+        checkForTriggerUpdate();
     }
 });
 
