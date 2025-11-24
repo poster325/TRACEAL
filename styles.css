@@ -436,15 +436,15 @@ body {
     position: absolute;
     width: 343px;
     left: 16px;
-    top: 108px;
+    top: 88px;
 }
 
 .manager-name {
     position: absolute;
     width: 134px;
     height: 24px;
-    left: calc(50% - 134px/2 - 104.27px);
-    top: 0px;
+    left: calc(50% - 171.27px);
+    top: 20px;
     font-family: 'Test Söhne';
     font-weight: 500;
     font-size: 22px;
@@ -458,8 +458,8 @@ body {
     position: absolute;
     width: 44px;
     height: 12px;
-    left: calc(50% - 44px/2 + 147.5px);
-    top: 10px;
+    right: 16px;
+    top: 30px;
     font-family: 'Test Söhne';
     font-weight: 400;
     font-size: 11px;
@@ -467,7 +467,7 @@ body {
     display: flex;
     align-items: flex-end;
     text-align: right;
-    color: var(--color-bg-secondary);
+    color: #4C5158;
 }
 
 /* Divider Lines */
@@ -491,6 +491,7 @@ body {
 }
 
 .stat-label {
+    position: relative;
     font-family: 'Test Söhne';
     font-weight: 300;
     font-size: 13px;
@@ -499,15 +500,19 @@ body {
     margin-bottom: 18px;
 }
 
+.stat-label:last-child {
+    margin-bottom: 0;
+}
+
 .stat-value {
+    position: absolute;
+    left: 154px;
     font-family: 'Test Söhne';
     font-weight: 400;
     font-size: 13px;
     line-height: 140%;
-    color: var(--color-text-dark);
-    position: absolute;
-    left: 146px;
     text-align: right;
+    color: var(--color-text-dark);
 }
 
 /* Observer Log Button */
@@ -552,15 +557,32 @@ body {
 }
 
 .observer-item {
-    position: relative;
+    position: absolute;
+    width: 375px;
     height: 59px;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
+    left: 0px;
+}
+
+.observer-item:nth-child(1) {
+    top: 11px;
+}
+
+.observer-item:nth-child(3) {
+    top: 70px;
+}
+
+.observer-item:nth-child(5) {
+    top: 129px;
+}
+
+.observer-item:nth-child(7) {
+    top: 188px;
 }
 
 .observer-info {
-    flex: 1;
+    position: absolute;
+    left: 16px;
+    top: 11px;
 }
 
 .observer-name {
@@ -577,12 +599,15 @@ body {
     font-weight: 400;
     font-size: 11px;
     line-height: 140%;
-    color: var(--color-text-secondary);
+    color: #70757D;
 }
 
 .badge-alert {
+    position: absolute;
     width: 32px;
     height: 32px;
+    left: 327px;
+    top: 14.5px;
     background: var(--color-accent-red);
     border-radius: 50%;
     display: flex;
@@ -596,10 +621,25 @@ body {
 }
 
 .observer-list .divider-line {
-    position: relative;
-    left: 0px;
-    margin: 0 16px;
+    position: absolute;
+    left: 16px;
     width: 343px;
+}
+
+.observer-list > .divider-line:nth-of-type(2) {
+    top: 0px;
+}
+
+.observer-list > .divider-line:nth-of-type(4) {
+    top: 59px;
+}
+
+.observer-list > .divider-line:nth-of-type(6) {
+    top: 118px;
+}
+
+.observer-list > .divider-line:nth-of-type(8) {
+    top: 177px;
 }
 
 /* Register Button */
