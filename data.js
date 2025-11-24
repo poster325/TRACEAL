@@ -3,6 +3,7 @@
 // Sample User Database
 const userDatabase = [
     { name: "Sunwoo Jeong", userId: "demo", password: "demo" },
+    { name: "trigger", userId: "tri", password: "tri" },
     { name: "John A. Smith", userId: "john.smith", password: "admin123" },
     { name: "Sarah Connor", userId: "sarah.connor", password: "pass456" },
     { name: "Michael Chen", userId: "michael.chen", password: "secure789" },
@@ -17,7 +18,15 @@ const userObservers = {
             id: "OU-DEMO-1124",
             name: "N25_Demo_1124",
             serial: "OU-DEMO-1124",
-            events: 1
+            events: 0
+        }
+    ],
+    "tri": [
+        {
+            id: "OU-TRI-001",
+            name: "Trigger_Observer_1",
+            serial: "OU-TRI-001",
+            events: 0
         }
     ],
     "default": [

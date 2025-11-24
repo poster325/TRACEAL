@@ -55,6 +55,15 @@ function renderObserverList() {
     const listContainer = document.getElementById('observer-list');
     listContainer.innerHTML = '';
     
+    // Update dashboard stats
+    const totalObservers = observers.length;
+    const totalEvents = observers.reduce((sum, obs) => sum + obs.events, 0);
+    
+    const registeredCountEl = document.getElementById('registered-count');
+    const eventsCountEl = document.getElementById('events-count');
+    if (registeredCountEl) registeredCountEl.textContent = totalObservers;
+    if (eventsCountEl) eventsCountEl.textContent = totalEvents;
+    
     observers.forEach((observer, index) => {
         // Create observer item
         const itemDiv = document.createElement('div');
@@ -337,6 +346,30 @@ const backFromLogBtn = document.getElementById('back-from-log');
 
 // Observer Log Button -> Observer Log Screen
 observerLogBtn.addEventListener('click', () => {
+    // Special trigger functionality for "tri" user
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        const user = JSON.parse(loggedInUser);
+        if (user.userId === 'tri') {
+            // Update demo's tamper detected timestamp to current time
+            const now = new Date();
+            const timestamp = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            
+            // Store trigger timestamp
+            localStorage.setItem('demo_tamper_timestamp', timestamp);
+            
+            // Update demo's observer events count to 1
+            const demoObserversKey = 'observers_demo';
+            const demoObservers = JSON.parse(localStorage.getItem(demoObserversKey) || '[]');
+            if (demoObservers.length > 0) {
+                demoObservers[0].events = 1;
+                localStorage.setItem(demoObserversKey, JSON.stringify(demoObservers));
+            }
+            
+            console.log('Trigger activated! Demo tamper timestamp updated to:', timestamp);
+        }
+    }
+    
     updateObserverLogWithUser();
     switchScreen('dashboard', 'observerLog');
 });
@@ -378,7 +411,20 @@ function shouldShowTriangle(currentTimestamp, previousTimestamp) {
 }
 
 function renderEventLog(observerName) {
-    const events = eventLogDatabase[observerName] || [];
+    let events = eventLogDatabase[observerName] || [];
+    
+    // For demo observer, check if there's a triggered timestamp
+    if (observerName === 'N25_Demo_1124') {
+        const triggeredTimestamp = localStorage.getItem('demo_tamper_timestamp');
+        if (triggeredTimestamp) {
+            // Clone events array and update the tamper timestamp
+            events = JSON.parse(JSON.stringify(events));
+            const tamperIndex = events.findIndex(e => e.type === 'tamper_detected');
+            if (tamperIndex !== -1) {
+                events[tamperIndex].timestamp = triggeredTimestamp;
+            }
+        }
+    }
     
     // Count tamper events for the alert
     const tamperCount = events.filter(e => e.type === "tamper_detected").length;
