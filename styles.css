@@ -992,7 +992,7 @@ body {
 /* ===== OBSERVER LOG SCREEN ===== */
 
 #observer-log-screen {
-    background: var(--color-white);
+    background: #FFFFFF;
 }
 
 .log-title {
