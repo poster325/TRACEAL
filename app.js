@@ -1,3 +1,12 @@
+// Sample User Database
+const userDatabase = [
+    { name: "John A. Smith", userId: "john.smith", password: "admin123" },
+    { name: "Sarah Connor", userId: "sarah.connor", password: "pass456" },
+    { name: "Michael Chen", userId: "michael.chen", password: "secure789" },
+    { name: "Emily Rodriguez", userId: "emily.rodriguez", password: "test2024" },
+    { name: "David Kim", userId: "david.kim", password: "manager01" }
+];
+
 // Screen Management
 const screens = {
     splash: document.getElementById('splash-screen'),
@@ -22,15 +31,39 @@ function switchScreen(fromScreen, toScreen) {
     }
 }
 
+// Check if user is logged in
+function checkLoginState() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        const user = JSON.parse(loggedInUser);
+        updateDashboardWithUser(user);
+        return true;
+    }
+    return false;
+}
+
+// Update dashboard with logged-in user info
+function updateDashboardWithUser(user) {
+    const managerNameElement = document.querySelector('.manager-name');
+    if (managerNameElement) {
+        managerNameElement.textContent = user.name;
+    }
+}
+
 // Initialize App
 function initApp() {
-    // For debugging: go directly to dashboard
-    switchScreen('splash', 'dashboard');
+    // Check if user is already logged in
+    const isLoggedIn = checkLoginState();
     
-    // Production: Show splash for 2 seconds, then go to login
-    // setTimeout(() => {
-    //     switchScreen('splash', 'login');
-    // }, 2000);
+    if (isLoggedIn) {
+        // User is logged in, go directly to dashboard
+        switchScreen('splash', 'dashboard');
+    } else {
+        // Show splash for 2 seconds, then go to login
+        setTimeout(() => {
+            switchScreen('splash', 'login');
+        }, 2000);
+    }
 }
 
 // Login Handling
@@ -48,21 +81,30 @@ function handleLogin() {
     loginError.classList.add('hidden');
     signupText.classList.remove('error-visible');
 
-    // Check if password is "wrong" to show error
-    if (password === 'wrong') {
-        loginError.classList.remove('hidden');
-        signupText.classList.add('error-visible');
+    // Validate credentials
+    if (!userId || !password) {
         return;
     }
 
-    // If credentials provided, proceed to loading
-    if (userId && password) {
+    // Find user in database
+    const user = userDatabase.find(u => u.userId === userId && u.password === password);
+
+    if (user) {
+        // Valid credentials - store login state
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        
+        // Proceed to loading
         switchScreen('login', 'loading');
         
         // Show loading for 2 seconds, then go to dashboard
         setTimeout(() => {
+            updateDashboardWithUser(user);
             switchScreen('loading', 'dashboard');
         }, 2000);
+    } else {
+        // Invalid credentials - show error
+        loginError.classList.remove('hidden');
+        signupText.classList.add('error-visible');
     }
 }
 
@@ -173,6 +215,7 @@ const backFromLogBtn = document.getElementById('back-from-log');
 
 // Observer Log Button -> Observer Log Screen
 observerLogBtn.addEventListener('click', () => {
+    updateObserverLogWithUser();
     switchScreen('dashboard', 'observerLog');
 });
 
@@ -180,6 +223,18 @@ observerLogBtn.addEventListener('click', () => {
 backFromLogBtn.addEventListener('click', () => {
     switchScreen('observerLog', 'dashboard');
 });
+
+// Update observer log with user name
+function updateObserverLogWithUser() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        const user = JSON.parse(loggedInUser);
+        const logManagerName = document.querySelector('.log-manager-name');
+        if (logManagerName) {
+            logManagerName.textContent = user.name;
+        }
+    }
+}
 
 // Event Log Navigation (Per Observer)
 const observerItems = document.querySelectorAll('.observer-item');
@@ -221,6 +276,12 @@ popupDarkener.addEventListener('click', () => {
 
 // Initialize popup handlers
 initPopupHandlers();
+
+// Logout functionality (if needed)
+function logout() {
+    localStorage.removeItem('loggedInUser');
+    location.reload();
+}
 
 // Start the app
 initApp();
