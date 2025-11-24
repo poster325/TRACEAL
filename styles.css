@@ -440,9 +440,9 @@ body {
 
 .manager-name {
     position: absolute;
-    width: 134px;
+    width: 200px;
     height: 24px;
-    left: calc(50% - 134px/2 - 104.27px);
+    left: calc(50% - 200px/2 - 71.5px);
     top: 0px;
     font-family: 'Test Söhne';
     font-weight: 500;
@@ -451,6 +451,7 @@ body {
     display: flex;
     align-items: flex-end;
     color: var(--color-text-dark);
+    white-space: nowrap;
 }
 
 .manager-id {
@@ -989,9 +990,10 @@ body {
 
 .log-manager-name {
     position: absolute;
-    width: 67px;
+    width: auto;
+    max-width: 180px;
     height: 12px;
-    left: calc(50% - 67px/2 + 136px);
+    right: 16px;
     top: 118px;
     font-family: 'Test Söhne';
     font-weight: 400;
@@ -1002,6 +1004,7 @@ body {
     display: flex;
     align-items: flex-end;
     text-align: right;
+    white-space: nowrap;
 }
 
 .log-title-divider {
@@ -1171,9 +1174,10 @@ body {
 
 .event-observer-name {
     position: absolute;
-    width: 152px;
+    width: auto;
+    max-width: 200px;
     height: 12px;
-    left: calc(50% - 152px/2 + 93.5px);
+    right: 16px;
     top: 118px;
     font-family: 'Test Söhne';
     font-weight: 400;
@@ -1184,6 +1188,7 @@ body {
     display: flex;
     align-items: flex-end;
     text-align: right;
+    white-space: nowrap;
 }
 
 .event-title-divider {
