@@ -57,8 +57,8 @@ const eventConfig = {
     "tamper_detected": {
         name: "Tamper Detected",
         icon: "tamperdetectedicon.svg",
-        circleColor: "#E34949",
-        dividerColor: "#E34949",
+        circleColor: "#FFFFFF",
+        dividerColor: "#FFFFFF",
         useRedBackground: true,
         textWhite: true
     },

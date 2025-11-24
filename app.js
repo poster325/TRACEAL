@@ -418,7 +418,7 @@ function renderEventLog(observerName) {
         const icon = document.createElement('img');
         icon.src = `svgs/${config.icon}`;
         icon.className = 'log-icon-img';
-        if (event.type === 'tamper_detected' && config.useRedBackground) {
+        if (event.type === 'tamper_detected') {
             icon.classList.add('event-tamper-icon');
         }
         iconWrapper.appendChild(icon);

@@ -1386,6 +1386,11 @@ body {
     top: -2px;
 }
 
+#event-log-screen .event-tamper-icon {
+    position: relative;
+    top: -2px;
+}
+
 /* ===== POPUP MODAL FOR SENSOR DETAIL ===== */
 
 .popup-overlay {
@@ -1496,6 +1501,10 @@ body {
     position: relative;
     top: -2px;
     filter: none !important;
+}
+
+#event-log-screen .event-icon-wrapper .event-tamper-icon {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(88%) saturate(2813%) hue-rotate(343deg) brightness(93%) contrast(90%);
 }
 
 .popup-icon-dark {
