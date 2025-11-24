@@ -9,7 +9,8 @@ const screens = {
     registerName: document.getElementById('register-name-screen'),
     registerConfirm: document.getElementById('register-confirm-screen'),
     observerLog: document.getElementById('observer-log-screen'),
-    eventLog: document.getElementById('event-log-screen')
+    eventLog: document.getElementById('event-log-screen'),
+    alarm: document.getElementById('alarm-screen')
 };
 
 // Switch Screen Function
