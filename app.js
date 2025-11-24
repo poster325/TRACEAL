@@ -22,12 +22,98 @@ function switchScreen(fromScreen, toScreen) {
     }
 }
 
+// Observer Management
+function loadObservers() {
+    const stored = localStorage.getItem('observers');
+    if (stored) {
+        return JSON.parse(stored);
+    }
+    // First time - use default observers
+    localStorage.setItem('observers', JSON.stringify(defaultObservers));
+    return defaultObservers;
+}
+
+function saveObservers(observers) {
+    localStorage.setItem('observers', JSON.stringify(observers));
+}
+
+function renderObserverList() {
+    const observers = loadObservers();
+    const listContainer = document.getElementById('observer-list');
+    listContainer.innerHTML = '';
+    
+    observers.forEach((observer, index) => {
+        // Create observer item
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'observer-item';
+        itemDiv.dataset.observerId = observer.id;
+        itemDiv.style.cursor = 'pointer';
+        
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'observer-info';
+        
+        const nameP = document.createElement('p');
+        nameP.className = 'observer-name';
+        nameP.textContent = observer.name;
+        
+        const serialP = document.createElement('p');
+        serialP.className = 'observer-serial';
+        serialP.textContent = `SERIAL: ${observer.serial}`;
+        
+        infoDiv.appendChild(nameP);
+        infoDiv.appendChild(serialP);
+        itemDiv.appendChild(infoDiv);
+        
+        // Add badge if there are events
+        if (observer.events > 0) {
+            const badge = document.createElement('div');
+            badge.className = 'badge-alert';
+            badge.textContent = observer.events;
+            itemDiv.appendChild(badge);
+        }
+        
+        // Add click handler
+        itemDiv.addEventListener('click', () => {
+            switchScreen('dashboard', 'eventLog');
+        });
+        
+        listContainer.appendChild(itemDiv);
+        
+        // Add divider
+        const divider = document.createElement('div');
+        divider.className = 'divider-line';
+        listContainer.appendChild(divider);
+    });
+    
+    // Update registered count
+    document.getElementById('registered-count').textContent = observers.length;
+    
+    // Update button and delete link positions
+    updateDashboardPositions(observers.length);
+}
+
+function updateDashboardPositions(observerCount) {
+    const registerBtn = document.getElementById('register-btn');
+    const deleteLink = document.querySelector('.delete-link');
+    
+    // Base position for first observer: 269px
+    // Each observer + divider: 59px + 2px = 61px
+    const baseTop = 269;
+    const itemHeight = 61;
+    const buttonTop = baseTop + (observerCount * itemHeight) + 18; // 18px gap after last divider
+    const deleteTop = buttonTop + 44 + 9; // button height + gap
+    
+    registerBtn.style.top = `${buttonTop}px`;
+    deleteLink.style.top = `${deleteTop}px`;
+}
+
 // Check if user is logged in
 function checkLoginState() {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (loggedInUser) {
         const user = JSON.parse(loggedInUser);
         updateDashboardWithUser(user);
+        renderObserverList();
         return true;
     }
     return false;
@@ -39,6 +125,7 @@ function updateDashboardWithUser(user) {
     if (managerNameElement) {
         managerNameElement.textContent = user.name;
     }
+    renderObserverList();
 }
 
 // Initialize App
@@ -192,11 +279,30 @@ registerObserverName.addEventListener('keypress', (e) => {
 
 // Confirm & Register -> Dashboard
 confirmRegisterBtn.addEventListener('click', () => {
+    // Get the observer data
+    const serial = registerSerial.value.trim().toUpperCase();
+    const name = registerObserverName.value.trim();
+    
+    // Create new observer
+    const newObserver = {
+        id: serial,
+        name: name,
+        serial: serial,
+        events: 0
+    };
+    
+    // Add to observers list
+    const observers = loadObservers();
+    observers.push(newObserver);
+    saveObservers(observers);
+    
     // Clear form fields
     registerSerial.value = '';
     registerPassword.value = '';
     registerObserverName.value = '';
     
+    // Re-render dashboard and switch screen
+    renderObserverList();
     switchScreen('registerConfirm', 'dashboard');
 });
 
@@ -228,15 +334,7 @@ function updateObserverLogWithUser() {
 }
 
 // Event Log Navigation (Per Observer)
-const observerItems = document.querySelectorAll('.observer-item');
 const backFromEventLogBtn = document.getElementById('back-from-event-log');
-
-// Observer Item -> Event Log Screen
-observerItems.forEach(item => {
-    item.addEventListener('click', () => {
-        switchScreen('dashboard', 'eventLog');
-    });
-});
 
 // Back from Event Log -> Dashboard
 backFromEventLogBtn.addEventListener('click', () => {

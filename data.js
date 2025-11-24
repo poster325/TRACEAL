@@ -9,35 +9,31 @@ const userDatabase = [
     { name: "David Kim", userId: "david.kim", password: "manager01" }
 ];
 
-// Observer Units Database (example data)
-const observerUnitsDatabase = [
+// Default Observer Units (initial data)
+const defaultObservers = [
     {
         id: "OU-29H-G",
         name: "1125_Election_Ballot_12",
-        status: "alert",
-        events: 3,
-        manager: "John A. Smith"
+        serial: "OU-29H-G",
+        events: 3
     },
     {
         id: "OU-4K9-F",
         name: "N25_EvidenceRoom_Storage_1",
-        status: "alert",
-        events: 2,
-        manager: "John A. Smith"
+        serial: "OU-4K9-F",
+        events: 2
     },
     {
         id: "OU-9ZP-7",
         name: "N25_EvidenceRoom_Storage_2",
-        status: "normal",
-        events: 0,
-        manager: "John A. Smith"
+        serial: "OU-9ZP-7",
+        events: 0
     },
     {
         id: "OU-A3T-W",
         name: "N25_EvidenceRoom_Storage_3",
-        status: "normal",
-        events: 0,
-        manager: "John A. Smith"
+        serial: "OU-A3T-W",
+        events: 0
     }
 ];
 
