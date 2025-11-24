@@ -8,7 +8,8 @@ const screens = {
     registerLoading: document.getElementById('register-loading-screen'),
     registerName: document.getElementById('register-name-screen'),
     registerConfirm: document.getElementById('register-confirm-screen'),
-    observerLog: document.getElementById('observer-log-screen')
+    observerLog: document.getElementById('observer-log-screen'),
+    eventLog: document.getElementById('event-log-screen')
 };
 
 // Switch Screen Function
@@ -178,6 +179,22 @@ observerLogBtn.addEventListener('click', () => {
 // Back from Observer Log -> Dashboard
 backFromLogBtn.addEventListener('click', () => {
     switchScreen('observerLog', 'dashboard');
+});
+
+// Event Log Navigation (Per Observer)
+const observerItems = document.querySelectorAll('.observer-item');
+const backFromEventLogBtn = document.getElementById('back-from-event-log');
+
+// Observer Item -> Event Log Screen
+observerItems.forEach(item => {
+    item.addEventListener('click', () => {
+        switchScreen('dashboard', 'eventLog');
+    });
+});
+
+// Back from Event Log -> Dashboard
+backFromEventLogBtn.addEventListener('click', () => {
+    switchScreen('eventLog', 'dashboard');
 });
 
 // Start the app

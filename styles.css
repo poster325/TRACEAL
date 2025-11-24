@@ -1170,3 +1170,236 @@ body {
     border-bottom: 10px solid #70757D;
     z-index: 1;
 }
+
+/* ===== EVENT LOG SCREEN (PER OBSERVER) ===== */
+
+#event-log-screen {
+    background: #FFFFFF;
+}
+
+.event-log-title {
+    position: absolute;
+    width: 98px;
+    height: 24px;
+    left: calc(50% - 98px/2 - 122.5px);
+    top: 108px;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 110%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.event-observer-name {
+    position: absolute;
+    width: 152px;
+    height: 12px;
+    left: calc(50% - 152px/2 + 93.5px);
+    top: 118px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 110%;
+    color: #4C5158;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.event-title-divider {
+    position: absolute;
+    width: 343px;
+    height: 2px;
+    left: 16px;
+    top: 138px;
+    background: #C8CCD2;
+}
+
+.event-timeline-line {
+    position: absolute;
+    width: 2px;
+    height: 672px;
+    left: 31px;
+    top: 140px;
+    background: #70757D;
+}
+
+.event-icon-wrapper {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.event-alert-title {
+    position: absolute;
+    width: 184px;
+    height: 31px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 140%;
+    color: #E34949;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.event-alert-subtitle {
+    position: absolute;
+    width: 105px;
+    height: 18px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.event-red-bg {
+    position: absolute;
+    width: 375px;
+    height: 59px;
+    left: 0;
+    background: #E34949;
+    z-index: 1;
+}
+
+.event-divider {
+    position: absolute;
+    width: 322px;
+    height: 2px;
+    left: 37px;
+    z-index: 2;
+}
+
+.event-name {
+    position: absolute;
+    width: 238px;
+    height: 24px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.event-name-white {
+    position: absolute;
+    width: 238px;
+    height: 24px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 140%;
+    color: #FFFFFF;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+}
+
+.event-timestamp {
+    position: absolute;
+    width: 95px;
+    height: 15px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.event-timestamp-white {
+    position: absolute;
+    width: 95px;
+    height: 15px;
+    left: 64px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    color: #FFFFFF;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+}
+
+.event-sensor {
+    position: absolute;
+    width: 125px;
+    height: 18px;
+    left: 234px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    color: var(--color-text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.event-sensor-white {
+    position: absolute;
+    width: 125px;
+    height: 15px;
+    left: 234px;
+    font-family: 'Test Söhne';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 140%;
+    color: #FFFFFF;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: flex-end;
+    z-index: 3;
+}
+
+.event-timeline-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 27px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #70757D;
+    z-index: 1;
+}
+
+.event-tamper-icon {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(88%) saturate(2813%) hue-rotate(343deg) brightness(93%) contrast(90%);
+}
+
+.log-icon-img[src*="tamperdetectedicon"] {
+    position: relative;
+    top: -2px;
+}
