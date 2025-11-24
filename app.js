@@ -96,11 +96,11 @@ function handleLogin() {
         // Proceed to loading
         switchScreen('login', 'loading');
         
-        // Show loading for 2 seconds, then go to dashboard
+        // Show loading for 1 second, then go to dashboard
         setTimeout(() => {
             updateDashboardWithUser(user);
             switchScreen('loading', 'dashboard');
-        }, 2000);
+        }, 1000);
     } else {
         // Invalid credentials - show error
         loginError.classList.remove('hidden');
@@ -158,10 +158,10 @@ registerObserverBtn.addEventListener('click', () => {
     if (serial && password) {
         switchScreen('registerObserver', 'registerLoading');
         
-        // Show loading for 2 seconds, then go to name screen
+        // Show loading for 1 second, then go to name screen
         setTimeout(() => {
             switchScreen('registerLoading', 'registerName');
-        }, 2000);
+        }, 1000);
     }
 });
 
